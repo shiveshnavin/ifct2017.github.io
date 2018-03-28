@@ -3,6 +3,9 @@ footer {
   max-width: 120rem;
 }
 */
+footer::before {
+  width: 98vw;
+}
 footer {
   text-align: center;
   padding: 6rem 0;
