@@ -1,6 +1,6 @@
 {
   "name": "ifct2017.github.io",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "description": "Website for Indian Food Composition Tables 2017.",
   "main": "index.html",
   "scripts": {
