@@ -5,6 +5,7 @@ footer {
 */
 main {
   font-size: 1.5rem;
+  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/food.png") fixed center;
 }
 footer::before {
   width: 98vw;
