@@ -12,7 +12,7 @@ footer {
   text-align: center;
   padding: 6rem 0;
 }
-.low p {
-  padding-bottom: 0;
-  margin-bottom: 0;
+footer .low p {
+  padding: 0;
+  margin: 0;
 }
