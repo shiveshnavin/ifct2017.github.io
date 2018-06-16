@@ -1,12 +1,11 @@
-footer {
-  max-width: 120rem;
-}
-
 main {
   font-size: 1.5rem;
   background: lightgray url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png") fixed center;
 }
+
+
 footer::before {
+  background: rgba(0,0,0,0.7);
   width: 98vw;
 }
 footer {
