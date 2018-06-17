@@ -1,8 +1,24 @@
-main {
-  font-size: 1.5rem;
-  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/palm-leaf.png");
+body {
+  font-family: 'Gochi Hand', sans-serif;
 }
 
+main {
+  font-size: 1.5rem;
+  /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/palm-leaf.png");*/
+}
+grid[box] div {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: bold;
+  color: green;
+}
+grid[box] > div:nth-child(odd) {
+  background: white;
+}
+grid[box] > div:nth-child(odd) {
+  background: lightgrey;
+}
 
 footer::before {
   background: rgba(0,0,0,0.7);
