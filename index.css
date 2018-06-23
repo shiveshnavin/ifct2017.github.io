@@ -105,13 +105,12 @@ form p:not([class]):not([empty]) {
 @media (max-height: 32rem) {
   #logo { margin-top: 0; }
 }
-#sql-value {
+#search {
   font-size: 1.44em;
   position: absolute;
-  height: 100%;
   width: 100%;
 }
-#sql-value ~ button {
+#search ~ button {
   z-index: 2;
   position: absolute;
   right: 0;
