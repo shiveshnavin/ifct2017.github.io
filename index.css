@@ -95,9 +95,6 @@ form p:not([class]):not([empty]) {
   margin-top: 2rem;
 }
 #logo {
-  display: none;
-}
-html.sql:not(.query) #logo {
   display: block;
   margin: auto;
   margin-top: 4rem;
