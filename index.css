@@ -143,7 +143,9 @@ html:not(.query) #ans {
 .iziToast {
   font-family: 'Righteous', cursive;
 }
-
+#buy > a:hover {
+  outline: 1px solid black;
+}
 
 /* 3. footer sundarization */
 html {
