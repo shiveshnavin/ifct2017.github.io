@@ -1,10 +1,11 @@
+/*
 body {
   font-family: 'Gochi Hand', sans-serif;
 }
 
 main {
   font-size: 1.5rem;
-  /*background: url("https://www.toptal.com/designers/subtlepatterns/patterns/palm-leaf.png");*/
+  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/palm-leaf.png");
 }
 grid[box] div {
   text-overflow: ellipsis;
@@ -32,7 +33,7 @@ footer .low p {
   padding: 0;
   margin: 0;
 }
-
+/*
 
 
 /* 1. header cosmeticization */
