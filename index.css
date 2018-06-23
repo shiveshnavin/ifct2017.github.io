@@ -48,14 +48,17 @@ nav:not([class]) ul a {
   font-family: 'Righteous', cursive;
   font-weight: bolder;
 }
+nav:not([class]) a.active {
+  border-bottom: 4px solid black;
+}
+html.index nav:not([class]) header {
+  visibility: hidden;
+}
 body, input, textarea, select, button {
   font-family: 'Righteous', cursive;
 }
 form label:not([class]) {
   font-size: 1.4rem;
-}
-nav:not([class]) a.active {
-  border-bottom: 4px solid black;
 }
 
 
