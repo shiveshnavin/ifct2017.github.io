@@ -69,6 +69,7 @@ function onReady() {
     drawBuy(row.name);
     applyMeta(row, meta);
     drawTable(row, meta);
+    $('#info').removeAttr('style');
   });
 };
 $(document).ready(onReady);

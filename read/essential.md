@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Essential nutrients | Indian Food Composition
+class: read essential
 ---
 
 <img alt="Essential nutrients" src="https://i.imgur.com/mMpVmgX.jpg">

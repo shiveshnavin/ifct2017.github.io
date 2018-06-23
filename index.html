@@ -1,12 +1,11 @@
 ---
 layout: default
 title: Indian Food Composition
-class: index
 script: /index.js
+class: index
 ---
 
 <!-- 1. english interface -->
-<section id="index">
 <form>
   <img id="logo" alt="Indian Food Composition" src="https://i.imgur.com/HREdLU9.png">
   <input id="search" type="search" autofocus placeholder="Ask me about composition of raw foods in India">
@@ -15,8 +14,8 @@ script: /index.js
     <button type="submit" name="lucky">I'm feeling hungry</button>
   </p>
 </form>
-</section>
-
-<section id="results">
-
-</section>
+<p>
+  <div id="highcharts" width="100%"></div>
+  <table id="datatable" class="order-column stripe" width="100%"></table>
+</p>
+<br>

@@ -1,41 +1,3 @@
-/*
-body {
-  font-family: 'Gochi Hand', sans-serif;
-}
-
-main {
-  font-size: 1.5rem;
-  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/palm-leaf.png");
-}
-grid[box] div {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-weight: bold;
-  color: green;
-}
-grid[box] > div:nth-child(odd) {
-  background: white;
-}
-grid[box] > div:nth-child(odd) {
-  background: lightgrey;
-}
-
-footer::before {
-  background: rgba(0,0,0,0.7);
-  width: 98vw;
-}
-footer {
-  text-align: center;
-  padding: 6rem 0;
-}
-footer .low p {
-  padding: 0;
-  margin: 0;
-}
-/*
-
-
 /* 1. header cosmeticization */
 nav:not([class]), nav:not([class]) * {
   border: none;
@@ -48,41 +10,27 @@ nav:not([class]) ul a {
   font-family: 'Righteous', cursive;
   font-weight: bolder;
 }
-nav:not([class]) a.active {
-  border-bottom: 4px solid black;
-}
 html.index nav:not([class]) header > a {
   visibility: hidden;
 }
-body, input, textarea, select, button {
-  font-family: 'Righteous', cursive;
-}
-form label:not([class]) {
-  font-size: 1.4rem;
+html.ketogenic nav:not([class]) a.ketogenic,
+html.essential nav:not([class]) a.essential {
+  border-bottom: 4px solid black;
 }
 
 
 /* 2. main beautification */
-html.default body {
-}
-html.default main {
-  font-size: 2rem;
-}
-html.index main {
-  padding-top: 2rem;
+body, input, textarea, select, button {
+  font-family: 'Righteous', cursive;
 }
 form {
-  margin: auto;
+  margin: 0 6rem;
 }
-html:not(.query) section form {
-  max-width: 70rem;
+form label:not([class]) {
+  font-size: 1.4rem;
 }
-html.sql:not(.query) #sql form {
-  max-width: 90rem;
-}
-html.index section:not([class]),
-html.query form {
-  max-width: none;
+form p:not([class]):not([empty]) {
+  margin-top: 2rem;
 }
 fieldset {
   border: none;
@@ -91,13 +39,6 @@ fieldset {
 }
 input[mode=key] {
   text-transform: uppercase;
-}
-html.query form fieldset {
-  display: inline-block;
-  width: 24%;
-}
-form p:not([class]):not([empty]) {
-  margin-top: 2rem;
 }
 #logo {
   display: block;
@@ -116,6 +57,30 @@ form p:not([class]):not([empty]) {
   font-size: 1.4em;
   text-align: center;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
+}
+#search:focus {
+  color: black;
+}
+html.index main {
+  padding-top: 2rem;
+}
+html.search #logo, html.search form > p {
+  display:none;
+}
+html.search section, html.search form {
+  max-width: none;
+  margin: 0;
+}
+html.search #search {
+  margin: 2rem 0;
+  width: 100%;
+}
+html.read main {
+  font-size: 2rem;
+}
+html.query form fieldset {
+  display: inline-block;
+  width: 24%;
 }
 #search ~ button {
   z-index: 2;
