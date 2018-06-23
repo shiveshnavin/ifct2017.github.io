@@ -1,164 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html class="default">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Provides detailed nutritional information on raw foods in India.">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Itim" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/barecss/css/bare.min.css">
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-<script src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.dataTables.min.css">
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-more.js"></script>
-<link rel="icon" href="https://i.imgur.com/HREdLU9.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bare-css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous">
+<link rel="shortcut icon" href="https://i.imgur.com/HREdLU9.png">
 <link rel="stylesheet" href="/index.css">
-<script src="/index.js"></script>
 <title>{{ page.title }}</title>
 </head>
 
 
 <body>
+<!-- navbar (chaos free) -->
 <nav>
 <label>
 <input type="checkbox">
-<header>
-  <a><img src="https://i.imgur.com/HREdLU9.png"> Indian Food Composition</a>
-</header>
-<ul>
-  <!--<li><a href="/slash">Go to Slash command</a></li>-->
-  <li>
-    <a>Nutrition</a>
-    <menu>
-    <menuitem><a href="/nutrition/ketogenic">Ketogenic diet</a></menuitem>
-    <menuitem><a href="/nutrition/essential">Essential Foods</a></menuitem>
-    <menuitem><a href="/nutrition/meal">Plan meal</a></menuitem>
-    <menuitem><a href="/nutrition/cook">Cook food</a></menuitem>
-    <menuitem><a href="/nutrition/fast">Fast</a></menuitem>
-    </menu>
-  </li>
-  <li>
-    <a>Training</a>
-    <menu>
-    <menuitem><a href="/training/endurance">Endurance training</a></menuitem>
-    <menuitem><a href="/training/parkour">Parkour</a></menuitem>
-    <menuitem><a href="/training/sports">Sports</a></menuitem>
-    <menuitem><a href="/training/pranayam">Pranayam</a></menuitem>
-    <menuitem><a href="/training/yoga">Yoga</a></menuitem>
-    </menu>
-  </li>
-  <li>
-    <a>App</a>
-    <menu>
-    <menuitem><a href="https://www.amazon.com/Merferry-Food-Additive/dp/B07C5YH29Q/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1525076655&sr=1-1&keywords=food+additive">Alexa</a></menuitem>
-    <menuitem><a href="https://www.amazon.in/Merferry-Food-Additive/dp/B07C5YH29Q/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1525076655&sr=1-1&keywords=food+additive">Alexa (IN)</a></menuitem>
-    <menuitem><a href="https://assistant.google.com/services/a/uid/000000410534806d?hl=en-GB">Google</a></menuitem>
-    <menuitem><a href="https://merferry.slack.com/apps/AA6BDEZ6F-food-additive?page=1">Slack</a></menuitem>
-    </menu>
-  </li>
-</ul>
+  <header>
+    <a href="/"><img src="https://i.imgur.com/HREdLU9.png">{{ page.title }}</a>
+  </header>
+  <ul>
+    <li><a href="#!/pipe">Ketogenic diet</a></li>
+    <li><a href="#!/food">Essential nutrients</a></li>
+    <li>
+      <a>App</a>
+      <menu>
+      <menuitem><a href="https://www.amazon.com/Merferry-Food-Additive/dp/B07C5YH29Q/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1525076655&sr=1-1&keywords=food+additive">Alexa</a></menuitem>
+      <menuitem><a href="https://www.amazon.in/Merferry-Food-Additive/dp/B07C5YH29Q/ref=sr_1_1?s=digital-skills&ie=UTF8&qid=1525076655&sr=1-1&keywords=food+additive">Alexa (IN)</a></menuitem>
+      <menuitem><a href="https://assistant.google.com/services/a/uid/000000410534806d?hl=en-GB">Google</a></menuitem>
+      <menuitem><a href="https://merferry.slack.com/apps/AA6BDEZ6F-food-additive?page=1">Slack</a></menuitem>
+      </menu>
+    </li>
+    </ul>
 </label>
-</nav>  
+</nav>
 
 
 <main>
+<section>
 {{ content }}
+</section>
 </main>
 
 
 <footer>
 <grid>
-  <div col="1/4">
-    <p>Food composition data<br><a att href="http://ifct2017.com">IFCT2017</a></p>
-    <p>Research organization<br><a att href="http://www.ninindia.org">NIN, Hyderabad</a></p>
-    <p>Funding organization<br><a att href="http://www.icmr.nic.in">ICMR, New Delhi</a></p>
-    <p>Support organization<br><a att href="http://www.fao.org/infoods/infoods/en/">INFOODS, FAO, UN</a></p>
-  </div>
-  <div col="1/4">
-    <p>Nutrition education<br><a att href="http://vikaspedia.in/health/nutrition">Vikaspedia</a></p>
-    <p>Guide &amp; Demographics<br><a att href="http://218.248.6.39/nutritionatlas/home.php">Nutrition Atlas</a></p>
-    <p>Health calculator<br><a att href="http://218.248.6.43:8080/CountWhatYouEat/Home.do">Count what you eat</a></p>
-    <p>Google playstore app<br><a att href="https://play.google.com/store/apps/details?id=com.cdac.nindietaryguide&hl=en">Dietary Guidelines for Indians</a></p>
-  </div>
-  <div col="1/4">
-    <p>Bricks for body<br><a att href="https://en.wikipedia.org/wiki/Essential_amino_acid">Essential amino acid</a></p>
-    <p>Do we need fat?<br><a att href="https://en.wikipedia.org/wiki/Essential_fatty_acid">Essential fatty acid</a></p>
-    <p>Helper molecules<br><a att href="https://en.wikipedia.org/wiki/Vitamin">Vitamin A,B,C,D,E,K</a></p>
-    <p>Chemical elements<br><a att href="https://en.wikipedia.org/wiki/Mineral_(nutrient)">Mineral (nutrient)</a></p>
-  </div>
-  <div col="1/4">
-    <p>Wrong about health?<br><a att href="https://www.youtube.com/watch?v=5S6-v37nOtY">The Story of Fat</a></p>
-    <p>Fasting vs. eating less<br><a att href="https://www.youtube.com/watch?v=APZCfmgzoS0">Science of Fasting</a></p>
-    <p>Is Ketosis dangerous?<br><a att href="https://www.youtube.com/watch?v=Dan8qtgQRi8">Science of Low Carb Keto</a></p>
-    <p>Do Calories matter?<br><a att href="https://www.youtube.com/watch?v=zcMBm-UVdII">Science of Weight Gain</a></p>
-  </div>
-</grid>
-<hr>
-<grid class="low">
-  <h6 txt="c">Data sources</h6>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1fLIT62fP4mDZwgdi4EvWFn2r8XekE1Gt">Book PDF</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1GTm0wTTFv0T5LVeptTo-BEhHmGDXb85xPg5g8IjNUG8">Book XLS</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1ZTzOOj827HhsUWhdISh1lOJsOh-dvh3ORbAPs9XHI1Q">Abbreviations</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=11nJ7RfjgcTUz1bPmI7EWWOZSAxvwvXseG4AFqtLU3-o">Analytical Methods</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1YoEVoQFR0co_bTHL3Xok1dQfuqxXZa7yQrlUKbYVve4">Carbohydrate Conversion</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=19C2EB4PIMgyusqKOnBq4-aBQxLjCai1Zg45YcBNTzFo">Compositions</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1dRKW2HJyWxDJliONe_URNxM0gPBmgZKqoF5lBotxOT8">Description</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1PMR0TZLLYsS70lcC0Bap4oNrI1azgmuGx9ekfHJB_0Q">Food Groups</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1Q-M1C3DAEhoA6y7X89M3Fl_zml__v0Mr-fJAYBJkLJc">Index</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1OqV-MSaXH1ARXlyuyayyfj9NXoH1DvW5-n1oxOX4n0o">Jones Factors</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1NrdVtCYtmxooVtdGj9UQOPR7l4HIJc9qeI7BNoytGhI">Language Index</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1Go_O1rv7gwDw9GFx5S9-eBOOEueyrSnqf2KmQmB5ZEw">Metabolizable Energy</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1UVWVh-wPOR80M2sTy5naIJvR5DUNtf7lbOaPgCNQ9t4">Picture Description</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1a01-O3cex87z9My2hF3ByoUMVMLZtMYKuRFGTbmcIzQ">Region</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1Wm6eqy0TRwUItBHrU-OU4jVBRuYm162y2viZlP8JyuM">Sampling</a></p>
-  <p col="1/4"><a att href="https://drive.google.com/open?id=1ejgqo6uwlKRF3QLUPJJzrTkd47GtVXgHHsgG-T27uGc">Tables</a></p>
-</grid>
-<hr>
-<h6 txt="c">Built using</h6>
-<grid class="low">
-  <p col="1/4"><a att href="https://www.npmjs.com/package/csv">csv</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/express">express</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/body-parser">body-parser</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/mime">mime</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/pg">pg</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/pg-connection-string">pg-connection-string</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/natural">natural</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/flora-sql-parser">flora-sql-parser</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/chartist">chartist</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/svgdom">svgdom</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/stylis">stylis</a></p>
-  <p col="1/4"><a att href="https://www.filestack.com">filestack</a></p>
-  <p col="1/4"><a att href="http://barecss.com/">BareCSS</a></p>
-  <p col="1/4"><a att href="https://unpkg.com/">UNPKG</a></p>
-  <p col="1/4"><a att href="https://www.postgresql.org/">PostgreSQL</a></p>
-  <p col="1/4"><a att href="https://dialogflow.com">Dialogflow</a></p>
-  <p col="1/4"><a att href="https://dev.botframework.com/">Bot Framework</a></p>
-  <p col="1/4"><a att href="https://www.heroku.com">Heroku</a></p>
-  <p col="1/4"><a att href="https://nodejs.org/en/">Node.js</a></p>
-  <p col="1/4"><a att href="https://in.pinterest.com/pin/158751955587129360/">Nutrition logo</a></p>
-</grid>
-<hr>
-<h6 txt="c">Thanks to</h6>
-<grid class="low">
-  <p col="1/4"><a att href="https://www.npmjs.com/package/string-to-stream">string-to-stream</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com/package/request">request</a></p>
-  <p col="1/4"><a att href="https://www141.lunapic.com/editor/">LunaPic Editor</a></p>
-  <p col="1/4"><a att href="https://addons.opera.com/en/extensions/details/restman/">RestMan</a></p>
-  <p col="1/4"><a att href="https://glitch.com/">Glitch</a></p>
-  <p col="1/4"><a att href="https://img42.com/">IMG42</a></p>
-  <p col="1/4"><a att href="https://regexr.com">RegExr</a></p>
-  <p col="1/4"><a att href="https://www.npmjs.com">NPM</a></p>
-</grid>
-<hr>
-<grid class="low">
-  <p col="1/4"><a att href="/privacy">Privacy</a></p>
-  <p col="1/4"><a att href="/termsofservice">Terms of Service</a></p>
-  <p col="1/4"><a att href="/support">Support</a></p>
-  <p col="1/4"><a att href="https://wolfram77.github.io">@wolfram77</a></p>
+<div col="1/2">
+  <a href="#">Advertising</a>
+  <a href="#">Business</a>
+  <a href="#">About</a>
+</div>
+<div col="1/2" txt="r">
+  <a href="#">Terms</a>
+  <a href="#">Privacy</a>
+  <a href="#">Settings</a>
+</div>
 </grid>
 </footer>
+<script src="/index.js"></script>
 </body>
 </html>
