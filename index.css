@@ -61,6 +61,15 @@ input[mode=key] {
 #search:focus {
   color: black;
 }
+#columns {
+  padding: 2rem 0;
+}
+.pretty {
+  padding: 0 2rem;
+}
+.fixedHeader-floating {
+  z-index: 1;
+}
 html.index main {
   padding-top: 2rem;
 }
@@ -88,15 +97,10 @@ html.query form fieldset {
   right: 0;
   margin: 3rem 2rem;
 }
-#ans th {
-  border-bottom: 4px solid #679;
-}
-#ans th, #ans td {
-  text-align: center;
-}
-html:not(.query) #sql-value ~ button,
-html.query #sql p,
-html:not(.query) #ans {
+html.no-details #datatable tr a > small,
+html.no-details #datatable tr a > img,
+html.no-details #datatable tr a > div,
+html.no-details #datatable tr a > br {
   display: none;
 }
 .sticky {

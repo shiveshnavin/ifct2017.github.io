@@ -1,6 +1,7 @@
 var SERVER_URL = 'https://ifct2017bot.glitch.me';
 var PICTURES_URL = 'https://unpkg.com/@ifct2017/pictures@0.2.0/';
 var EXCLUDE_DEF = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);
+var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
 
 var datatable = null;
 var highcharts = null;
@@ -68,6 +69,12 @@ function drawTable(rows, meta) {
   datatable = $('#datatable').DataTable({
     columns: cols, data: data, aaSorting: [], scrollX: true, autoWidth: true,
     retrieve: true, fixedHeader: {header: true, footer: true}
+  });
+  $('#datatable_length > label').append(CHECKBOX_FMT);
+  $('#datatable_details').click(function() {
+    console.log('hello');
+    if($(this).is(':checked')) $('html').removeClass('no-details');
+    else $('html').addClass('no-details');
   });
   $('#datatable_wrapper thead').on('click', 'th', function () {
     var i = datatable.column(this).index();
