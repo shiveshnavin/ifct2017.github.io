@@ -141,11 +141,12 @@ function onSubmit() {
     if(keys.length>=6) drawChart(rows, meta, keys[1], keys[5]);
     console.log('SLANG:', data.slang);
   }).fail(function(e) {
+    var err = e.responseJSON;
     $('#logo').removeClass('active');
     iziToast.error({
-      title: e.responseJSON.name.toUpperCase(),
-      message: e.responseJSON.message,
-      timeout: 10000
+      title: err.name.toUpperCase(),
+      message: '<b>'+err.message+'</b><br><b>SLANG:</b> '+err.slang+'<br><b>SQL:</b> '+err.sql,
+      timeout: 20000
     });
   });
   return false;
