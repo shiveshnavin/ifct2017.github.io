@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Terms of Service - IFCT2017
+title: Terms | Indian Food Composition
 ---
 
 <section>

@@ -29,9 +29,6 @@ form {
 form label:not([class]) {
   font-size: 1.4rem;
 }
-form p:not([class]):not([empty]) {
-  margin-top: 2rem;
-}
 fieldset {
   border: none;
   margin: 0;

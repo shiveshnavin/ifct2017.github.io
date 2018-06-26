@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Privacy - IFCT2017
+title: Privacy | Indian Food Composition
 ---
 
 <section>
