@@ -128,7 +128,9 @@ function drawChart(rows, meta, x, y) {
 
 function onSubmit() {
   var txt = $('#search').val();
+  $('#logo').addClass('active');
   $.getJSON(SERVER_URL+'/fn/english/'+txt, function(data) {
+    $('#logo').removeClass('active');
     console.log('ENGLISH:', txt);
     $('html').attr('class', 'search');
     var rows = data.rows, meta = data.meta;
@@ -138,6 +140,13 @@ function onSubmit() {
     drawTable(rows, meta);
     if(keys.length>=6) drawChart(rows, meta, keys[1], keys[5]);
     console.log('SLANG:', data.slang);
+  }).fail(function(e) {
+    $('#logo').removeClass('active');
+    iziToast.error({
+      title: e.responseJSON.name.toUpperCase(),
+      message: e.responseJSON.message,
+      timeout: 10000
+    });
   });
   return false;
 };

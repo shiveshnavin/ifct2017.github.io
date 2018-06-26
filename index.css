@@ -48,6 +48,13 @@ input[mode=key] {
 @media (max-height: 32rem) {
   #logo { margin-top: 0; }
 }
+@keyframes opacity-blink {
+  from { opacity: initial; }
+  to { opacity: 0.5; }
+}
+#logo.active {
+  animation: opacity-blink 1s infinite alternate;
+}
 #search {
   width: 100%;
   padding: 1.2rem;
