@@ -144,8 +144,8 @@ function onSubmit() {
     var err = e.responseJSON;
     $('#logo').removeClass('active');
     iziToast.error({
-      title: err.name.toUpperCase(),
-      message: '<b>'+err.message+'</b><br><b>SLANG:</b> '+err.slang+'<br><b>SQL:</b> '+err.sql,
+      title: err.message,
+      message: '<b>SLANG:</b> '+err.slang+'<br><b>SQL:</b> '+err.sql,
       timeout: 20000
     });
   });
