@@ -23,7 +23,7 @@ function rowLang(txt) {
 };
 
 function pictureUrl(cod) {
-  return (cod[0]>='M' && cod[0]<='O') || cod[0]>='T'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
+  return cod[0]>='M' && cod[0]<='O'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
 };
 function drawBuy(txt) {
   var txt = encodeURIComponent(txt.replace(/\W+/g, ' ').trim());
