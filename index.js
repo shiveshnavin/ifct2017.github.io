@@ -1,6 +1,6 @@
 var SERVER_URL = 'https://ifct2017bot.glitch.me';
 var PICTURES_DEF = 'https://i.imgur.com/PNZBH2d.png';
-var PICTURES_URL = 'https://unpkg.com/@ifct2017/pictures@0.2.0/';
+var PICTURES_URL = 'https://cdn.jsdelivr.net/npm/@ifct2017/pictures/assets/';
 var EXCLUDE_DEF = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);
 var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
 
