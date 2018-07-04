@@ -1,4 +1,5 @@
 var SERVER_URL = 'https://ifct2017bot.glitch.me';
+var PICTURES_DEF = 'https://i.imgur.com/PNZBH2d.png';
 var PICTURES_URL = 'https://unpkg.com/@ifct2017/pictures@0.2.0/';
 var EXCLUDE_DEF = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);
 var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
@@ -21,6 +22,9 @@ function rowLang(txt) {
   return Array.from(new Set(txt.split(', '))).join(', ');
 };
 
+function pictureUrl(cod) {
+  return (cod[0]>='M' && cod[0]<='O') || cod[0]>='T'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
+};
 function drawBuy(txt) {
   var txt = encodeURIComponent(txt.replace(/\W+/g, ' ').trim());
   $('#buy > a').each(function() {
@@ -62,8 +66,8 @@ function onReady() {
   var code = qry.code||'A001';
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
     var meta = data.meta||{}, row = data.rows[0]||{};
-    $('#picture').attr('src', PICTURES_URL+row.code+'.jpeg');
-    $('#name').text(row.name+' ('+row.scie+')');
+    $('#picture').attr('src', pictureUrl(row.code));
+    $('#name').text(row.name+(row.scie? ' ('+row.scie+')':''));
     $('#grup').text(row.grup);
     $('#lang').text(rowLang(row.lang));
     drawBuy(row.name);

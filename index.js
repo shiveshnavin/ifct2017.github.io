@@ -1,4 +1,5 @@
 var SERVER_URL = 'https://ifct2017bot.glitch.me';
+var PICTURES_DEF = 'https://i.imgur.com/PNZBH2d.png';
 var PICTURES_URL = 'https://unpkg.com/@ifct2017/pictures@0.2.0/';
 var EXCLUDE_DEF = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);
 var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
@@ -11,6 +12,9 @@ function rowLang(txt) {
   txt = txt.replace(/\[.*?\]/g, '');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
   return Array.from(new Set(txt.split(', '))).join(', ');
+};
+function pictureUrl(cod) {
+  return (cod[0]>='M' && cod[0]<='O') || cod[0]>='T'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
 };
 
 function round(num) {
@@ -48,7 +52,7 @@ function tableRows(rows, meta) {
       row[k+'_t'] = v;
     }
     row['name_t'] = '<a target="_blank" href="/data/compositions?code='+row.code+'">'+
-      '<img src="'+PICTURES_URL+row.code+'.jpeg" width="307"><br>'+
+      '<img src="'+pictureUrl(row.code)+'" width="307"><br>'+
       row.name+(row.scie? ' <small>('+row.scie+')</small><br>':'')+
       '<div style="font-size: 1rem; width: 307px;">'+rowLang(row.lang)+'</div></a>';
   }
