@@ -40,10 +40,7 @@ input[mode=key] {
 #logo {
   display: block;
   margin: auto;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
-  width: 16rem;
-  height: 16rem;
+  max-height: 24rem;
 }
 @media (max-height: 32rem) {
   #logo { margin-top: 0; }
