@@ -133,13 +133,13 @@ html {
 body {
   position: relative;
   min-height: 100%;
-  padding-bottom: 600px;
+  padding-bottom: 860px;
 }
 footer {
   position: absolute;
   bottom: 0;
   overflow: hidden;
-  height: 600px;
+  height: 860px;
   max-width: none;
 }
 footer a {
