@@ -28,8 +28,8 @@ puts the body into a [metabolic state] known as [ketosis]. In this state, the [l
 
 When you [eat carbs], the [blood sugar rises], causing hormone [insulin] to be [released].
 This hormone commands body cells to either [use glucose], or [store it as fat]. It also
-[decreases leptin response] and [prevents fat cells from being used], leading to more
-[hunger after meal]. [Regular high carb consumption] thus means more hunger,
+decreases [leptin response] and [prevents fat cells] from being used, leading to more
+[hunger after meal]. Regular [high carb consumption] thus means more hunger,
 [insulin resistance] and [obesity].
 
 [eat carbs]: https://www.niddk.nih.gov/health-information/diabetes/overview/diet-eating-physical-activity/carbohydrate-counting
@@ -38,30 +38,30 @@ This hormone commands body cells to either [use glucose], or [store it as fat]. 
 [released]: https://www.ncbi.nlm.nih.gov/pubmed/389023
 [use glucose]: https://www.ncbi.nlm.nih.gov/books/NBK279029/
 [store it as fat]: https://www.nih.gov/news-events/news-releases/nih-study-shows-how-insulin-stimulates-fat-cells-take-glucose
-[decreases leptin response]: https://www.ncbi.nlm.nih.gov/pubmed/18073462/
-[prevents fat cells from being used]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4587882/
+[leptin response]: https://www.ncbi.nlm.nih.gov/pubmed/18073462/
+[prevents fat cells]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4587882/
 [hunger after meal]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4204795/
-[Regular high carb consumption]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4847888/
+[high carb consumption]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4847888/
 [insulin resistance]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4050641/
 [obesity]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3257742/
 
 
 
-When you [lower your carb intake], [blood sugar drops], which in turn [lowers insulin]
+When you [lower your carb] intake, [blood sugar drops], which in turn [lowers insulin]
 levels. This allows fat cells to enter the bloodstream and [head to the liver].
-[Satiety is also increased] due to proper leptin response, making you feel full. When
-your body is producing [optimal ketone levels] you begin to notice many [health],
-[weight loss], [physical and mental performance][pmp] [benefits].
+[Satiety] is also increased due to proper leptin response, making you feel full. When
+your body is producing [optimal ketone] levels you begin to notice many [health],
+[weight loss], physical, and mental [performance][perf] [benefits].
 
-[lower your carb intake]: https://www.ncbi.nlm.nih.gov/pubmed/25527677
+[lower your carb]: https://www.ncbi.nlm.nih.gov/pubmed/25527677
 [blood sugar drops]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1325029/
 [lowers insulin]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1570767/
 [head to the liver]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4050641/
-[Satiety is also increased]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4313585/
-[optimal ketone levels]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5097355/
+[Satiety]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4313585/
+[optimal ketone]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5097355/
 [health]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2716748/
 [weight loss]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3826507/
-[pmp]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5102124/
+[perf]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5102124/
 [benefits]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5913738/
 
 

@@ -19,9 +19,13 @@ html.essential nav:not([class]) a.essential {
 }
 
 
+
 /* 2. main beautification */
 body, input, textarea, select, button {
   font-family: 'Righteous', cursive;
+}
+p, p:not([class]) {
+  text-align: justify;
 }
 form {
   margin: 0 6rem;
@@ -116,6 +120,8 @@ html.no-details #datatable tr a > br {
 #buy > a:hover {
   outline: 1px solid black;
 }
+
+
 
 /* 3. footer sundarization */
 html {
