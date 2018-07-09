@@ -25,7 +25,9 @@ class: read ketogenic
   Ketogenic diet based around the premise that our body was designed to run more efficiently as a fat burner than a sugar burner.
 </p>
 
+![How you get fat in 12 sad steps](https://foodtechconnect.com/wp-content/uploads/2012/01/CarbsKillSmall.jpg)
 <br><br>
+
 
 <p><strong>Getting Started</strong></p>
 
