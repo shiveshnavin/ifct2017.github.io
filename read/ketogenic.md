@@ -9,21 +9,67 @@ class: read ketogenic
 [logo]: https://i.imgur.com/56kSuHB.jpg
 
 
-<p>
-  The <a href="https://www.ncbi.nlm.nih.gov/books/NBK499830/">Ketogenic diet</a> is a low <a href="https://www.ncbi.nlm.nih.gov/books/NBK459280/">carb</a>, moderate <a href="https://www.ncbi.nlm.nih.gov/pubmed/26797090">protein</a>, and high <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5577766/">fat</a> diet which puts the body into a <a href="https://en.wikipedia.org/wiki/Metabolism">metabolic state</a> known as <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3945587/">ketosis</a>. In this state, the <a href="https://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0072577/">liver</a> <a href="https://science.howstuffworks.com/life/cellular-microscopic/fat-cell3.htm">breaks down fat</a>  producing <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5309297/">ketones</a> which become the main energy source for the body.
-</p>
 
-<p>
-  When you <a href="https://www.niddk.nih.gov/health-information/diabetes/overview/diet-eating-physical-activity/carbohydrate-counting">eat carbs</a>, the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2769652/">blood sugar rises</a>, causing hormone <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1204764/">insulin</a> to be <a href="https://www.ncbi.nlm.nih.gov/pubmed/389023">released</a>. This hormone commands body cells to either <a href="https://www.ncbi.nlm.nih.gov/books/NBK279029/">use glucose</a>, or <a href="https://www.nih.gov/news-events/news-releases/nih-study-shows-how-insulin-stimulates-fat-cells-take-glucose">store it as fat</a>. It also <a href="https://www.ncbi.nlm.nih.gov/pubmed/18073462/">decreases leptin response</a> and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4587882/">prevents fat cells from being used</a>, leading to more <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4204795/">hunger after meal</a>. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4847888/">Regular high carb consumption</a> thus means more hunger, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4050641/">insulin resistance</a> and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3257742/">obesity</a>.
-</p>
+The [Ketogenic diet] is a low [carb], moderate [protein], and high [fat] diet which
+puts the body into a [metabolic state] known as [ketosis]. In this state, the [liver][liver]
+[breaks down fat] producing [ketones] which become the main energy source for the body.
 
-<p>
-  When you <a href="https://www.ncbi.nlm.nih.gov/pubmed/25527677">lower your carb intake</a>, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1325029/">blood sugar drops</a>, which in turn <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1570767/">lowers insulin</a> levels. This allows fat cells to enter the bloodstream and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4050641/">head to the liver</a>. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4313585/">Satiety is also increased</a> due to proper leptin response, making you feel full. When your body is producing <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5097355/">optimal ketone levels</a> you begin to notice many <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2716748/">health</a>, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3826507/">weight loss</a>, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5102124/">physical and mental performance</a> <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5913738/">benefits</a>.
-</p>
+[Ketogenic diet]: https://www.ncbi.nlm.nih.gov/books/NBK499830/
+[carb]: https://www.ncbi.nlm.nih.gov/books/NBK459280/
+[protein]: https://www.ncbi.nlm.nih.gov/pubmed/26797090
+[fat]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5577766/
+[metabolic state]: https://en.wikipedia.org/wiki/Metabolism
+[ketosis]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3945587/
+[liver]: https://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0072577/
+[breaks down fat]: https://science.howstuffworks.com/life/cellular-microscopic/fat-cell3.htm
+[ketones]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5309297/
 
-<p>
-  Ketogenic diet based around the premise that our body was designed to run more efficiently as a fat burner than a sugar burner.
-</p>
+
+
+When you [eat carbs], the [blood sugar rises], causing hormone [insulin] to be [released].
+This hormone commands body cells to either [use glucose], or [store it as fat]. It also
+[decreases leptin response] and [prevents fat cells from being used], leading to more
+[hunger after meal]. [Regular high carb consumption] thus means more hunger,
+[insulin resistance] and [obesity].
+
+[eat carbs]: https://www.niddk.nih.gov/health-information/diabetes/overview/diet-eating-physical-activity/carbohydrate-counting
+[blood sugar rises]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2769652/
+[insulin]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1204764/
+[released]: https://www.ncbi.nlm.nih.gov/pubmed/389023
+[use glucose]: https://www.ncbi.nlm.nih.gov/books/NBK279029/
+[store it as fat]: https://www.nih.gov/news-events/news-releases/nih-study-shows-how-insulin-stimulates-fat-cells-take-glucose
+[decreases leptin response]: https://www.ncbi.nlm.nih.gov/pubmed/18073462/
+[prevents fat cells from being used]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4587882/
+[hunger after meal]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4204795/
+[Regular high carb consumption]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4847888/
+[insulin resistance]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4050641/
+[obesity]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3257742/
+
+
+
+When you [lower your carb intake], [blood sugar drops], which in turn [lowers insulin]
+levels. This allows fat cells to enter the bloodstream and [head to the liver].
+[Satiety is also increased] due to proper leptin response, making you feel full. When
+your body is producing [optimal ketone levels] you begin to notice many [health],
+[weight loss], [physical and mental performance][pmp] [benefits].
+
+[lower your carb intake]: https://www.ncbi.nlm.nih.gov/pubmed/25527677
+[blood sugar drops]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1325029/
+[lowers insulin]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1570767/
+[head to the liver]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4050641/
+[Satiety is also increased]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4313585/
+[optimal ketone levels]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5097355/
+[health]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2716748/
+[weight loss]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3826507/
+[pmp]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5102124/
+[benefits]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5913738/
+
+
+
+Ketogenic diet based around the premise that our body was designed to run more
+efficiently as a fat burner than a sugar burner.
+
+
 
 ![How you get fat in 12 sad steps](https://foodtechconnect.com/wp-content/uploads/2012/01/CarbsKillSmall.jpg)
 <br><br>
