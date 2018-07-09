@@ -1,17 +1,23 @@
-- name: "'Brain Maker' By David Perlmutter"
+- name: Brain Maker
+  by: David Perlmutter
   url: https://amzn.to/2MBrTMo
 
-- name: "'The Fifth Estate - The Secrets of Sugar' by CBC"
+- name: The Fifth Estate - The Secrets of Sugar
+  by: CBC
   url: http://www.cbc.ca/fifth/episodes/2013-2014/the-secrets-of-sugar
 
-- name: "'That Sugar Film' by Damon Gameau"
+- name: That Sugar Film
+  by: Damon Gameau
   url: https://archive.org/details/That.Sugar.Film.2014
 
-- name: "'Sugar: The Bitter Truth' by Dr. Robert Lustig"
+- name: Sugar - The Bitter Truth
+  by: Dr. Robert Lustig
   url: https://www.youtube.com/watch?v=dBnniua6-oM
 
-- name: "'Fat Head' by Tom Naughton"
+- name: Fat Head
+  by: Tom Naughton
   url: https://www.youtube.com/watch?v=evcNPfZlrZs
 
-- name: "'Carb-Loaded: A Culture Dying to Eat' by Lathe Poland"
+- name: Carb-Loaded - A Culture Dying to Eat
+  by: Lathe Poland
   url: https://www.youtube.com/watch?v=lBb5TFxj1S0

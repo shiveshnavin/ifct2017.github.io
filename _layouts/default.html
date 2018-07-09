@@ -57,6 +57,20 @@
 
 <footer>
 {% if page.class contains "ketogenic" %}
+<h5 txt="c">Lectures</h5>
+<grid txt="c">
+  {% for lec in site.data.lectures %}
+  <div col="1/4"><a href="{{ lec.url }}">{{ lec.name }}<br><small>{{ lec.by }}</small></a></div>
+  {% endfor %}
+</grid>
+<br><br>
+<h5 txt="c">Documentaries</h5>
+<grid txt="c">
+  {% for doc in site.data.documentaries %}
+  <div col="1/4"><a href="{{ doc.url }}">{{ doc.name }}<br><small>{{ doc.by }}</small></a></div>
+  {% endfor %}
+</grid>
+<br><br>
 <h5 txt="c">Books</h5>
 <grid txt="c">
   {% for book in site.data.books %}

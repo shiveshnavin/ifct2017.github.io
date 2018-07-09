@@ -150,10 +150,3 @@ If you are **[non-vegetarian]**
 [cereals]: https://en.wikipedia.org/wiki/Cereal
 [fruits]: https://en.wikipedia.org/wiki/Fruit
 [non-vegetarian]: https://en.wikipedia.org/wiki/Non-vegetarian
-
-
-
-## References
-
-![image](https://images-na.ssl-images-amazon.com/images/I/61Ag775Pd8L._SX325_BO1,204,203,200_.jpg)
-![](https://images-na.ssl-images-amazon.com/images/I/412EtoK9cEL._SX325_BO1,204,203,200_.jpg)
