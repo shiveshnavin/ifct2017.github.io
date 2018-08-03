@@ -63,7 +63,9 @@ function drawTable(row, meta) {
 function onReady() {
   var qry = parseQuery(location.search);
   var code = qry.code||'A001';
-  $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
+  var txt = $('#name').html();
+  $('#name').html(txt+' START!! ');
+$.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
     var meta = data.meta||{}, row = data.rows[0]||{};
     $('#picture').attr('src', pictureUrl(row.code));
     $('#name').text(row.name+(row.scie? ' ('+row.scie+')':''));
