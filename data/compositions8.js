@@ -6,8 +6,8 @@ var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
 
 var datatable = null;
 
-function parseQuery(txt, z={}) {
-  var txt = txt.startsWith('?')? txt.substring(1):txt;
+function parseQuery(txt) {
+  var z = {}, txt = txt.startsWith('?')? txt.substring(1):txt;
   for(var exp of txt.split('&')) {
     var p = exp.split('=');
     z[decodeURIComponent(p[0])] = decodeURIComponent(p[1]||'');
