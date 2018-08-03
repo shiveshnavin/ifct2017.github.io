@@ -62,6 +62,7 @@ function drawTable(row, meta) {
 };
 
 function onReady() {
+  $('#info').removeAttr('style');
   var qry = parseQuery(location.search);
   var code = qry.code||'A001';
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
