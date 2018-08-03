@@ -31,6 +31,7 @@ function drawBuy(txt) {
   });
 };
 
+/*
 function round(num) {
   return Math.round(num*1e+12)/1e+12;
 };
@@ -59,6 +60,7 @@ function drawTable(row, meta) {
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
+*/
 
 function onReady() {
   $('#info').removeAttr('style'); return;
