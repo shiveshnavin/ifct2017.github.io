@@ -6,7 +6,6 @@ var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
 
 var datatable = null;
 
-/*
 function parseQuery(txt, z={}) {
   var txt = txt.startsWith('?')? txt.substring(1):txt;
   for(var exp of txt.split('&')) {
@@ -60,7 +59,6 @@ function drawTable(row, meta) {
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
-*/
 
 function onReady() {
   $('#info').removeAttr('style'); return;
