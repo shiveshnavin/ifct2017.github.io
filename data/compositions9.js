@@ -15,13 +15,13 @@ function parseQuery(txt) {
   return z;
 };
 
-/*
 function rowLang(txt) {
   txt = txt.replace(/\[.*?\]/g, '');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
   return Array.from(new Set(txt.split(', '))).join(', ');
 };
 
+/*
 function pictureUrl(cod) {
   return cod[0]>='M' && cod[0]<='O'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
 };
