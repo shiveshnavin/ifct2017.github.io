@@ -17,6 +17,9 @@
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
 <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+{% if page.script!=null %}
+<script src="{{ page.script }}"></script>
+{% endif %}
 {% endif %}
 <link rel="stylesheet" href="/index.css">
 <title>{{ page.title }}</title>
@@ -99,10 +102,5 @@
 </div>
 </grid>
 </footer>
-
-
-{% if page.script!=null %}
-<script src="{{ page.script }}"></script>
-{% endif %}
 </body>
 </html>
