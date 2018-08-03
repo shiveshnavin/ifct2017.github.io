@@ -65,6 +65,7 @@ function onReady() {
   var code = qry.code||'A001';
   var txt = $('#name').html();
   $('#name').html(txt+' START!! ');
+  $('#info').removeAttr('style');
   return;
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
     var meta = data.meta||{}, row = data.rows[0]||{};
