@@ -41,7 +41,6 @@ function applyMeta(row, meta) {
     row[k] = round(row[k]*Math.pow(10, meta[tk].factor));
   }
 };
-/*
 function tableRow(row, meta) {
   var z = [];
   for(var k in row) {
@@ -53,6 +52,7 @@ function tableRow(row, meta) {
   }
   return z;
 };
+/*
 function drawTable(row, meta) {
   if(datatable!=null) { datatable.destroy(); $('#datatable').empty(); }
   datatable = $('#datatable').DataTable({
