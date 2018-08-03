@@ -70,7 +70,6 @@ function drawTable(row, meta) {
 function onReady() {
   var qry = parseQuery(location.search);
   var code = qry.code||'A001';
-  $('#info').removeAttr('style');
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
     var meta = data.meta||{}, row = data.rows[0]||{};
     $('#picture').attr('src', pictureUrl(row.code));
@@ -81,9 +80,6 @@ function onReady() {
     applyMeta(row, meta);
     drawTable(row, meta);
     $('#info').removeAttr('style');
-  }).fail(function() {
-    var txt = $('#name').html();
-    $('#name').html(txt+' FAIL!! ');
   });
 };
 $(document).ready(onReady);
