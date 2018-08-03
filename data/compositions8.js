@@ -64,7 +64,6 @@ function onReady() {
   $('#info').removeAttr('style'); return;
   var qry = parseQuery(location.search);
   var code = qry.code||'A001';
-  /*
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
     var meta = data.meta||{}, row = data.rows[0]||{};
     $('#picture').attr('src', pictureUrl(row.code));
@@ -76,6 +75,5 @@ function onReady() {
     drawTable(row, meta);
     $('#info').removeAttr('style');
   });
-  */
 };
 $(document).ready(onReady);
