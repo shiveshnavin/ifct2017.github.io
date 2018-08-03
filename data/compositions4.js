@@ -38,7 +38,7 @@ function applyMeta(row, meta) {
   for(var k in row) {
     var tk = k.replace(/_e$/, '');
     if(typeof row[k]==='string') continue;
-    row[k] = round(row[k]*(10**meta[tk].factor));
+    row[k] = round(row[k]*Math.pow(10, meta[tk].factor));
   }
 };
 /*
