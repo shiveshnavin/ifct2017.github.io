@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Essential nutrients | Indian Food Composition
+title: Essential nutrients
 class: read essential
 ---
 

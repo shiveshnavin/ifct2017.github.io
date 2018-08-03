@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ketogenic diet | Indian Food Composition
+title: Ketogenic diet
 class: read ketogenic
 ---
 

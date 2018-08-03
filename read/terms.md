@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Terms | Indian Food Composition
+title: Terms
 ---
 
 <section>

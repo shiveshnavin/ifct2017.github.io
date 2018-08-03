@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Privacy | Indian Food Composition
+title: Privacy
 ---
 
 <section>
