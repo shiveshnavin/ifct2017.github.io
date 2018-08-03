@@ -6,7 +6,7 @@ var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
 
 var datatable = null;
 
-
+/*
 function parseQuery(txt, z={}) {
   var txt = txt.startsWith('?')? txt.substring(1):txt;
   for(var exp of txt.split('&')) {
@@ -60,9 +60,11 @@ function drawTable(row, meta) {
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
+*/
 
 function onReady() {
-  $('#info').removeAttr('style');
+  $('#info').removeAttr('style'); return;
+  /*
   var qry = parseQuery(location.search);
   var code = qry.code||'A001';
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
@@ -76,5 +78,6 @@ function onReady() {
     drawTable(row, meta);
     $('#info').removeAttr('style');
   });
+  */
 };
 $(document).ready(onReady);
