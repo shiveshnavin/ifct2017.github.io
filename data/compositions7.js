@@ -25,7 +25,6 @@ function parseQuery(txt) {
 function rowLang(txt) {
   txt = txt.replace(/\[.*?\]/g, '');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
-  $('#name').html($('#name').html()+' START0.1!! ');
   return arrayUnique(txt.split(', ')).join(', ');
 };
 
@@ -77,15 +76,10 @@ function onReady() {
     $('#picture').attr('src', pictureUrl(row.code));
     $('#name').text(row.name+(row.scie? ' ('+row.scie+')':''));
     $('#grup').text(row.grup);
-    $('#name').html($('#name').html()+' START0!! ');
     $('#lang').text(rowLang(row.lang));
-    $('#name').html($('#name').html()+' START1!! ');
     drawBuy(row.name);
-    $('#name').html($('#name').html()+' START2!! ');
     applyMeta(row, meta);
-    $('#name').html($('#name').html()+' START3!! ');
     drawTable(row, meta);
-    $('#name').html($('#name').html()+' START4!! ');
     $('#info').removeAttr('style');
   }).fail(function() {
     var txt = $('#name').html();
