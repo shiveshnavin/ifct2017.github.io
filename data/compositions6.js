@@ -52,7 +52,6 @@ function tableRow(row, meta) {
   }
   return z;
 };
-/*
 function drawTable(row, meta) {
   if(datatable!=null) { datatable.destroy(); $('#datatable').empty(); }
   datatable = $('#datatable').DataTable({
@@ -60,7 +59,6 @@ function drawTable(row, meta) {
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
-*/
 
 function onReady() {
   $('#info').removeAttr('style'); return;
