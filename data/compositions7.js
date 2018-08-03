@@ -6,7 +6,6 @@ var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
 
 var datatable = null;
 
-/*
 function parseQuery(txt, z={}) {
   var txt = txt.startsWith('?')? txt.substring(1):txt;
   for(var exp of txt.split('&')) {
@@ -16,6 +15,7 @@ function parseQuery(txt, z={}) {
   return z;
 };
 
+/*
 function rowLang(txt) {
   txt = txt.replace(/\[.*?\]/g, '');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
