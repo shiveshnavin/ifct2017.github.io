@@ -80,6 +80,6 @@ function onReady() {
     applyMeta(row, meta);
     drawTable(row, meta);
     $('#info').removeAttr('style');
-  });
+  }); // fail?
 };
 $(document).ready(onReady);
