@@ -6,6 +6,7 @@ var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
 
 var datatable = null;
 
+/*
 function parseQuery(txt, z={}) {
   var txt = txt.startsWith('?')? txt.substring(1):txt;
   for(var exp of txt.split('&')) {
@@ -31,7 +32,6 @@ function drawBuy(txt) {
   });
 };
 
-/*
 function round(num) {
   return Math.round(num*1e+12)/1e+12;
 };
