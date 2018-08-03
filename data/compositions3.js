@@ -34,7 +34,6 @@ function drawBuy(txt) {
 function round(num) {
   return Math.round(num*1e+12)/1e+12;
 };
-/*
 function applyMeta(row, meta) {
   for(var k in row) {
     var tk = k.replace(/_e$/, '');
@@ -42,6 +41,7 @@ function applyMeta(row, meta) {
     row[k] = round(row[k]*(10**meta[tk].factor));
   }
 };
+/*
 function tableRow(row, meta) {
   var z = [];
   for(var k in row) {
