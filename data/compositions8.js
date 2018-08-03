@@ -84,9 +84,6 @@ function onReady() {
   }).fail(function() {
     var txt = $('#name').html();
     $('#name').html(txt+' FAIL!! ');
-  }).always(function() {
-    var txt = $('#name').html();
-    $('#name').html(txt+' ALWAYS!! ');
   });
 };
 $(document).ready(onReady);
