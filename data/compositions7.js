@@ -6,6 +6,13 @@ var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
 
 var datatable = null;
 
+function arrayUnique(arr) {
+  var z = [];
+  for(var v of arr)
+    if(z.indexOf(v)<0) z.push(v);
+  return z;
+};
+
 function parseQuery(txt) {
   var z = {}, txt = txt.startsWith('?')? txt.substring(1):txt;
   for(var exp of txt.split('&')) {
@@ -17,12 +24,9 @@ function parseQuery(txt) {
 
 function rowLang(txt) {
   txt = txt.replace(/\[.*?\]/g, '');
-  $('#name').html($('#name').html()+' START0!! ');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
-  $('#name').html($('#name').html()+' START0!! ');
-  var a = Array.from([1]);
-  $('#name').html($('#name').html()+' START0!! ');
-  return Array.from(new Set(txt.split(', '))).join(', ');
+  $('#name').html($('#name').html()+' START0.1!! ');
+  return arrayUnique(txt.split(', ')).join(', ');
 };
 
 function pictureUrl(cod) {
