@@ -74,6 +74,12 @@ function onReady() {
     applyMeta(row, meta);
     drawTable(row, meta);
     $('#info').removeAttr('style');
+  }).fail(function() {
+    var txt = $('#name').html();
+    $('#name').html(txt+' FAIL!! ');
+  }).always(function() {
+    var txt = $('#name').html();
+    $('#name').html(txt+' ALWAYS!! ');
   });
 };
 $(document).ready(onReady);
