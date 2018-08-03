@@ -21,7 +21,6 @@ function rowLang(txt) {
   return Array.from(new Set(txt.split(', '))).join(', ');
 };
 
-/*
 function pictureUrl(cod) {
   return cod[0]>='M' && cod[0]<='O'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
 };
@@ -60,7 +59,6 @@ function drawTable(row, meta) {
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
-*/
 
 function onReady() {
   $('#info').removeAttr('style'); return;
