@@ -73,7 +73,7 @@ function onReady() {
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
     var meta = data.meta||{}, row = data.rows[0]||{};
     $('#picture').attr('src', pictureUrl(row.code));
-    $('#name').text(row.name+(row.scie? '<br>('+row.scie+')':''));
+    $('#name').text(row.name+(row.scie? '\n('+row.scie+')':''));
     $('#grup').text(row.grup);
     $('#lang').text(rowLang(row.lang));
     drawBuy(row.name);
