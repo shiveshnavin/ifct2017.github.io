@@ -17,7 +17,11 @@ function parseQuery(txt) {
 
 function rowLang(txt) {
   txt = txt.replace(/\[.*?\]/g, '');
+  $('#name').html($('#name').html()+' START0!! ');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
+  $('#name').html($('#name').html()+' START0!! ');
+  var a = Array.from([1]);
+  $('#name').html($('#name').html()+' START0!! ');
   return Array.from(new Set(txt.split(', '))).join(', ');
 };
 
