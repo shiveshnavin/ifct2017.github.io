@@ -8,6 +8,7 @@ var datatable = null;
 var highcharts = null;
 
 
+// Get unique values in array.
 function arrayUnique(arr) {
   var z = [];
   for(var v of arr)
