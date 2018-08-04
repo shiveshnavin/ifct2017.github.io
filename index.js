@@ -155,7 +155,16 @@ function onSubmit() {
   });
   return false;
 };
+
+function footerStick() {
+  var e = document.querySelector('footer');
+  if(e.offsetTop+e.offsetHeight<innerHeight) 
+  { e.style.bottom = '0'; e.style.position = 'absolute'; }
+  e.style.display = 'block';
+};
+
 function onReady() {
   $('form').submit(onSubmit);
+  footerStick();
 };
 $(document).ready(onReady);
