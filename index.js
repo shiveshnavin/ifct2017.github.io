@@ -8,6 +8,29 @@ var datatable = null;
 var highcharts = null;
 
 
+function searchDecodeValue(key, val) {
+  return key===''? val:decodeURIComponent(val);
+};
+function searchDecode(txt) {
+  txt = txt[0]==='?'? txt.substring(1):txt;
+  return JSON.parse('{"' + txt.replace(/&/g, '","').replace(/=/g,'":"') + '"}', searchDecodeValue)
+};
+
+// Get object from form elements.
+function formGet(frm) {
+  var E = frm.elements, z = {};
+  for(var i=0, I=E.length; i<I; i++)
+    if(E[i].name) z[E[i].name] = E[i].value;
+  return z;
+};
+// Set form elements from object.
+function formSet(frm, val) {
+  var e = frm.elements;
+  for(var i=0, I=e.length; i<I; i++)
+    if(e[i].name && val[e[i].name]) e[i].value = val[e[i].name];
+  return frm;
+};
+
 function rowLang(txt) {
   txt = txt.replace(/\[.*?\]/g, '');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
@@ -112,7 +135,6 @@ function drawChart(rows, meta, x, y) {
   var label = '{value}'+(metay.unit||'');
   var value = chartValue(rows, x, y);
   var range = chartRange(rows, x, y);
-  console.log(range);
   highcharts = Highcharts.chart('highcharts', {
     chart: {style: {fontFamily: '\'Righteous\', cursive'}},
     title: {text: metay.name},
@@ -130,8 +152,8 @@ function drawChart(rows, meta, x, y) {
   });
 };
 
-function onSubmit() {
-  var txt = $('#search').val();
+function processQuery(txt) {
+  console.log('processQuery()', txt);
   $('#logo').addClass('active');
   $.getJSON(SERVER_URL+'/fn/english/'+txt, function(data) {
     $('#logo').removeClass('active');
@@ -153,18 +175,48 @@ function onSubmit() {
       timeout: 20000
     });
   });
-  return false;
 };
 
-function footerStick() {
+// Handle form submit.
+function onSubmit(e) {
+  var src = e.target.submitted;
+  console.log('onSubmit()', src);
+  var val = document.getElementById('search').value;
+  if(src==='query') location.search = '?query='+val;
+  return false;
+};
+// Setup page by location.
+function setupLocation() {
+  var s = location.search;
+  console.log('setupLocation()', s);
+  if(s.length===0) return;
+  var v = searchDecode(s);
+  if(v.query) {
+    document.getElementById('search').value = v.query;
+    processQuery(v.query);
+  }
+};
+// Enable form multi submit
+function setupForms() {
+  console.log('setupForms()');
+  var e = document.querySelectorAll('form [type=submit]');
+  for(var i=0, I=e.length; i<I; i++)
+    e[i].onclick = function() { this.form.submitted = this.name; };
+};
+// Make page footer sticky.
+function setupFooter() {
+  console.log('setupFooter()');
   var e = document.querySelector('footer');
   if(e.offsetTop+e.offsetHeight<innerHeight) 
   { e.style.bottom = '0'; e.style.position = 'absolute'; }
   e.style.display = 'block';
 };
-
-function onReady() {
+// Setup page.
+function setup() {
+  console.log('setup()');
   $('form').submit(onSubmit);
-  footerStick();
+  setupForms();
+  setupFooter();
+  setupLocation();
 };
-$(document).ready(onReady);
+$(document).ready(setup);
