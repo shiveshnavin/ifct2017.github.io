@@ -8,6 +8,13 @@ var datatable = null;
 var highcharts = null;
 
 
+function arrayUnique(arr) {
+  var z = [];
+  for(var v of arr)
+    if(z.indexOf(v)<0) z.push(v);
+  return z;
+};
+
 function searchDecodeValue(key, val) {
   return key===''? val:decodeURIComponent(val);
 };
@@ -34,7 +41,7 @@ function formSet(frm, val) {
 function rowLang(txt) {
   txt = txt.replace(/\[.*?\]/g, '');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
-  return Array.from(new Set(txt.split(', '))).join(', ');
+  return arrayUnique(txt.split(', ')).join(', ');
 };
 function pictureUrl(cod) {
   return cod[0]>='M' && cod[0]<='O'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
@@ -44,7 +51,7 @@ function round(num) {
   return Math.round(num*1e+12)/1e+12;
 };
 function applyFactor(rows, k, fac) {
-  var mul = 10**fac;
+  var mul = Math.pow(10, fac);
   for(var row of rows)
     row[k] = round(row[k]*mul);
 };
