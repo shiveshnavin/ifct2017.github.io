@@ -1,28 +1,7 @@
 <!DOCTYPE html>
 <html class="{{ page.class }}">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bare-css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous">
-<link rel="shortcut icon" href="https://i.imgur.com/HREdLU9.png">
-{% unless page.class contains "read" %}
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-{% endunless %}
-{% if page.class contains "index" %}
-<script src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.dataTables.min.css">
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-more.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
-<script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
-{% endif %}
-{% if page.script!=null %}
-<script src="{{ page.script }}"></script>
-{% endif %}
-<link rel="stylesheet" href="/index.css">
-<title>{{ page.title }}</title>
+{% include head.html %}
 </head>
 
 
