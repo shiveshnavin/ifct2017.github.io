@@ -94,6 +94,19 @@ function tableDrawLength(vals) {
   return div;
 };
 
+// Draw filter element of table.
+function tableDrawFilter() {
+  var div = document.createElement('div');
+  div.className = 'filter';
+  var lab = document.createElement('label');
+  lab.appendChild(document.createTextNode('Search:'));
+  var inp = document.createElement('input');
+  inp.setAttribute('type', 'search');
+  lab.appendChild(inp);
+  div.appendChild(lab);
+  return div;
+};
+
 function tableDraw(ele, dat, met) {
   var fra = document.createDocumentFragment();
   var cap = document.createElement('caption');
