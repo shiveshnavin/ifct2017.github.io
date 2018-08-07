@@ -47,7 +47,9 @@ function formSet(frm, val) {
 function langValues(txt) {
   txt = txt.replace(/\[.*?\]/g, '');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
-  return arrayUnique(txt.split(', ')).join(', ');
+  var arr = txt.split(/,\s*/g);
+  if(!arr[arr.length-1]) arr.pop();
+  return arrayUnique(arr).join(', ');
 };
 
 // Get URL of picture from "code".
