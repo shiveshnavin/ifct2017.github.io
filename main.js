@@ -107,6 +107,77 @@ function tableDrawFilter() {
   return div;
 };
 
+// Draw head of table.
+function tableDrawHead(cols) {
+  var thd = document.createElement('thead');
+  var tr = document.createElement('tr');
+  for(var k in cols) {
+    var th = document.createElement('th');
+    th.setAttribute('name', k);
+    th.textContent = cols[k].value;
+    tr.appendChild(th);
+  }
+  thd.appendChild(tr);
+  return thd;
+};
+
+function nodeAnchor(val, cls, hrf) {
+  var a = document.createElement('a');
+  if(hrf) a.setAttribute('href', hrf);
+  if(cls) a.className = cls;
+  a.textContent = val;
+  return a;
+};
+
+function nodeEllipsis() {
+  var spn = document.createElement('span');
+  spn.className = 'ellipsis';
+  spn.textContent = '...';
+  return spn;
+};
+
+// Draw paginate buttons.
+function paginateButtons(siz, bgn, end, val) {
+  var rng = end-bgn+1, siz = Math.min(rng, siz);
+  var e1 = rng>siz && val-bgn>siz-4;
+  var spn = document.createElement('span');
+  spn.appendChild(nodeAnchor(bgn, bgn===val? 'active':null));
+  spn.appendChild(e1? nodeEllipsis():nodeAnchor(bgn+1, bgn+1===val? 'active':null));
+  for(var i=e1? Math.min(Math.ceil(val-0.5*(siz-4)), end-siz+3):bgn+2, I=i+(siz-4); i<I; i++)
+    spn.appendChild(nodeAnchor(i, i===val? 'active':null));
+  spn.appendChild(I!==end-1? nodeEllipsis():nodeAnchor(end-1, end-1===val? 'active':null));
+  spn.appendChild(nodeAnchor(end, end===val? 'active':null));
+  return spn;
+};
+
+// Draw/update paginate div.
+function paginateDiv(div, siz, bgn, end, val) {
+  var btn = paginateButtons(siz, bgn, end, val);
+  if(div) div.replaceChild(btn, div.querySelector('span'));
+  else {
+    div = document.createElement('div');
+    div.appendChild(nodeAnchor('Previous', 'previous'));
+    div.appendChild(btn);
+    div.appendChild(nodeAnchor('Next', 'next'));
+  }
+  var pre = div.querySelector('.previous');
+  var nxt = div.querySelector('.next');
+  if(val===bgn) pre.classList.add('disabled');
+  else pre.classList.remove('disabled');
+  if(val===end) nxt.classList.add('disabled');
+  else nxt.classList.remove('disabled');
+};
+
+// Draw/update info of table.
+function infoDiv(div, siz, bgn, end) {
+  if(!div) {
+    div = document.createElement('div');
+    div.className = 'info';
+  }
+  div.textContent = 'Showing '+bgn+' to '+end+' of '+siz+' enntries';
+  return div;
+};
+
 function tableDraw(ele, dat, met) {
   var fra = document.createDocumentFragment();
   var cap = document.createElement('caption');
