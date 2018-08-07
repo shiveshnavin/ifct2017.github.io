@@ -74,8 +74,23 @@ function setupFooter() {
   e.style.display = 'block';
 };
 
+function nodeAnchor(val, cls, hrf) {
+  var a = document.createElement('a');
+  if(hrf) a.setAttribute('href', hrf);
+  if(cls) a.className = cls;
+  a.textContent = val;
+  return a;
+};
+
+function nodeEllipsis() {
+  var spn = document.createElement('span');
+  spn.className = 'ellipsis';
+  spn.textContent = '...';
+  return spn;
+};
+
 // Draw length element of table.
-function tableDrawLength(vals) {
+function pageLengthDiv(vals) {
   var div = document.createElement('div');
   div.className = 'length';
   var lab = document.createElement('label');
@@ -95,7 +110,7 @@ function tableDrawLength(vals) {
 };
 
 // Draw filter element of table.
-function tableDrawFilter() {
+function filterDiv() {
   var div = document.createElement('div');
   div.className = 'filter';
   var lab = document.createElement('label');
@@ -107,36 +122,17 @@ function tableDrawFilter() {
   return div;
 };
 
-// Draw head of table.
-function tableDrawHead(cols) {
-  var thd = document.createElement('thead');
-  var tr = document.createElement('tr');
-  for(var k in cols) {
-    var th = document.createElement('th');
-    th.setAttribute('name', k);
-    th.textContent = cols[k].value;
-    tr.appendChild(th);
+// Draw/update page info of table.
+function pageInfoDiv(div, siz, bgn, end) {
+  if(!div) {
+    div = document.createElement('div');
+    div.className = 'info';
   }
-  thd.appendChild(tr);
-  return thd;
+  div.textContent = 'Showing '+bgn+' to '+end+' of '+siz+' enntries';
+  return div;
 };
 
-function nodeAnchor(val, cls, hrf) {
-  var a = document.createElement('a');
-  if(hrf) a.setAttribute('href', hrf);
-  if(cls) a.className = cls;
-  a.textContent = val;
-  return a;
-};
-
-function nodeEllipsis() {
-  var spn = document.createElement('span');
-  spn.className = 'ellipsis';
-  spn.textContent = '...';
-  return spn;
-};
-
-// Draw paginate buttons.
+// Draw paginate buttons of table.
 function paginateButtons(siz, bgn, end, val) {
   var rng = end-bgn+1, siz = Math.min(rng, siz);
   var e1 = rng>siz && val-bgn>siz-4;
@@ -150,7 +146,7 @@ function paginateButtons(siz, bgn, end, val) {
   return spn;
 };
 
-// Draw/update paginate div.
+// Draw/update paginate div of table.
 function paginateDiv(div, siz, bgn, end, val) {
   var btn = paginateButtons(siz, bgn, end, val);
   if(div) div.replaceChild(btn, div.querySelector('span'));
@@ -168,14 +164,18 @@ function paginateDiv(div, siz, bgn, end, val) {
   else nxt.classList.remove('disabled');
 };
 
-// Draw/update info of table.
-function infoDiv(div, siz, bgn, end) {
-  if(!div) {
-    div = document.createElement('div');
-    div.className = 'info';
+// Draw head of table.
+function tableDrawHead(cols) {
+  var thd = document.createElement('thead');
+  var tr = document.createElement('tr');
+  for(var k in cols) {
+    var th = document.createElement('th');
+    th.setAttribute('name', k);
+    th.textContent = cols[k].value;
+    tr.appendChild(th);
   }
-  div.textContent = 'Showing '+bgn+' to '+end+' of '+siz+' enntries';
-  return div;
+  thd.appendChild(tr);
+  return thd;
 };
 
 function tableDraw(ele, dat, met) {
