@@ -6,31 +6,9 @@ var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
 
 var datatable = null;
 
-function arrayUnique(arr) {
-  var z = [];
-  for(var v of arr)
-    if(z.indexOf(v)<0) z.push(v);
-  return z;
-};
 
-function parseQuery(txt) {
-  var z = {}, txt = txt.startsWith('?')? txt.substring(1):txt;
-  for(var exp of txt.split('&')) {
-    var p = exp.split('=');
-    z[decodeURIComponent(p[0])] = decodeURIComponent(p[1]||'');
-  }
-  return z;
-};
 
-function rowLang(txt) {
-  txt = txt.replace(/\[.*?\]/g, '');
-  txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
-  return arrayUnique(txt.split(', ')).join(', ');
-};
 
-function pictureUrl(cod) {
-  return cod[0]>='M' && cod[0]<='O'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
-};
 function drawBuy(txt) {
   var txt = encodeURIComponent(txt.replace(/\W+/g, ' ').trim());
   $('#buy > a').each(function() {
@@ -38,9 +16,6 @@ function drawBuy(txt) {
   });
 };
 
-function round(num) {
-  return Math.round(num*1e+12)/1e+12;
-};
 function applyMeta(row, meta) {
   for(var k in row) {
     var tk = k.replace(/_e$/, '');
@@ -75,7 +50,7 @@ function onReady() {
     $('#picture').attr('src', pictureUrl(row.code));
     $('#name').text(row.name+(row.scie? '\n('+row.scie+')':''));
     $('#grup').text(row.grup);
-    $('#lang').text(rowLang(row.lang));
+    $('#lang').text(langValues(row.lang));
     drawBuy(row.name);
     applyMeta(row, meta);
     drawTable(row, meta);

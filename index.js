@@ -1,6 +1,3 @@
-var SERVER_URL = 'https://ifct2017bot.glitch.me';
-var PICTURES_DEF = 'https://i.imgur.com/PNZBH2d.png';
-var PICTURES_URL = 'https://cdn.jsdelivr.net/npm/@ifct2017/pictures/assets/';
 var EXCLUDE_DEF = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);
 var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
 
@@ -8,49 +5,6 @@ var datatable = null;
 var highcharts = null;
 
 
-// Get unique values in array.
-function arrayUnique(arr) {
-  var z = [];
-  for(var v of arr)
-    if(z.indexOf(v)<0) z.push(v);
-  return z;
-};
-
-function searchDecodeValue(key, val) {
-  return key===''? val:decodeURIComponent(val);
-};
-function searchDecode(txt) {
-  txt = txt[0]==='?'? txt.substring(1):txt;
-  return JSON.parse('{"' + txt.replace(/&/g, '","').replace(/=/g,'":"') + '"}', searchDecodeValue)
-};
-
-// Get object from form elements.
-function formGet(frm) {
-  var E = frm.elements, z = {};
-  for(var i=0, I=E.length; i<I; i++)
-    if(E[i].name) z[E[i].name] = E[i].value;
-  return z;
-};
-// Set form elements from object.
-function formSet(frm, val) {
-  var e = frm.elements;
-  for(var i=0, I=e.length; i<I; i++)
-    if(e[i].name && val[e[i].name]) e[i].value = val[e[i].name];
-  return frm;
-};
-
-function rowLang(txt) {
-  txt = txt.replace(/\[.*?\]/g, '');
-  txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
-  return arrayUnique(txt.split(', ')).join(', ');
-};
-function pictureUrl(cod) {
-  return cod[0]>='M' && cod[0]<='O'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
-};
-
-function round(num) {
-  return Math.round(num*1e+12)/1e+12;
-};
 function applyFactor(rows, k, fac) {
   var mul = Math.pow(10, fac);
   for(var row of rows)
@@ -85,7 +39,7 @@ function tableRows(rows, meta) {
     row['name_t'] = '<a target="_blank" href="/data/compositions?code='+row.code+'">'+
       '<img src="'+pictureUrl(row.code)+'" width="307"><br>'+
       row.name+(row.scie? ' <small>('+row.scie+')</small><br>':'')+
-      '<div style="font-size: 1rem; width: 307px;">'+rowLang(row.lang)+'</div></a>';
+      '<div style="font-size: 1rem; width: 307px;">'+langValues(row.lang)+'</div></a>';
   }
   return rows;
 };
@@ -193,6 +147,7 @@ function onSubmit(e) {
   if(src==='query') location.search = '?query='+val;
   return false;
 };
+
 // Setup page by location.
 function setupLocation() {
   var s = location.search;
@@ -204,21 +159,7 @@ function setupLocation() {
     processQuery(v.query);
   }
 };
-// Enable form multi submit
-function setupForms() {
-  console.log('setupForms()');
-  var e = document.querySelectorAll('form [type=submit]');
-  for(var i=0, I=e.length; i<I; i++)
-    e[i].onclick = function() { this.form.submitted = this.name; };
-};
-// Make page footer sticky.
-function setupFooter() {
-  console.log('setupFooter()');
-  var e = document.querySelector('footer');
-  if(e.offsetTop+e.offsetHeight<innerHeight) 
-  { e.style.bottom = '0'; e.style.position = 'absolute'; }
-  e.style.display = 'block';
-};
+
 // Setup page.
 function setup() {
   console.log('setup()');
