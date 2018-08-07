@@ -73,3 +73,32 @@ function setupFooter() {
   { e.style.bottom = '0'; e.style.position = 'absolute'; }
   e.style.display = 'block';
 };
+
+// Draw length element of table.
+function tableDrawLength(vals) {
+  var div = document.createElement('div');
+  div.className = 'length';
+  var lab = document.createElement('label');
+  lab.appendChild(document.createTextNode('Show '));
+  var sel = document.createElement('select');
+  sel.setAttribute('name', 'length');
+  for(var val of vals||['10', '25', '50', '100']) {
+    var opt = document.createElement('option');
+    opt.setAttribute('value', val);
+    opt.textContent = val;
+    sel.appendChild(opt);
+  }
+  lab.appendChild(sel);
+  lab.appendChild(document.createTextNode(' entries'));
+  div.appendChild(lab);
+  return div;
+};
+
+function tableDraw(ele, dat, met) {
+  var fra = document.createDocumentFragment();
+  var cap = document.createElement('caption');
+  var ent = document.createElement('div');
+  for(var k in dat[0]) {
+    
+  }
+};
