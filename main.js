@@ -18,7 +18,7 @@ function arrayUnique(arr) {
 };
 
 // Parse URL query to object.
-function parseQuery(txt) {
+function queryParse(txt) {
   var z = {}, txt = txt.startsWith('?')? txt.substring(1):txt;
   for(var exp of txt.split('&')) {
     var p = exp.split('=');

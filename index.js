@@ -153,7 +153,7 @@ function setupLocation() {
   var s = location.search;
   console.log('setupLocation()', s);
   if(s.length===0) return;
-  var v = searchDecode(s);
+  var v = queryParse(s);
   if(v.query) {
     document.getElementById('search').value = v.query;
     processQuery(v.query);
