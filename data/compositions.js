@@ -1,6 +1,3 @@
-var SERVER_URL = 'https://ifct2017bot.glitch.me';
-var PICTURES_DEF = 'https://i.imgur.com/PNZBH2d.png';
-var PICTURES_URL = 'https://cdn.jsdelivr.net/npm/@ifct2017/pictures/assets/';
 var EXCLUDE_DEF = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);
 var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
 
@@ -46,6 +43,7 @@ function onReady() {
   var qry = parseQuery(location.search);
   var code = qry.code||'A001';
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
+    console.log(data);
     var meta = data.meta||{}, row = data.rows[0]||{};
     $('#picture').attr('src', pictureUrl(row.code));
     $('#name').text(row.name+(row.scie? '\n('+row.scie+')':''));
