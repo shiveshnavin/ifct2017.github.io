@@ -145,3 +145,14 @@ footer {
 footer a {
   padding: 0 1rem;
 }
+
+
+
+
+
+
+
+
+#treetable td:first-child {
+  min-width: 300px;
+}

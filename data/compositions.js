@@ -39,6 +39,40 @@ function drawTable(row, ccol, crep) {
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
 
+function vtableRow(elm, row, k, p) {
+  var col = ifct2017.columns;
+  var hie = ifct2017.hierarchy;
+  var rep = ifct2017.representations;
+  var tr = document.createElement('tr');
+  var ke = k+'_e';
+  tr.setAttribute('data-tt-id', k);
+  if(p) tr.setAttribute('data-tt-parent-id', p);
+  var td = document.createElement('td');
+  td.textContent = (col.get(k)||{}).name;
+  tr.appendChild(td);
+  td = document.createElement('td');
+  td.textContent = row[k]+(row[ke]? '%'+row[ke]:'')+((rep.get(k)||{}).unit? ' '+(rep.get(k)||{}).unit:'');
+  tr.appendChild(td);
+  elm.appendChild(tr);
+  var chd = (hie.get(k)||{}).children||'';
+  if(!chd) return;
+  for(var c of chd.split(' '))
+    vtableRow(elm, row, c, k);
+};
+
+function vtableLog(row) {
+  var hie = ifct2017.hierarchy;
+  var frg = document.createDocumentFragment();
+  for(var k in row) {
+    if(k.endsWith('_e')) continue;
+    var pars = (hie.get(k)||{}).parents||'';
+    if(!pars) vtableRow(frg, row, k, null);
+  }
+  console.log(frg);
+  document.querySelector('#treetable').appendChild(frg);
+  $('#treetable').treetable({expandable: true});
+};
+
 function onReady() {
   var qry = queryParse(location.search);
   var code = qry.code||'A001';
@@ -46,13 +80,14 @@ function onReady() {
     console.log(data);
     var row = data[0]||{};
     $('#picture').attr('src', pictureUrl(row.code));
-    $('#name').text(row.name+(row.scie? '\n('+row.scie+')':''));
+    $('#name').html(row.name+(row.scie? ' <small>('+row.scie+')</small>':''));
     $('#grup').text(row.grup);
     $('#lang').text(langValues(row.lang));
     drawBuy(row.name);
     applyMeta(row, ifct2017.representations);
     drawTable(row, ifct2017.columns, ifct2017.representations);
     $('#info').removeAttr('style');
+    vtableLog(row);
   }); // fail?
 };
 $(document).ready(onReady);
