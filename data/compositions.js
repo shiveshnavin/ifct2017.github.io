@@ -77,7 +77,7 @@ function onReady() {
   var qry = queryParse(location.search);
   var code = qry.code||'A001';
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
-    console.log(data);
+    console.log(mydata=data);
     var row = data[0]||{};
     $('#picture').attr('src', pictureUrl(row.code));
     $('#name').html(row.name+(row.scie? ' <small>('+row.scie+')</small>':''));
@@ -85,7 +85,7 @@ function onReady() {
     $('#lang').text(langValues(row.lang));
     drawBuy(row.name);
     applyMeta(row, ifct2017.representations);
-    drawTable(row, ifct2017.columns, ifct2017.representations);
+    // drawTable(row, ifct2017.columns, ifct2017.representations);
     $('#info').removeAttr('style');
     vtableLog(row);
   }); // fail?
