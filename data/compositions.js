@@ -32,9 +32,10 @@ function tableRow(row, ccol, crep) {
   return z;
 };
 function drawTable(row, ccol, crep) {
-  if(datatable!=null) { datatable.destroy(); $('#datatable').empty(); }
-  datatable = $('#datatable').DataTable({
-    columns: TABLE_COL, data: tableRow(row, ccol, crep), aaSorting: [], pageLength: 25,
+  if(datatable!=null) { datatable.destroy(); $('#composition').empty(); }
+  datatable = $('#composition').DataTable({
+    columns: TABLE_COL, aaSorting: [], pageLength: 1000,
+    // columns: TABLE_COL, data: tableRow(row, ccol, crep), aaSorting: [], pageLength: 25,
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
@@ -51,7 +52,7 @@ function vtableRow(elm, row, k, p) {
   td.textContent = (col.get(k)||{}).name;
   tr.appendChild(td);
   td = document.createElement('td');
-  td.textContent = row[k]+(row[ke]? '%'+row[ke]:'')+((rep.get(k)||{}).unit? ' '+(rep.get(k)||{}).unit:'');
+  td.textContent = row[k]+(row[ke]? '±'+row[ke]:'')+((rep.get(k)||{}).unit? ' '+(rep.get(k)||{}).unit:'');
   tr.appendChild(td);
   elm.appendChild(tr);
   var chd = (hie.get(k)||{}).children||'';
@@ -69,8 +70,10 @@ function vtableLog(row) {
     if(!pars) vtableRow(frg, row, k, null);
   }
   console.log(frg);
-  document.querySelector('#treetable').appendChild(frg);
-  $('#treetable').treetable({expandable: true});
+  var tbd = document.createElement('tbody');
+  tbd.appendChild(frg);
+  document.querySelector('#composition').appendChild(tbd);
+  $('#composition').treetable({expandable: true, clickableNodeNames: true});
 };
 
 function onReady() {
@@ -85,9 +88,9 @@ function onReady() {
     $('#lang').text(langValues(row.lang));
     drawBuy(row.name);
     applyMeta(row, ifct2017.representations);
-    // drawTable(row, ifct2017.columns, ifct2017.representations);
-    $('#info').removeAttr('style');
     vtableLog(row);
+    drawTable(row, ifct2017.columns, ifct2017.representations);
+    $('#info').removeAttr('style');
   }); // fail?
 };
 $(document).ready(onReady);

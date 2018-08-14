@@ -125,7 +125,6 @@ html.no-details #datatable tr a > br {
 }
 
 
-
 /* 3. footer sundarization */
 html {
   height: 100%;
@@ -147,16 +146,18 @@ footer a {
 }
 
 
-
-
-
-
-
-
-#treetable td:first-child {
-  min-width: 300px;
+tr.branch .indenter a {
+  font-family: 'Batch';
 }
-#treetable td {
-  padding: 1rem 0;
-  font-size: 1.5rem;
+tr.branch.collapsed .indenter a::before {
+  content: "\F021";
+}
+tr.branch.expanded .indenter a::before {
+  content: "\F022";
+}
+tr.branch.collapsed:hover .indenter a::before {
+  content: "\F01D";
+}
+tr.branch.expanded:hover .indenter a::before {
+  content: "\F01E";
 }
