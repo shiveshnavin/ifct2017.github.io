@@ -1,26 +1,41 @@
-/* 1. header cosmeticization */
+/* HEADER */
+/* ------ */
 nav:not([class]), nav:not([class]) * {
   border: none;
 }
 nav:not([class]) label {
   max-width: none;
 }
+html.index nav:not([class]) header > a {
+  visibility: hidden;
+}
 nav:not([class]) header a,
 nav:not([class]) ul a {
   font-family: 'Righteous', cursive;
   font-weight: bolder;
 }
-html.index nav:not([class]) header > a {
-  visibility: hidden;
+
+
+/* FOOTER */
+/* ------ */
+html {
+  height: 100%;
 }
-html.ketogenic nav:not([class]) a.ketogenic,
-html.essential nav:not([class]) a.essential {
-  border-bottom: 4px solid black;
+body {
+  position: relative;
+  min-height: 100%;
+}
+footer {
+  overflow: hidden;
+  max-width: none;
+}
+footer a {
+  padding: 0 1rem;
 }
 
 
-
-/* 2. main beautification */
+/* MAIN */
+/* ---- */
 body, input, textarea, select, button {
   font-family: 'Righteous', cursive;
 }
@@ -125,27 +140,7 @@ html.no-details #datatable tr a > br {
 }
 
 
-/* 3. footer sundarization */
-html {
-  height: 100%;
-}
-body {
-  position: relative;
-  min-height: 100%;
-  /* padding-bottom: 860px; */
-}
-footer {
-  /* position: absolute;
-  bottom: 0; */
-  overflow: hidden;
-  /* height: 860px; */
-  max-width: none;
-}
-footer a {
-  padding: 0 1rem;
-}
-
-
+/* TABLE */
 tr.branch .indenter a {
   font-family: 'Batch';
 }
