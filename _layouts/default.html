@@ -1,39 +1,20 @@
 <!DOCTYPE html>
 <html class="{{ page.class }}">
-<head>
-{% include head.html %}
-</head>
+<head>{% include head.html %}</head>
 
 
 <body>
-<!-- navbar (chaos free) -->
+<!-- NAVBAR -->
 <nav>
 <label>
 <input type="checkbox">
-  <header>
-    <a href="/"><img src="https://i.imgur.com/HREdLU9.png">{{ page.title }}</a>
-  </header>
-  <ul>
-    <li>
-      <a>About</a>
-      <menu>
-      <menuitem><a class="essential" href="/read/essential">Essential nutrients</a></menuitem>
-      <menuitem><a class="ketogenic" href="/read/ketogenic">Ketogenic diet</a></menuitem>
-      </menu>
-    </li>
-    <li>
-      <a>Profile</a>
-      <menu>
-      <menuitem><a class="essential" href="/read/essential">Essential nutrients</a></menuitem>
-      <menuitem><a class="ketogenic" href="/read/ketogenic">Ketogenic diet</a></menuitem>
-      </menu>
-    </li>
-    <li><a class="statistics" href="/math/statistics">Statistics</a></li>
-    </ul>
+  <header>{% include header.html %}</header>
+  <ul>{% include navmenu.html %}</ul>
 </label>
 </nav>
 
 
+<!-- MAIN -->
 <main>
 <section>
 {{ content }}
@@ -41,49 +22,13 @@
 </main>
 
 
+<!-- FOOTER -->
 <footer style="display: none;">
 {% if page.class contains "ketogenic" %}
-<h5 txt="c">Lectures</h5>
-<grid txt="c">
-  {% for lec in site.data.lectures %}
-  <div col="1/4"><a href="{{ lec.url }}">{{ lec.name }}<br><small>{{ lec.by }}</small></a></div>
-  {% endfor %}
-</grid>
-<br><br>
-<h5 txt="c">Documentaries</h5>
-<grid txt="c">
-  {% for doc in site.data.documentaries %}
-  <div col="1/4"><a href="{{ doc.url }}">{{ doc.name }}<br><small>{{ doc.by }}</small></a></div>
-  {% endfor %}
-</grid>
-<br><br>
-<h5 txt="c">Books</h5>
-<grid txt="c">
-  {% for book in site.data.books %}
-  <div col="1/4"><a href="{{ book.url }}">{{ book.name }}<br><small>{{ book.by }}</small></a></div>
-  {% endfor %}
-</grid>
-<br><br>
-<h5 txt="c">Blogs</h5>
-<grid txt="c">
-  {% for blog in site.data.blogs %}
-  <div col="1/4"><a href="{{ blog.url }}">{{ blog.by }}</a></div>
-  {% endfor %}
-</grid>
+{% include footer-ketogenic.html %}
 <br><hr style="margin: 0 0 2rem 0;">
 {% endif %}
-<grid>
-<div col="1/2">
-  <a href="#">Advertising</a>
-  <a href="#">Business</a>
-  <a href="/read/about">About</a>
-</div>
-<div col="1/2" txt="r">
-  <a href="/read/terms">Terms</a>
-  <a href="/read/privacy">Privacy</a>
-  <a href="#">Settings</a>
-</div>
-</grid>
+{% include footer.html %}
 </footer>
 </body>
 </html>
