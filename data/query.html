@@ -1,0 +1,33 @@
+---
+layout: default
+title: Query
+script: query.js
+class: page
+---
+<grid id="info" style="display: none;">
+<div col="1/2">
+  <div><img id="picture" style="display: block; width: 100%;"></div>
+  <div id="name" style="font-size: 2rem; background: lightpink; padding: 1rem;"></div>
+  <div id="grup" style="font-size: 1.5rem; background: lightcyan; padding: 1rem;"></div>
+  <div id="lang" style="background: lightyellow; padding: 1rem;"></div>
+</div>
+<div col="1/2">
+  <grid id="buy">
+  <a fx col="1/4" target="_blank" href="https://www.amazon.in/gp/search?ie=UTF8&tag=wolfram77-21&linkCode=ur2&linkId=707125a1245570d0d0c70de95c1f0952&camp=3638&creative=24630&index=aps&keywords=${name}"><img src="https://i.imgur.com/doxJnRs.jpg" alt="amazon"></a>
+  <a fx col="1/4" target="_blank" href="https://www.bigbasket.com/ps/?q=${name}"><img src="https://i.imgur.com/IvIjnkQ.jpg" alt="bigbasket"></a>
+  <a fx col="1/4" target="_blank" href="https://grofers.com/s/?q=${name}"><img src="https://i.imgur.com/IOPNnc0.jpg" alt="grofers"></a>
+  <a fx col="1/4" target="_blank" href="https://www.biomart.in/catalogsearch/result/?q=${name}"><img src="https://i.imgur.com/K0aVLWk.jpg" alt="biomart"></a>
+  <a fx col="1/4" target="_blank" href="http://www.naturesbasket.co.in/Online-grocery-shopping/${name}"><img src="https://i.imgur.com/NOdj7y7.png" alt="naturesbasket"></a>
+  <a fx col="1/4" target="_blank" href="https://www.pureandsure.in/catalogsearch/result/?q=${name}"><img src="https://i.imgur.com/ygD64po.jpg" alt="pureandsure"></a>
+  <a fx col="1/4" target="_blank" href="https://www.zopnow.com/${name}-s.php"><img src="https://i.imgur.com/QJGAM4a.png" alt="zopnow"></a>
+  <a fx col="1/4" target="_blank" href="https://getgrowfit.com/search?q=${name}"><img src="https://i.imgur.com/ZNhqwtW.jpg" alt="growfit"></a>
+  <a fx col="1/4" target="_blank" href="https://www.snapdeal.com/search?keyword=${name}"><img src="https://i.imgur.com/f6klwIn.png" alt="snapdeal"></a>
+  <a fx col="1/4" target="_blank" href="https://www.sparindia.com/en/search/?text=${name}"><img src="https://i.imgur.com/96JO31n.jpg" alt="spar"></a>
+  <a fx col="1/4" target="_blank" href="https://www.qtrove.com/search?q=${name}"><img src="https://i.imgur.com/AU6UQrS.jpg" alt="qtrove"></a>
+  <a fx col="1/4" target="_blank" href="http://www.reliancesmart.in/SearchDisplay?searchTerm=${name}&orderBy=9"><img src="https://i.imgur.com/u7qvIXP.jpg" alt="reliancesmart"></a>
+  </grid>
+</div>
+</grid>
+<br> <br>
+<table id="composition" class="hover stripe order-column"></table>
+<br><br>
