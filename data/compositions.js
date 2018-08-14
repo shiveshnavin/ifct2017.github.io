@@ -65,7 +65,7 @@ function vtableLog(row) {
   var hie = ifct2017.hierarchy;
   var frg = document.createDocumentFragment();
   for(var k in row) {
-    if(k.endsWith('_e')) continue;
+    if(k.endsWith('_e') || EXCLUDE_DEF.has(k)) continue;
     var pars = (hie.get(k)||{}).parents||'';
     if(!pars) vtableRow(frg, row, k, null);
   }
