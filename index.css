@@ -47,7 +47,7 @@ input[mode=key] {
 #logo {
   display: block;
   margin: auto;
-  max-height: 24rem;
+  max-height: 22rem;
 }
 @media (max-height: 32rem) {
   #logo { margin-top: 0; }
