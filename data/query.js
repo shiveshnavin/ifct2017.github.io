@@ -3,6 +3,7 @@ var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" na
 
 var datatable = null;
 var highcharts = null;
+var rows = null, chartRange = null, chartUnit = null;
 
 
 function applyFactor(rows, k, fac) {
@@ -78,19 +79,34 @@ function cleanChart() {
   $('#highcharts').empty();
   highcharts = null;
 };
+
+// Format chart tooltip.
+function chartTooltip() {
+  console.log(this);
+  var fmt = document.getElementById('highcharts-tooltip').innerHTML;
+  var x = this.x, y = this.y, r = rows[this.x];
+  var y0 = chartRange[x][1], y1 = chartRange[x][2];
+  var z = fmt.replace('${picture}', pictureUrl(r.code));
+  z = z.replace('${name}', r.name);
+  z = z.replace('${scie}', r.scie||'...');
+  z = z.replace('${range}', y+chartUnit+' ('+y1+'-'+y0+')');
+  return z;
+};
+
 function drawChart(rows, meta, x, y) {
   cleanChart();
   var metay = meta[y];
+  chartUnit = metay.unit;
   var label = '{value}'+(metay.unit||'');
   var value = rowsValue(rows, x, y);
-  var range = rowsRange(rows, x, y);
+  var range = rowsRange(rows, x, y); chartRange = range;
   var colors = Highcharts.getOptions().colors;
   highcharts = Highcharts.chart('highcharts', {
     chart: {style: {fontFamily: '\'Righteous\', cursive'}},
     title: {text: metay.name},
     xAxis: {labels: {enabled: true, formatter: function() { return value[Math.round(this.value)][0]; }}},
     yAxis: {title: {text: null}, labels: {format: label}},
-    tooltip: {crosshairs: true, shared: true, valueSuffix: metay.unit},
+    tooltip: {crosshairs: true, shared: true, useHTML: true, formatter: chartTooltip},
     legend: {},
     series: [{
       name: metay.name, data: value, zIndex: 1,
@@ -108,7 +124,8 @@ function processQuery(txt) {
     console.log('slang:', data.slang);
     console.log('sql:', data.sql);
     console.log(data);
-    var rows = data.rows, meta = data.meta;
+    rows = data.rows;
+    var meta = data.meta;
     if(rows.length===0) return;
     var keys = Object.keys(rows[0]||{});
     applyMeta(rows, meta);

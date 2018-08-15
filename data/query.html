@@ -10,4 +10,16 @@ class: page wide
     placeholder="Query composition of 528 key foods in India">
 </form>
 <div id="highcharts" width="100%"></div>
+<div id="highcharts-tooltip" style="display: none;">
+<grid class="tooltip" style="width: 307px;">
+  <div col="1/2"><img src="${picture}" style="display: block; width: 153px; height: 86px;"></div>
+  <div col="1/2">
+    <div class="info">
+    <div class="name">${name}</div>
+    <div class="scie">(${scie})</div>
+    </div>
+    <div class="range">${range}</div>
+  </div>
+</grid>
+</div>
 <table id="datatables" class="hover stripe order-column" width="100%"></table>
