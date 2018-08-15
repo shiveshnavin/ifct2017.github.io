@@ -72,19 +72,6 @@ function drawTable(rows, meta) {
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
 
-function chartValue(rows, x, y) {
-  var data = [];
-  for(var row of rows)
-    data.push([row[x], row[y]]);
-  return data;
-};
-function chartRange(rows, x, y) {
-  var data = [], ye = y+'_e';
-  if(rows[0][ye]==null) return null;
-  for(var row of rows)
-    data.push([row[x], round(row[y]-row[ye]), round(row[y]+row[ye])]);
-  return data;
-};
 function cleanChart() {
   if(highcharts==null) return;
   highcharts.destroy();
@@ -95,8 +82,9 @@ function drawChart(rows, meta, x, y) {
   cleanChart();
   var metay = meta[y];
   var label = '{value}'+(metay.unit||'');
-  var value = chartValue(rows, x, y);
-  var range = chartRange(rows, x, y);
+  var value = rowsValue(rows, x, y);
+  var range = rowsRange(rows, x, y);
+  var colors = Highcharts.getOptions().colors;
   highcharts = Highcharts.chart('highcharts', {
     chart: {style: {fontFamily: '\'Righteous\', cursive'}},
     title: {text: metay.name},
@@ -106,10 +94,10 @@ function drawChart(rows, meta, x, y) {
     legend: {},
     series: [{
       name: metay.name, data: value, zIndex: 1,
-      marker: {fillColor: 'white', lineWidth: 2, lineColor: Highcharts.getOptions().colors[0]}
+      marker: {fillColor: 'white', lineWidth: 2, lineColor: colors[0]}
     }, {
       name: 'Range', data: range, type: 'arearange', lineWidth: 0, linkedTo: ':previous',
-      color: Highcharts.getOptions().colors[0], fillOpacity: 0.3, zIndex: 0, marker: {enabled: false}
+      color: colors[0], fillOpacity: 0.3, zIndex: 0, marker: {enabled: false}
     }]
   });
 };
@@ -117,9 +105,9 @@ function drawChart(rows, meta, x, y) {
 function processQuery(txt) {
   console.log('processQuery()', txt);
   $.getJSON(SERVER_URL+'/fn/english/'+txt, function(data) {
-    console.log('text:', txt);
     console.log('slang:', data.slang);
     console.log('sql:', data.sql);
+    console.log(data);
     var rows = data.rows, meta = data.meta;
     if(rows.length===0) return;
     var keys = Object.keys(rows[0]||{});

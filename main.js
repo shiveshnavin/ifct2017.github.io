@@ -67,6 +67,23 @@ function pictureUrl(cod) {
   return cod[0]>='M' && cod[0]<='O'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
 };
 
+// Get x, y value of rows.
+function rowsValue(rows, x, y) {
+  var z = [];
+  for(var r of rows)
+    z.push([r[x], r[y]]);
+  return z;
+};
+
+// Get x, y range of rows.
+function rowsRange(rows, x, y) {
+  var z = [], ye = y+'_e';
+  if(rows[0][ye]==null) return null;
+  for(var r of rows)
+    z.push([r[x], round(r[y]-r[ye]), round(r[y]+r[ye])]);
+  return z;
+};
+
 // Enable form multi submit
 function setupForms() {
   console.log('setupForms()');
