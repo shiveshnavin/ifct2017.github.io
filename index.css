@@ -34,12 +34,6 @@ body {
   position: relative;
   min-height: 100%;
 }
-@media (min-height: 32rem) { html.index footer {
-  /* fix to bottom */
-  position: fixed;
-  bottom: 0;
-}
-}
 footer {
   /* dont overflow */
   overflow: hidden;
@@ -49,6 +43,16 @@ footer a {
   /* spaced links */
   padding: 0 1rem;
 }
+@media (min-height: 32rem) { html.index footer {
+  /* fix to bottom */
+  position: fixed;
+  bottom: 0;
+}
+}
+@media (max-width: 50rem) { footer div[txt=l], footer div[txt=r] {
+  /* no splitting */
+  text-align: left;
+}}
 
 
 /* MAIN */
