@@ -69,16 +69,8 @@ p, p:not([class]) {
   /* justify paragraph text */
   text-align: justify;
 }
-form {
-  margin: 0 6rem;
-}
-form label:not([class]) {
-  font-size: 1.4rem;
-}
-
-
-/* MAIN: WIDE */
 html.wide section, html.wide form {
+  /* wide page */
   max-width: none;
   padding-top: 0;
   margin: 0;
@@ -88,77 +80,42 @@ html.wide section, html.wide form {
 /* LOGO */
 /* ---- */
 #logo {
+  /* large logo */
   display: block;
-  margin: auto;
   max-height: 20rem;
+  margin: auto;
 }
 @media (max-height: 32rem) {
+  /* squeeze in low space */
   #logo { margin-top: 0; }
-}
-@keyframes opacity-blink {
-  from { opacity: initial; }
-  to { opacity: 0.5; }
-}
-#logo.active {
-  animation: opacity-blink 1s infinite alternate;
 }
 
 
 /* TEXT INPUT */
 #text {
+  /* use box design */
   width: 100%;
   padding: 1.2rem;
   font-size: 1.4em;
   text-align: center;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
 }
-#text:focus {
-  color: black;
-}
-
-
-#columns {
-  padding: 2rem 0;
-}
-html.index main {
-  padding-top: 2rem;
-}
-html.search #logo, html.search form > p {
-  display:none;
-}
-html.search section, html.search form {
-  max-width: none;
-  margin: 0;
-}
-html.search #search {
-  margin: 2rem 0;
-  width: 100%;
-}
-html.read main {
-  font-size: 2rem;
-}
-#search ~ button {
-  z-index: 2;
-  position: absolute;
-  right: 0;
-  margin: 3rem 2rem;
-}
-html.no-details #datatable tr a > small,
-html.no-details #datatable tr a > img,
-html.no-details #datatable tr a > div,
-html.no-details #datatable tr a > br {
-  display: none;
+#text:focus, #text:hover {
+  /* keep text dark */
+  color: darkblue;
 }
 
 
 /* IZITOAST */
 .iziToast {
+  /* use righteous */
   font-family: 'Righteous', cursive;
 }
 
 
 /* BUY */
 #buy > a:hover {
+  /* hover box */
   outline: 1px solid black;
 }
 
@@ -175,22 +132,27 @@ html.no-details #datatable tr a > br {
   white-space: normal;
 }
 .tooltip img {
+  /* fix half size */
   display: block;
   width: 153px;
   height: 86px;
 }
 .tooltip .info, .tooltip .range {
+  /* text layout */
   padding: 1rem;
   font-size: 1rem;
   background: yellow;
 }
 .tooltip .info {
+  /* fix name size */
   height: 5.2rem;
 }
 .tooltip .scie {
+  /* mini scientific name */
   font-size: 0.8rem;
 }
 .tooltip .range {
+  /* background for range */
   background: lightyellow;
 }
 
@@ -199,15 +161,17 @@ html.no-details #datatable tr a > br {
 .pretty {
   padding: 0 2rem;
 }
+/* fixed header */
 .fixedHeader-floating {
   z-index: 1;
 }
 .sticky {
-  position: fixed;
-  top: 0;
   background: white;
+  position: fixed;
   z-index: 2;
+  top: 0;
 }
+/* expand collapse icons */
 tr.branch .indenter a {
   font-family: 'Batch';
 }
