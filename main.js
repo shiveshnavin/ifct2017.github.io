@@ -27,6 +27,16 @@ function queryParse(txt) {
   return z;
 };
 
+// Get location path
+function locationPath() {
+  return location.pathname+location.search;
+};
+
+// Set location path
+function locationPathSet(pth) {
+  return location.href = location.origin+pth+location.hash;
+};
+
 // Get object from form elements.
 function formGet(frm) {
   var E = frm.elements, z = {};
