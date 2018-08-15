@@ -1,18 +1,25 @@
 /* HEADER */
 /* ------ */
-nav:not([class]), nav:not([class]) * {
+#header, #header * {
+  /* remove border */
   border: none;
 }
-nav:not([class]) label {
+#header label {
+  /* use full width */
   max-width: none;
 }
-html.index nav:not([class]) header > a {
-  visibility: hidden;
-}
-nav:not([class]) header a,
-nav:not([class]) ul a {
+header > a, #header ul a {
+  /* use righteous (b) */
   font-family: 'Righteous', cursive;
   font-weight: bolder;
+}
+@media (min-width: 32rem) { header > a::after {
+  /* use trailing text */
+  content: ' | Indian Food Composition';
+}}
+html.index header > a {
+  /* index: no navhead */
+  visibility: hidden;
 }
 
 
