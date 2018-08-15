@@ -63,11 +63,45 @@ function formSet(frm, val) {
   return frm;
 };
 
-// Get column name from key.
+// Get column name.
 function columnName(k) {
   if(k.indexOf('"')>=0) return k.replace(/\"(.*?)\"/g, function(m, p1) { return columnName(p1); });
   if(COLUMNS.has(k)) return COLUMNS.get(k).name;
   return COLUMN_NAM.get(k)||k[0].toUpperCase()+k.substring(1);
+};
+
+// Get column tags.
+function columnTags(k) {
+  var z = '', m = null;
+  if(k.indexOf('"')<0) return COLUMNS.has(k)? COLUMNS.get(k).tags:k;
+  while((m=/\"(.*?)\"/g.exec())!=null)
+    z += columnTags(m[1])+' ';
+  return z.substring(0, z.length-1);
+};
+
+// Get column parents.
+function columnParents(k) {
+  return HIERARCHY.has(k)? HIERARCHY.get(k).parents:null;
+};
+
+// Get column ancestry.
+function columnAncestry(k) {
+  return HIERARCHY.has(k)? HIERARCHY.get(k).ancestry:null;
+};
+
+// Get column children.
+function columnChildren(k) {
+  return HIERARCHY.has(k)? HIERARCHY.get(k).children:null;
+};
+
+// Get column factor.
+function columnFactor(k) {
+  return REPRESENTATIONS.has(k)? REPRESENTATIONS.get(k).factor:1;
+};
+
+// Get column unit.
+function columnUnit(k) {
+  return REPRESENTATIONS.has(k)? REPRESENTATIONS.get(k).unit:null;
 };
 
 // Get language values from "lang".
@@ -86,18 +120,18 @@ function pictureUrl(cod) {
 
 // Get x, y value of rows.
 function rowsValue(rows, x, y) {
-  var z = [];
+  var z = [], f = columnFactor(y);
   for(var r of rows)
-    z.push([r[x], r[y]]);
+    z.push([r[x], r[y]*f]);
   return z;
 };
 
-// Get x, y range of rows.
+// Get x, y0, y1 range of rows.
 function rowsRange(rows, x, y) {
-  var z = [], ye = y+'_e';
+  var z = [], ye = y+'_e', f = columnFactor(k);
   if(rows[0][ye]==null) return null;
   for(var r of rows)
-    z.push([r[x], round(r[y]-r[ye]), round(r[y]+r[ye])]);
+    z.push([r[x], round((r[y]-r[ye])*f), round((r[y]+r[ye])*f)]);
   return z;
 };
 

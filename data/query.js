@@ -1,5 +1,4 @@
 var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
-
 var datatable = null;
 var highcharts = null;
 var rows = null, chartRange = null, chartUnit = null;

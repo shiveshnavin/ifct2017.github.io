@@ -1,6 +1,4 @@
-var EXCLUDE_DEF = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);
 var TABLE_COL = [{title: 'Nutrient'}, {title: 'Value'}];
-
 var datatable = null;
 
 
@@ -23,7 +21,7 @@ function applyMeta(row, crep) {
 function tableRow(row, ccol, crep) {
   var z = [];
   for(var k in row) {
-    if(k.endsWith('_e') || EXCLUDE_DEF.has(k)) continue;
+    if(k.endsWith('_e') || COLUMNS_TXT.has(k)) continue;
     var v = row[k].toString(), ke = k+'_e';
     if(row[ke]) v += '±'+row[ke];
     if(crep.get(k).unit) v += ' '+crep.get(k).unit;
@@ -65,7 +63,7 @@ function vtableLog(row) {
   var hie = ifct2017.hierarchy;
   var frg = document.createDocumentFragment();
   for(var k in row) {
-    if(k.endsWith('_e') || EXCLUDE_DEF.has(k)) continue;
+    if(k.endsWith('_e') || COLUMNS_TXT.has(k)) continue;
     var pars = (hie.get(k)||{}).parents||'';
     if(!pars) vtableRow(frg, row, k, null);
   }
