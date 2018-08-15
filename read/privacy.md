@@ -3,7 +3,6 @@ layout: default
 title: Privacy Policy
 ---
 
-
 [Indian Food Composition] recognises the importance of maintaining your privacy. We value your
 privacy and appreciate your trust in us. This Policy describes how we treat user
 information we collect on https://www.ifct2017.github.io and other offline sources. This
