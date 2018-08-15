@@ -118,7 +118,7 @@ function pictureUrl(cod) {
   return cod[0]>='M' && cod[0]<='O'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
 };
 
-// Get x, y value of rows.
+// Get scaled x, y value of rows.
 function rowsValue(rows, x, y) {
   var z = [], f = columnFactor(y);
   for(var r of rows)
@@ -126,13 +126,17 @@ function rowsValue(rows, x, y) {
   return z;
 };
 
-// Get x, y0, y1 range of rows.
+// Get scaled x, y0, y1 range of rows.
 function rowsRange(rows, x, y) {
   var z = [], ye = y+'_e', f = columnFactor(k);
   if(rows[0][ye]==null) return null;
   for(var r of rows)
     z.push([r[x], round((r[y]-r[ye])*f), round((r[y]+r[ye])*f)]);
   return z;
+};
+
+function rowsWithText(rows) {
+  var z = [];
 };
 
 // Enable form multi submit
