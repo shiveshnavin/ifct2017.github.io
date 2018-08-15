@@ -81,14 +81,14 @@ input[mode=key] {
 
 
 /* TEXT INPUT */
-input[name=text] {
+#text {
   width: 100%;
   padding: 1.2rem;
   font-size: 1.4em;
   text-align: center;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
 }
-input[name=text]:focus {
+#text:focus {
   color: black;
 }
 
