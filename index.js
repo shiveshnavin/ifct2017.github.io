@@ -12,6 +12,5 @@ function setup() {
   console.log('setup()');
   $('form').submit(onSubmit);
   setupForms();
-  setupFooter();
 };
 $(document).ready(setup);

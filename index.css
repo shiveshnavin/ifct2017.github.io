@@ -26,17 +26,27 @@ html.index header > a {
 /* FOOTER */
 /* ------ */
 html {
+  /* full height html */
   height: 100%;
 }
 body {
+  /* full height body */
   position: relative;
   min-height: 100%;
 }
+@media (min-height: 32rem) { html.index footer {
+  /* fix to bottom */
+  position: fixed;
+  bottom: 0;
+}
+}
 footer {
+  /* dont overflow */
   overflow: hidden;
   max-width: none;
 }
 footer a {
+  /* spaced links */
   padding: 0 1rem;
 }
 
@@ -81,7 +91,7 @@ html.wide section, html.wide form {
 #logo {
   display: block;
   margin: auto;
-  max-height: 22rem;
+  max-height: 20rem;
 }
 @media (max-height: 32rem) {
   #logo { margin-top: 0; }
