@@ -143,8 +143,8 @@ function processQuery(txt) {
 function onSubmit(e) {
   var src = e.target.submitted;
   console.log('onSubmit()', src);
-  var val = document.getElementById('search').value;
-  if(src==='query') location.search = '?query='+val;
+  var val = document.getElementById('text').value;
+  locationPathSet('/data/query?text='+val);
   return false;
 };
 
