@@ -143,8 +143,8 @@ function processQuery(txt) {
 function onSubmit(e) {
   var src = e.target.submitted;
   console.log('onSubmit()', src);
-  var val = document.getElementById('text').value;
-  locationPathSet('/data/query?text='+val);
+  var txt = document.getElementById('text').value;
+  locationPathSet('/data/query?text='+txt);
   return false;
 };
 
@@ -153,11 +153,11 @@ function setupLocation() {
   var s = location.search;
   console.log('setupLocation()', s);
   if(s.length===0) return;
-  var v = queryParse(s);
-  if(v.query) {
-    document.getElementById('search').value = v.query;
-    processQuery(v.query);
-  }
+  var q = queryParse(s);
+  if(!q.text) return;
+  var txt = document.getElementById('text');
+  txt.value = q.text;
+  processQuery(q.text);
 };
 
 // Setup page.
