@@ -116,21 +116,18 @@ function drawChart(rows, meta, x, y) {
 
 function processQuery(txt) {
   console.log('processQuery()', txt);
-  $('#logo').addClass('active');
   $.getJSON(SERVER_URL+'/fn/english/'+txt, function(data) {
-    $('#logo').removeClass('active');
-    console.log('ENGLISH:', txt);
-    $('html').attr('class', 'search');
+    console.log('text:', txt);
+    console.log('slang:', data.slang);
+    console.log('sql:', data.sql);
     var rows = data.rows, meta = data.meta;
     if(rows.length===0) return;
     var keys = Object.keys(rows[0]||{});
     applyMeta(rows, meta);
     drawTable(rows, meta);
     if(keys.length>=6) drawChart(rows, meta, keys[1], keys[5]);
-    console.log('SLANG:', data.slang);
   }).fail(function(e) {
     var err = e.responseJSON;
-    $('#logo').removeClass('active');
     iziToast.error({
       title: err.message,
       message: '<b>SLANG:</b> '+err.slang+'<br><b>SQL:</b> '+err.sql,
