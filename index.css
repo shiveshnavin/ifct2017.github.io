@@ -75,14 +75,6 @@ form {
 form label:not([class]) {
   font-size: 1.4rem;
 }
-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-input[mode=key] {
-  text-transform: uppercase;
-}
 
 
 /* MAIN: WIDE */
@@ -145,10 +137,6 @@ html.search #search {
 html.read main {
   font-size: 2rem;
 }
-html.query form fieldset {
-  display: inline-block;
-  width: 24%;
-}
 #search ~ button {
   z-index: 2;
   position: absolute;
@@ -173,6 +161,7 @@ html.no-details #datatable tr a > br {
 #buy > a:hover {
   outline: 1px solid black;
 }
+
 
 /* TOOLTIP */
 .tooltip {

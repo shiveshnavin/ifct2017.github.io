@@ -80,9 +80,35 @@ function cleanChart() {
   highcharts = null;
 };
 
+// 
+function chartSelect() {
+
+};
+
+// Render chart select.
+function chartSelectRender(row) {
+  var col = ifct2017.columns;
+  var frg = document.createDocumentFragment();
+  for(var k in row) {
+    if(k.endsWith('_e') || k.endsWith('_t') || EXCLUDE_DEF.has(k)) continue;
+    var id = 'highcharts-select-'+k;
+    var inp = document.createElement('input');
+    inp.setAttribute('type', 'checkbox');
+    // inp.setAttribute('name', k);
+    var lbl = document.createElement('label');
+    inp.id = id; lbl.setAttribute('for', id);
+    lbl.appendChild(document.createTextNode(col.get(k).name));
+    frg.appendChild(inp);
+    frg.appendChild(lbl);
+  }
+  var sel = document.getElementById('highcharts-select');
+  $(sel).empty();
+  sel.appendChild(frg);
+  return sel;
+};
+
 // Format chart tooltip.
 function chartTooltip() {
-  console.log(this);
   var fmt = document.getElementById('highcharts-tooltip').innerHTML;
   var x = this.x, y = this.y, r = rows[this.x];
   var y0 = chartRange[x][1], y1 = chartRange[x][2];
@@ -95,6 +121,7 @@ function chartTooltip() {
 
 function drawChart(rows, meta, x, y) {
   cleanChart();
+  chartSelectRender(rows[0]);
   var metay = meta[y];
   chartUnit = metay.unit;
   var label = '{value}'+(metay.unit||'');
