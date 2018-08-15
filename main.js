@@ -1,7 +1,17 @@
-// Glbal constants.
+// Global constants.
 var SERVER_URL = 'https://ifct2017bot.glitch.me';
 var PICTURES_DEF = 'https://i.imgur.com/PNZBH2d.png';
 var PICTURES_URL = 'https://cdn.jsdelivr.net/npm/@ifct2017/pictures/assets/';
+var COLUMNS_TXT = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);
+var COLUMNS = ifct2017.columns, HIERARCHY = ifct2017.hierarchy;
+var INTAKES = ifct2017.intakes, METHODS = ifct2017.methods;
+var NUTRIENTS = ifct2017.nutrients, REPRESENTATIONS = ifct2017.representations;
+var COLUMNS_NAM = new Map([
+  ['abbr', 'Abbreviation'],
+  ['desc', 'Description'],
+  ['kj', 'kJ'],
+  ['kcal', 'kcal'],
+]);
 
 
 // Fix floating-point precision problem.
@@ -51,6 +61,13 @@ function formSet(frm, val) {
   for(var i=0, I=e.length; i<I; i++)
     if(e[i].name && val[e[i].name]) e[i].value = val[e[i].name];
   return frm;
+};
+
+// Get column name from key.
+function columnName(k) {
+  if(k.indexOf('"')>=0) return k.replace(/\"(.*?)\"/g, function(m, p1) { return columnName(p1); });
+  if(COLUMNS.has(k)) return COLUMNS.get(k).name;
+  return COLUMN_NAM.get(k)||k[0].toUpperCase()+k.substring(1);
 };
 
 // Get language values from "lang".

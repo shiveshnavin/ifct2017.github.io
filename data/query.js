@@ -1,4 +1,3 @@
-var EXCLUDE_DEF = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);
 var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
 
 var datatable = null;
@@ -23,7 +22,7 @@ function applyMeta(rows, meta) {
 function tableColumns(rows, meta) {
   var cols = [{title: meta['name'].name, data: {_: 'name_t', sort: 'name'}}];
   for(var k in rows[0]) {
-    if(k.endsWith('_e') || EXCLUDE_DEF.has(k)) continue;
+    if(k.endsWith('_e') || COLUMNS_TXT.has(k)) continue;
     cols.push({title: meta[k].name, data: {_: k+'_t', sort: k}});
   }
   return cols;
@@ -31,7 +30,7 @@ function tableColumns(rows, meta) {
 function tableRows(rows, meta) {
   for(var row of rows) {
     for(var k in row) {
-      if(k.endsWith('_e') || EXCLUDE_DEF.has(k)) continue;
+      if(k.endsWith('_e') || COLUMNS_TXT.has(k)) continue;
       var v = row[k].toString(), ke = k+'_e';
       if(row[ke]) v += '±'+row[ke];
       if(meta[k].unit) v += ' '+meta[k].unit;
@@ -90,14 +89,14 @@ function chartSelectRender(row) {
   var col = ifct2017.columns;
   var frg = document.createDocumentFragment();
   for(var k in row) {
-    if(k.endsWith('_e') || k.endsWith('_t') || EXCLUDE_DEF.has(k)) continue;
+    if(k.endsWith('_e') || k.endsWith('_t') || COLUMNS_TXT.has(k)) continue;
     var id = 'highcharts-select-'+k;
     var inp = document.createElement('input');
     inp.setAttribute('type', 'checkbox');
     // inp.setAttribute('name', k);
     var lbl = document.createElement('label');
     inp.id = id; lbl.setAttribute('for', id);
-    lbl.appendChild(document.createTextNode(col.get(k).name));
+    lbl.appendChild(document.createTextNode(columnName(k)));
     frg.appendChild(inp);
     frg.appendChild(lbl);
   }
@@ -123,20 +122,19 @@ function drawChart(rows, meta, x, y) {
   cleanChart();
   chartSelectRender(rows[0]);
   var metay = meta[y];
+  var name = columnName(y);
   chartUnit = metay.unit;
   var label = '{value}'+(metay.unit||'');
   var value = rowsValue(rows, x, y);
   var range = rowsRange(rows, x, y); chartRange = range;
   var colors = Highcharts.getOptions().colors;
   highcharts = Highcharts.chart('highcharts', {
-    chart: {style: {fontFamily: '\'Righteous\', cursive'}},
-    title: {text: metay.name},
+    chart: {style: {fontFamily: '"Righteous", cursive'}}, title: {text: null}, legend: {},
     xAxis: {labels: {enabled: true, formatter: function() { return value[Math.round(this.value)][0]; }}},
     yAxis: {title: {text: null}, labels: {format: label}},
     tooltip: {crosshairs: true, shared: true, useHTML: true, formatter: chartTooltip},
-    legend: {},
     series: [{
-      name: metay.name, data: value, zIndex: 1,
+      name: name, data: value, zIndex: 1,
       marker: {fillColor: 'white', lineWidth: 2, lineColor: colors[0]}
     }, {
       name: 'Range', data: range, type: 'arearange', lineWidth: 0, linkedTo: ':previous',
