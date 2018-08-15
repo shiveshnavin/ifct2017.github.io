@@ -10,25 +10,27 @@ USING THIS WEBSITE OR ORDERING PRODUCTS FROM THIS WEBSITE YOU
 AGREE TO BE BOUND BY ALL OF THE TERMS AND CONDITIONS OF THIS
 AGREEMENT.
 
-This Terms of Service Agreement (the "Agreement") governs your use of this
-website, ifct2017.github.io (the "Website"), Subhajit Sahu ("Business Name")
-offer of products for purchase on this Website, or your purchase of products
+This Terms of Service Agreement (the "Agreement") governs your use of this website,
+[Indian Food Composition](https://ifct2017.github.io) (the "Website"), [Merferry]
+("Business Name") offer of products for purchase on this Website, or your purchase of products
 available on this Website. This Agreement includes, and incorporates by this
-reference, the policies and guidelines referenced below. Subhajit Sahu reserves
+reference, the policies and guidelines referenced below. Merferry reserves
 the right to change or revise the terms and conditions of this Agreement at any time
-by posting any changes or a revised Agreement on this Website. Subhajit Sahu
+by posting any changes or a revised Agreement on this Website. Merferry
 will alert you that changes or revisions have been made by indicating on the top of
 this Agreement the date it was last revised. The changed or revised Agreement will
 be effective immediately after it is posted on this Website. Your use of the Website
 following the posting any such changes or of a revised Agreement will constitute
-your acceptance of any such changes or revisions. Subhajit Sahu encourages
+your acceptance of any such changes or revisions. Merferry encourages
 you to review this Agreement whenever you visit the Website to make sure that you
 understand the terms and conditions governing use of the Website. This Agreement
 does not alter in any way the terms or conditions of any other written agreement you
-may have with Subhajit Sahu for other products or services. If you do not agree to
+may have with Merferry for other products or services. If you do not agree to
 this Agreement (including any referenced policies or guidelines), please immediately
 terminate your use of the Website. If you would like to print this Agreement, please
 click the print button on your browser toolbar.
+
+[Merferry]: https://merferry.github.io
 
 
 
@@ -39,9 +41,9 @@ placing an order for Products through this Website, you agree to the terms set f
 in this Agreement.
 
 **Customer Solicitation:** Unless you notify our third party call center reps or direct
-Subhajit Sahu sales reps, while they are calling you, of your desire to opt out from
+Merferry sales reps, while they are calling you, of your desire to opt out from
 further direct company communications and solicitations, you are agreeing to
-continue to receive further emails and call solicitations Subhajit Sahu and its
+continue to receive further emails and call solicitations Merferry and its
 designated in house or third party call team(s).
 
 **Opt Out Procedure:** We provide 3 easy ways to opt out of from future solicitations.
@@ -49,9 +51,9 @@ designated in house or third party call team(s).
 2. You may also choose to opt out, via sending your email address to: wolfram77@gmail.com.
 3. You may send a written remove request to 301, Alekhya Golden Bamboos, Khanamet, Hyderabad 500 084.
 
-**Proprietary Rights:** Subhajit Sahu has proprietary rights and trade secrets in the
+**Proprietary Rights:** Merferry has proprietary rights and trade secrets in the
 Products. You may not copy, reproduce, resell or redistribute any Product
-manufactured and/or distributed by Subhajit Sahu. Subhajit Sahu also has
+manufactured and/or distributed by Merferry. Merferry also has
 rights to all trademarks and trade dress and specific layouts of this webpage,
 including calls to action, text placement, images and other information.
 
@@ -65,20 +67,20 @@ applicable sales tax.
 **Content; Intellectual Property; Third Party Links.** In addition to making Products
 available, this Website also offers information and marketing materials. This Website
 also offers information, both directly and through indirect links to third-party websites,
-about nutritional and dietary supplements. Subhajit Sahu does not always create
+about nutritional and dietary supplements. Merferry does not always create
 the information offered on this Website; instead the information is often gathered
-from other sources. To the extent that Subhajit Sahu does create the content on
+from other sources. To the extent that Merferry does create the content on
 this Website, such content is protected by intellectual property laws of the India,
 foreign nations, and international bodies. Unauthorized use of the material may
 violate copyright, trademark, and/or other laws. You acknowledge that your use of
 the content on this Website is for personal, noncommercial use. Any links to thirdparty
-websites are provided solely as a convenience to you. Subhajit Sahu does
-not endorse the contents on any such third-party websites. Subhajit Sahu is not
+websites are provided solely as a convenience to you. Merferry does
+not endorse the contents on any such third-party websites. Merferry is not
 responsible for the content of or any damage that may result from your access to or
 reliance on these third-party websites. If you link to third-party websites, you do so at
 your own risk.
 
-**Use of Website.** Subhajit Sahu is not responsible for any damages resulting from
+**Use of Website.** Merferry is not responsible for any damages resulting from
 use of this website by anyone. You will not use the Website for illegal purposes. You
 will (1) abide by all applicable local, state, national, and international laws and
 regulations in your use of the Website (including laws regarding intellectual
@@ -92,21 +94,21 @@ users of the Website
 right to use the content and materials on the Website in connection with
 your normal, noncommercial, use of the Website. You may not copy, reproduce,
 transmit, distribute, or create derivative works of such content or information without
-express written authorization from Subhajit Sahu or the applicable third party (if
+express written authorization from Merferry or the applicable third party (if
 third party content is at issue).
 
 **Posting.** By posting, storing, or transmitting any content on the Website, you hereby
-grant Subhajit Sahu a perpetual, worldwide, non-exclusive, royalty-free,
+grant Merferry a perpetual, worldwide, non-exclusive, royalty-free,
 assignable, right and license to use, copy, display, perform, create derivative works
 from, distribute, have distributed, transmit and assign such content in any form, in all
-media now known or hereinafter created, anywhere in the world. Subhajit Sahu
+media now known or hereinafter created, anywhere in the world. Merferry
 does not have the ability to control the nature of the user-generated content offered
 through the Website. You are solely responsible for your interactions with other
-users of the Website and any content you post. Subhajit Sahu is not liable for any
+users of the Website and any content you post. Merferry is not liable for any
 damage or harm resulting from any posts by or interactions between users.
-Subhajit Sahu reserves the right, but has no obligation, to monitor interactions
-between and among users of the Website and to remove any content Subhajit Sahu deems objectionable,
-in Subhajit Sahu sole discretion.
+Merferry reserves the right, but has no obligation, to monitor interactions
+between and among users of the Website and to remove any content Merferry deems objectionable,
+in Merferry sole discretion.
 
 
 
@@ -114,7 +116,7 @@ in Subhajit Sahu sole discretion.
 
 YOUR USE OF THIS WEBSITE AND/OR PRODUCTS ARE AT YOUR SOLE RISK.
 THE WEBSITE AND PRODUCTS ARE OFFERED ON AN "AS IS" AND "AS
-AVAILABLE" BASIS. SUBHAJIT SAHU EXPRESSLY DISCLAIMS ALL
+AVAILABLE" BASIS. MERFERRY EXPRESSLY DISCLAIMS ALL
 WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING,
 BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT WITH
@@ -122,7 +124,7 @@ RESPECT TO THE PRODUCTS OR WEBSITE CONTENT, OR ANY RELIANCE
 UPON OR USE OF THE WEBSITE CONTENT OR PRODUCTS. ("PRODUCTS"
 INCLUDE TRIAL PRODUCTS.)
 
-WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, SUBHAJIT SAHU
+WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, MERFERRY
 MAKES NO WARRANTY:
 
 - THAT THE INFORMATION PROVIDED ON THIS WEBSITE IS ACCURATE,
@@ -145,13 +147,13 @@ YOU.
 
 ## IV. LIMITATION OF LIABILITY
 
-SUBHAJIT SAHU ENTIRE LIABILITY, AND YOUR EXCLUSIVE REMEDY, IN LAW,
+MERFERRY ENTIRE LIABILITY, AND YOUR EXCLUSIVE REMEDY, IN LAW,
 IN EQUITY, OR OTHWERWISE, WITH RESPECT TO THE WEBSITE CONTENT
 AND PRODUCTS AND/OR FOR ANY BREACH OF THIS AGREEMENT IS SOLELY
 LIMITED TO THE AMOUNT YOU PAID, LESS SHIPPING AND HANDLING, FOR
 PRODUCTS PURCHASED VIA THE WEBSITE.
 
-SUBHAJIT SAHU WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT,
+MERFERRY WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT,
 INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES IN CONNECTION
 WITH THIS AGREEMENT OR THE PRODUCTS IN ANY MANNER, INCLUDING
 LIABILITIES RESULTING FROM (1) THE USE OR THE INABILITY TO USE THE
@@ -168,7 +170,7 @@ THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.
 
 ## V. INDEMNIFICATION
 
-You will release, indemnify, defend and hold harmless Subhajit Sahu, and any of
+You will release, indemnify, defend and hold harmless Merferry, and any of
 its contractors, agents, employees, officers, directors, shareholders, affiliates and
 assigns from all liabilities, claims, damages, costs and expenses, including
 reasonable attorneys' fees and expenses, of third parties relating to or arising out of
@@ -177,16 +179,16 @@ under this Agreement; (2) the Website content or your use of the Website content
 (3) the Products or your use of the Products (including Trial Products); (4) any
 intellectual property or other proprietary right of any person or entity; (5) your
 violation of any provision of this Agreement; or (6) any information or data you
-supplied to Subhajit Sahu. When Subhajit Sahu is threatened with suit or sued
-by a third party, Subhajit Sahu may seek written assurances from you concerning
-your promise to indemnify Subhajit Sahu; your failure to provide such assurances
-may be considered by Subhajit Sahu to be a material breach of this Agreement.
-Subhajit Sahu will have the right to participate in any defense by you of a thirdparty
+supplied to Merferry. When Merferry is threatened with suit or sued
+by a third party, Merferry may seek written assurances from you concerning
+your promise to indemnify Merferry; your failure to provide such assurances
+may be considered by Merferry to be a material breach of this Agreement.
+Merferry will have the right to participate in any defense by you of a thirdparty
 claim related to your use of any of the Website content or Products, with
-counsel of Subhajit Sahu choice at its expense. Subhajit Sahu will reasonably
+counsel of Merferry choice at its expense. Merferry will reasonably
 cooperate in any defense by you of a third-party claim at your request and expense.
-You will have sole responsibility to defend Subhajit Sahu against any claim, but
-you must receive Subhajit Sahu prior written consent regarding any related
+You will have sole responsibility to defend Merferry against any claim, but
+you must receive Merferry prior written consent regarding any related
 settlement. The terms of this provision will survive any termination or cancellation of
 this Agreement or your use of the Website or Products.
 
@@ -194,8 +196,8 @@ this Agreement or your use of the Website or Products.
 
 ## VI. PRIVACY
 
-Subhajit Sahu believes strongly in protecting user privacy and providing you with
-notice of Subhajit Sahu use of data. Please refer to Subhajit Sahu privacy
+Merferry believes strongly in protecting user privacy and providing you with
+notice of Merferry use of data. Please refer to Merferry privacy
 policy, incorporated by reference herein, that is posted on the Website.
 
 
@@ -210,19 +212,19 @@ Website.
 
 ## VIII. GENERAL
 
-**Force Majeure.** Subhajit Sahu will not be deemed in default hereunder or held
+**Force Majeure.** Merferry will not be deemed in default hereunder or held
 responsible for any cessation, interruption or delay in the performance of its
 obligations hereunder due to earthquake, flood, fire, storm, natural disaster, act of
 God, war, terrorism, armed conflict, labor strike, lockout, or boycott.
-Cessation of Operation. Subhajit Sahu may at any time, in its sole discretion and
+Cessation of Operation. Merferry may at any time, in its sole discretion and
 without advance notice to you, cease operation of the Website and distribution of the
 Products.
 
 **Entire Agreement.** This Agreement comprises the entire agreement between you
-and Subhajit Sahu and supersedes any prior agreements pertaining to the subject
+and Merferry and supersedes any prior agreements pertaining to the subject
 matter contained herein.
 
-**Effect of Waiver.** The failure of Subhajit Sahu to exercise or enforce any right or
+**Effect of Waiver.** The failure of Merferry to exercise or enforce any right or
 provision of this Agreement will not constitute a waiver of such right or provision. If
 any provision of this Agreement is found by a court of competent jurisdiction to be
 invalid, the parties nevertheless agree that the court should endeavor to give effect
@@ -231,7 +233,7 @@ Agreement remain in full force and effect.
 
 **Governing Law; Jurisdiction.** This Website originates from the Hyderabad, Telangana. This
 Agreement will be governed by the laws of the State of Telangana without
-regard to its conflict of law principles to the contrary. Neither you nor Subhajit Sahu will commence or prosecute any suit, proceeding or claim to enforce the
+regard to its conflict of law principles to the contrary. Neither you nor Merferry will commence or prosecute any suit, proceeding or claim to enforce the
 provisions of this Agreement, to recover damages for breach of or default of this
 Agreement, or otherwise arising under or by reason of this Agreement, other than in
 courts located in State of Telangana. By using this Website or ordering Products,
@@ -251,23 +253,23 @@ WITH THOSE OF OTHER IN THE FORM OF A CLASS ACTION OR SIMILAR
 PROCEDURAL DEVICE. ANY CLAIMS ARISING OUT OF, RELATING TO, OR
 CONNECTION WITH THIS AGREEMENT MUST BE ASSERTED INDIVIDUALLY.
 
-**Termination.** Subhajit Sahu reserves the right to terminate your access to the
+**Termination.** Merferry reserves the right to terminate your access to the
 Website if it reasonably believes, in its sole discretion, that you have breached any
 of the terms and conditions of this Agreement. Following termination, you will not be
-permitted to use the Website and Subhajit Sahu may, in its sole discretion and
+permitted to use the Website and Merferry may, in its sole discretion and
 without advance notice to you, cancel any outstanding orders for Products. If your
-access to the Website is terminated, Subhajit Sahu reserves the right to exercise
+access to the Website is terminated, Merferry reserves the right to exercise
 whatever means it deems necessary to prevent unauthorized access of the Website.
-This Agreement will survive indefinitely unless and until Subhajit Sahu chooses,
+This Agreement will survive indefinitely unless and until Merferry chooses,
 in its sole discretion and without advance to you, to terminate it.
 
-**Domestic Use.** Subhajit Sahu makes no representation that the Website or
+**Domestic Use.** Merferry makes no representation that the Website or
 Products are appropriate or available for use in locations outside India. Users who
 access the Website from outside India do so at their own risk and initiative and must
 bear all responsibility for compliance with any applicable local laws.
 
 **Assignment.** You may not assign your rights and obligations under this Agreement to
-anyone. Subhajit Sahu may assign its rights and obligations under this
+anyone. Merferry may assign its rights and obligations under this
 Agreement in its sole discretion and without advance notice to you.
 
 BY USING THIS WEBSITE OR ORDERING PRODUCTS FROM THIS WEBSITE YOU AGREE

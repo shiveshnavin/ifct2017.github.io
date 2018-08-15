@@ -5,14 +5,16 @@ title: Privacy Policy
 
 [Indian Food Composition] recognises the importance of maintaining your privacy. We value your
 privacy and appreciate your trust in us. This Policy describes how we treat user
-information we collect on https://www.ifct2017.github.io and other offline sources. This
+information we collect on [https://www.ifct2017.github.io] and other offline sources. This
 Privacy Policy applies to current and former visitors to our website and to our online
 customers. By visiting and/or using our website, you agree to this Privacy Policy.
 
-[Indian Food Composition] is a property of Subhajit Sahu, the programmer of this website,
+[Indian Food Composition] is a property of [Merferry], the programmer of this website,
 having office at 301, Alekhya Golden Bamboos, Khanamet. Hyderabad 500 084.
 
 [Indian Food Composition]: https://ifct2017.github.io
+[https://www.ifct2017.github.io]: https://www.ifct2017.github.io
+[Merferry]: https://merferry.github.io
 
 
 
