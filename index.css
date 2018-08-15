@@ -54,12 +54,15 @@ footer a {
 /* MAIN */
 /* ---- */
 body, input, textarea, select, button {
+  /* use righteous */
   font-family: 'Righteous', cursive;
 }
 h2 {
+  /* good heading margin */
   margin: 10rem 0 4rem 0;
 }
 p, p:not([class]) {
+  /* justify paragraph text */
   text-align: justify;
 }
 form {
