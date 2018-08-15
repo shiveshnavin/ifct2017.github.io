@@ -30,4 +30,8 @@
 <script src="{{ page.script }}"></script>
 {% endif %}
 <link rel="stylesheet" href="/index.css">
+{% if page.class contains "index" %}
+<title>Indian Food Composition</title>
+{% else %}
 <title>{{ page.title }} | Indian Food Composition</title>
+{% endif %}
