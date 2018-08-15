@@ -185,6 +185,11 @@ html.no-details #datatable tr a > br {
   padding: 0;
   white-space: normal;
 }
+.tooltip img {
+  display: block;
+  width: 153px;
+  height: 86px;
+}
 .tooltip .info, .tooltip .range {
   padding: 1rem;
   font-size: 1rem;
