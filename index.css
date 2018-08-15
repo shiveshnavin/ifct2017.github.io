@@ -59,6 +59,10 @@ fieldset {
 input[mode=key] {
   text-transform: uppercase;
 }
+
+
+/* LOGO */
+/* ---- */
 #logo {
   display: block;
   margin: auto;
@@ -74,24 +78,23 @@ input[mode=key] {
 #logo.active {
   animation: opacity-blink 1s infinite alternate;
 }
-#search {
+
+
+/* TEXT INPUT */
+input[name=text] {
   width: 100%;
   padding: 1.2rem;
   font-size: 1.4em;
   text-align: center;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
 }
-#search:focus {
+input[name=text]:focus {
   color: black;
 }
+
+
 #columns {
   padding: 2rem 0;
-}
-.pretty {
-  padding: 0 2rem;
-}
-.fixedHeader-floating {
-  z-index: 1;
 }
 html.index main {
   padding-top: 2rem;
@@ -126,21 +129,33 @@ html.no-details #datatable tr a > div,
 html.no-details #datatable tr a > br {
   display: none;
 }
-.sticky {
-  position: fixed;
-  top: 0;
-  background: white;
-  z-index: 2;
-}
+
+
+/* IZITOAST */
 .iziToast {
   font-family: 'Righteous', cursive;
 }
+
+
+/* BUY */
 #buy > a:hover {
   outline: 1px solid black;
 }
 
 
 /* TABLE */
+.pretty {
+  padding: 0 2rem;
+}
+.fixedHeader-floating {
+  z-index: 1;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  background: white;
+  z-index: 2;
+}
 tr.branch .indenter a {
   font-family: 'Batch';
 }
