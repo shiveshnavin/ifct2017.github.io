@@ -109,11 +109,11 @@ function chartSelectRender(row) {
 function chartTooltip() {
   var fmt = document.getElementById('highcharts-tooltip').innerHTML;
   var x = this.x, y = this.y, r = rows[this.x];
-  var y0 = chartRange[x][1], y1 = chartRange[x][2];
+  var rng = y+chartUnit+(chartRange? ' ('+chartRange[x][2]+'-'+chartRange[x][1]+')':'');
   var z = fmt.replace('${picture}', pictureUrl(r.code));
   z = z.replace('${name}', r.name);
   z = z.replace('${scie}', r.scie||'...');
-  z = z.replace('${range}', y+chartUnit+' ('+y1+'-'+y0+')');
+  z = z.replace('${range}', rng);
   return z;
 };
 

@@ -128,15 +128,30 @@ function rowsValue(rows, x, y) {
 
 // Get scaled x, y0, y1 range of rows.
 function rowsRange(rows, x, y) {
-  var z = [], ye = y+'_e', f = columnFactor(k);
+  var z = [], ye = y+'_e';
   if(rows[0][ye]==null) return null;
+  var f = columnFactor(y);
   for(var r of rows)
     z.push([r[x], round((r[y]-r[ye])*f), round((r[y]+r[ye])*f)]);
   return z;
 };
 
 function rowsWithText(rows) {
-  var z = [];
+  var z = [], I = rows.length;
+  for(var r of rows)
+    z.push(Object.assign({}, r));
+  for(var k in rows[0]||{}) {
+    if(k.endsWith('_e')) continue;
+    var u = columnUnit(k);
+    var f = columnFactor(k);
+    console.log(k, u, f);
+    var ke = k+'_e', kt = k+'_t';
+    for(var i=0; i<I; i++) {
+      if(u==null) z[i][kt] = rows[i][k];
+      else z[i][kt] = (rows[i][k]*f)+u+' ± '+(rows[i][ke]*f);
+    }
+  }
+  return z;
 };
 
 // Enable form multi submit
