@@ -1,7 +1,7 @@
 var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
 var datatable = null;
 var Chart = null;
-var rows = null, chartRange = null, chartUnit = null;
+var rows = null;
 
 
 function tableColumns(rows, meta) {
@@ -52,7 +52,7 @@ function drawTable(rows, meta) {
   });
   $('#datatable_wrapper thead').on('click', 'th', function () {
     var i = datatable.column(this).index();
-    if(i>0) drawChart(rows, meta, keys[1], cols[i].data.sort);
+    if(i>0) chartDraw(rows, meta, keys[1], cols[i].data.sort);
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
@@ -65,11 +65,7 @@ function chartDestroy() {
   Chart = null;
 };
 
-// 
-function chartSelect() {
-
-};
-
+/* 
 // Render chart select.
 function chartSelectRender(row) {
   var col = ifct2017.columns;
@@ -91,12 +87,14 @@ function chartSelectRender(row) {
   sel.appendChild(frg);
   return sel;
 };
+*/
 
 // Format chart tooltip.
 function chartTooltip() {
   var fmt = document.getElementById('chart-tooltip').innerHTML;
-  var x = this.x, y = this.y, r = rows[this.x];
-  var rng = y+chartUnit+(chartRange? ' ('+chartRange[x][2]+'-'+chartRange[x][1]+')':'');
+  var rows = Chart.rows, unit = Chart.unit, range = Chart.range;
+  var x = this.x, y = this.y, r = rows[x];
+  var rng = y+unit+(range? ' ('+range[x][2]+'-'+range[x][1]+')':'');
   var z = fmt.replace('${picture}', pictureUrl(r.code));
   z = z.replace('${name}', r.name);
   z = z.replace('${scie}', r.scie||'...');
@@ -104,15 +102,14 @@ function chartTooltip() {
   return z;
 };
 
-function drawChart(rows, meta, x, y) {
+function chartDraw(rows, x, y) {
   chartDestroy();
-  chartSelectRender(rows[0]);
-  var metay = meta[y];
+  // chartSelectRender(rows[0]);
   var name = columnName(y);
-  chartUnit = metay.unit;
-  var label = '{value}'+(metay.unit||'');
+  var unit = columnUnit(y);
+  var label = '{value}'+(unit||'');
   var value = rowsValue(rows, x, y);
-  var range = rowsRange(rows, x, y); chartRange = range;
+  var range = rowsRange(rows, x, y);
   var colors = Highcharts.getOptions().colors;
   Chart = Highcharts.chart('chart', {
     chart: {style: {fontFamily: '"Righteous", cursive'}}, title: {text: null}, legend: {},
@@ -127,6 +124,9 @@ function drawChart(rows, meta, x, y) {
       color: colors[0], fillOpacity: 0.3, zIndex: 0, marker: {enabled: false}
     }]
   });
+  Chart.rows = rows;
+  Chart.unit = unit;
+  Chart.range = range;
 };
 
 function processQuery(txt) {
@@ -141,7 +141,7 @@ function processQuery(txt) {
     var keys = Object.keys(rows[0]||{});
     rows = rowsWithText(rows);
     // drawTable(rows, meta);
-    if(keys.length>=6) drawChart(rows, meta, keys[1], keys[5]);
+    if(keys.length>=6) chartDraw(rows, keys[1], keys[5]);
   }).fail(function(e) {
     var err = e.responseJSON;
     iziToast.error({
