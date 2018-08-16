@@ -1,23 +1,9 @@
 var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
 var datatable = null;
-var highcharts = null;
+var Chart = null;
 var rows = null, chartRange = null, chartUnit = null;
 
 
-function applyFactor(rows, k, fac) {
-  var mul = Math.pow(10, fac);
-  for(var row of rows)
-    row[k] = round(row[k]*mul);
-};
-function applyMeta(rows, meta) {
-  var row = rows[0];
-  if(row==null) return;
-  for(var k in row) {
-    var tk = k.replace(/_e$/, '');
-    if(typeof row[k]==='string') continue;
-    applyFactor(rows, k, meta[tk].factor);
-  }
-};
 function tableColumns(rows, meta) {
   var cols = [{title: meta['name'].name, data: {_: 'name_t', sort: 'name'}}];
   for(var k in rows[0]) {
@@ -71,11 +57,12 @@ function drawTable(rows, meta) {
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
 
-function cleanChart() {
-  if(highcharts==null) return;
-  highcharts.destroy();
-  $('#highcharts').empty();
-  highcharts = null;
+// Destroy chart.
+function chartDestroy() {
+  if(Chart==null) return;
+  Chart.destroy();
+  $('#chart').empty();
+  Chart = null;
 };
 
 // 
@@ -89,7 +76,7 @@ function chartSelectRender(row) {
   var frg = document.createDocumentFragment();
   for(var k in row) {
     if(k.endsWith('_e') || k.endsWith('_t') || COLUMNS_TXT.has(k)) continue;
-    var id = 'highcharts-select-'+k;
+    var id = 'chart-select-'+k;
     var inp = document.createElement('input');
     inp.setAttribute('type', 'checkbox');
     // inp.setAttribute('name', k);
@@ -99,7 +86,7 @@ function chartSelectRender(row) {
     frg.appendChild(inp);
     frg.appendChild(lbl);
   }
-  var sel = document.getElementById('highcharts-select');
+  var sel = document.getElementById('chart-select');
   $(sel).empty();
   sel.appendChild(frg);
   return sel;
@@ -107,7 +94,7 @@ function chartSelectRender(row) {
 
 // Format chart tooltip.
 function chartTooltip() {
-  var fmt = document.getElementById('highcharts-tooltip').innerHTML;
+  var fmt = document.getElementById('chart-tooltip').innerHTML;
   var x = this.x, y = this.y, r = rows[this.x];
   var rng = y+chartUnit+(chartRange? ' ('+chartRange[x][2]+'-'+chartRange[x][1]+')':'');
   var z = fmt.replace('${picture}', pictureUrl(r.code));
@@ -118,7 +105,7 @@ function chartTooltip() {
 };
 
 function drawChart(rows, meta, x, y) {
-  cleanChart();
+  chartDestroy();
   chartSelectRender(rows[0]);
   var metay = meta[y];
   var name = columnName(y);
@@ -127,7 +114,7 @@ function drawChart(rows, meta, x, y) {
   var value = rowsValue(rows, x, y);
   var range = rowsRange(rows, x, y); chartRange = range;
   var colors = Highcharts.getOptions().colors;
-  highcharts = Highcharts.chart('highcharts', {
+  Chart = Highcharts.chart('chart', {
     chart: {style: {fontFamily: '"Righteous", cursive'}}, title: {text: null}, legend: {},
     xAxis: {labels: {enabled: true, formatter: function() { return value[Math.round(this.value)][0]; }}},
     yAxis: {title: {text: null}, labels: {format: label}},
@@ -152,8 +139,8 @@ function processQuery(txt) {
     var meta = data.meta;
     if(rows.length===0) return;
     var keys = Object.keys(rows[0]||{});
-    applyMeta(rows, meta);
-    drawTable(rows, meta);
+    rows = rowsWithText(rows);
+    // drawTable(rows, meta);
     if(keys.length>=6) drawChart(rows, meta, keys[1], keys[5]);
   }).fail(function(e) {
     var err = e.responseJSON;

@@ -122,7 +122,7 @@ function pictureUrl(cod) {
 function rowsValue(rows, x, y) {
   var z = [], f = columnFactor(y);
   for(var r of rows)
-    z.push([r[x], r[y]*f]);
+    z.push([r[x], round(r[y]*f)]);
   return z;
 };
 
@@ -148,7 +148,7 @@ function rowsWithText(rows) {
     var ke = k+'_e', kt = k+'_t';
     for(var i=0; i<I; i++) {
       if(u==null) z[i][kt] = rows[i][k];
-      else z[i][kt] = (rows[i][k]*f)+u+' ± '+(rows[i][ke]*f);
+      else z[i][kt] = round(rows[i][k]*f)+u+' ± '+round(rows[i][ke]*f);
     }
   }
   return z;
