@@ -24,9 +24,13 @@
 
 <!-- FOOTER -->
 <footer>
+{% if page.class contains "index" %}
+  {% include footer-index.html %}
+  <br><hr style="margin: 0 0 2rem 0;">
+{% endif %}
 {% if page.class contains "ketogenic" %}
-{% include footer-ketogenic.html %}
-<br><hr style="margin: 0 0 2rem 0;">
+  {% include footer-ketogenic.html %}
+  <br><hr style="margin: 0 0 2rem 0;">
 {% endif %}
 {% include footer.html %}
 </footer>

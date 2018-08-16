@@ -37,8 +37,5 @@
 - name: Cooks
   url: http://www.cooks.com/
 
-- name: Spoonful
-  url: http://www.spoonful.com/
-
 - name: KraftRecipes
   url: http://www.kraftrecipes.com/

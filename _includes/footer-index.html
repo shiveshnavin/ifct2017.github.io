@@ -1,8 +1,32 @@
-<p txt="c">
+<div txt="c">
   Data taken from <a href="http://ifct2017.com">Indian Food Composition Tables 2017</a>,
   <a href="http://ninindia.org">National Institute of Nutrition (ICMR), Hyderabad</a>.
-</p>
-<h5 txt="c">Nutrition Games</h5>
-<grid>
-<div col="1/4"></div>
+</div>
+<br><hr style="margin: 0 0 2rem 0;">
+<h5 txt="c">Resources</h5>
+<grid txt="c">
+  {% for r in site.data.resources %}
+  <div col="1/3"><a href="{{ r.url }}">{{ r.name }}<br><small>{{ r.by }}</small></a></div>
+  {% endfor %}
+</grid>
+<br><hr style="margin: 0 0 2rem 0;">
+<h5 txt="c">Organizations</h5>
+<grid txt="c">
+  {% for r in site.data.organizations %}
+  <div col="1/3"><a href="{{ r.url }}">{{ r.name }}</a></div>
+  {% endfor %}
+</grid>
+<br><hr style="margin: 0 0 2rem 0;">
+<h5 txt="c">Health management</h5>
+<grid txt="c">
+  {% for r in site.data.medicalinfo %}
+  <div col="1/6"><a href="{{ r.url }}">{{ r.name }}</a></div>
+  {% endfor %}
+</grid>
+<br><hr style="margin: 0 0 2rem 0;">
+<h5 txt="c">Food Recipes</h5>
+<grid txt="c">
+  {% for r in site.data.recipes %}
+  <div col="1/6"><a href="{{ r.url }}">{{ r.name }}</a></div>
+  {% endfor %}
 </grid>

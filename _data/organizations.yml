@@ -7,23 +7,11 @@
 - name: Mininistry of Health & Family Welfare
   url: https://mohfw.nic.in
 
-- name: Press Information Burea (PIB)
-  url: http://www.pib.nic.in
-
-- name: MyGov Platform
-  url: https://www.mygov.in
-
-- name: National Portal of India
-  url: https://www.india.gov.in
-
-- name: Government of India (GOI)
-  url: http://goidirectory.nic.in
-
 - name: US Department of Agriculture (USDA)
   url: https://www.usda.gov
 
+- name: Food & Agriculture Organization (FAO)
+  url: http://www.fao.org/home/en/
+
 - name: World Health Organization (WHO)
   url: http://www.who.int/en/
-
-- name: United Nations Children's Fund (UNICEF), India
-  url: http://unicef.in
