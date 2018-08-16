@@ -1,0 +1,44 @@
+- name: AllRecipes
+  url: http://www.allrecipes.com/
+
+- name: FoodNetwork
+  url: http://www.foodnetwork.com/
+
+- name: Food
+  url: http://www.food.com/
+
+- name: TheKitchn
+  url: http://www.thekitchn.com/
+
+- name: Yummly
+  url: http://www.yummly.com/
+
+- name: Chow
+  url: http://www.chow.com/
+
+- name: Epicurious
+  url: http://www.epicurious.com/
+
+- name: SimplyRecipes
+  url: http://www.simplyrecipes.com/
+
+- name: CookingLight
+  url: http://www.cookinglight.com/
+
+- name: BettyCrocker
+  url: http://www.bettycrocker.com/
+
+- name: MyRecipes
+  url: http://www.myrecipes.com/
+
+- name: EatingWell
+  url: http://www.eatingwell.com/
+
+- name: Cooks
+  url: http://www.cooks.com/
+
+- name: Spoonful
+  url: http://www.spoonful.com/
+
+- name: KraftRecipes
+  url: http://www.kraftrecipes.com/

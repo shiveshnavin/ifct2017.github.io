@@ -1,0 +1,29 @@
+- name: National Institute of Nutrition (NIN)
+  url: http://www.ninindia.org/
+
+- name: Indian Council of Medical Research (ICMR)
+  url: http://icmr.nic.in
+
+- name: Mininistry of Health & Family Welfare
+  url: https://mohfw.nic.in
+
+- name: Press Information Burea (PIB)
+  url: http://www.pib.nic.in
+
+- name: MyGov Platform
+  url: https://www.mygov.in
+
+- name: National Portal of India
+  url: https://www.india.gov.in
+
+- name: Government of India (GOI)
+  url: http://goidirectory.nic.in
+
+- name: US Department of Agriculture (USDA)
+  url: https://www.usda.gov
+
+- name: World Health Organization (WHO)
+  url: http://www.who.int/en/
+
+- name: United Nations Children's Fund (UNICEF), India
+  url: http://unicef.in

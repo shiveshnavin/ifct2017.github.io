@@ -1,0 +1,11 @@
+- name: WebMD
+  url: http://www.webmd.com/
+
+- name: Drugs
+  url: https://www.drugs.com
+
+- name: Mayo Clinic
+  url: https://www.mayoclinic.org
+
+- name: RxList
+  url: https://www.rxlist.com

@@ -1,0 +1,23 @@
+- name: Healthline
+  url: https://www.healthline.com
+
+- name: Livestrong
+  url: https://www.livestrong.com
+
+- name: Health
+  url: https://www.health.com
+
+- name: EverydayHealth
+  url: https://www.everydayhealth.com
+
+- name: MindBodyGreen
+  url: https://www.mindbodygreen.com
+
+- name: OnHealth
+  url: https://www.onhealth.com
+
+- name: Mercola
+  url: https://www.mercola.com
+
+- name: eMedicineHealth
+  url: https://www.emedicinehealth.com

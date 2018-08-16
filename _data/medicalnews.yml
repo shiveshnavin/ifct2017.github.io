@@ -1,0 +1,32 @@
+- name: NIH
+  url: http://www.nih.gov/
+
+- name: Stanford Medicine
+  url: http://med.stanford.edu
+
+- name: Harvard Health
+  url: https://www.health.harvard.edu
+
+- name: MedicineNet
+  url: https://www.medicinenet.com
+
+- name: Medscape
+  url: https://www.medscape.com
+
+- name: News Medical
+  url: https://www.news-medical.net/
+
+- name: MedicalNewsToday
+  url: https://www.medicalnewstoday.com
+
+- name: Health24
+  url: https://www.health24.com
+
+- name: MedPage Today
+  url: https://www.medpagetoday.com
+
+- name: Medical Xpress
+  url: https://medicalxpress.com
+
+- name: MDLinx
+  url: https://www.mdlinx.com
