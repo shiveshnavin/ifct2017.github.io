@@ -70,10 +70,10 @@ function chartSeries(rows, x, ys) {
   var z = [], colors = Highcharts.getOptions().colors;
   for(var i=0, I=ys.length; i<I; i++) {
     var y = ys[i], rng = rows[0][y+'_e']!=null;
-    z.push({name: columnName(y), data: rowsValue(rows, x, y), zIndex: 2*i+1, _code: y,
+    z.push({name: columnName(y), data: rowsPair(rows, x, y), zIndex: 2*i+1, _code: y,
       marker: {fillColor: 'white', lineWidth: 2, lineColor: colors[i], _type: columnType(y)}
     });
-    if(rng) z.push({name: 'Range', data: rowsRange(rows, x, y), type: 'arearange', lineWidth: 0,
+    if(rng) z.push({name: 'Range', data: rowsPairRange(rows, x, y), type: 'arearange', lineWidth: 0,
       linkedTo: ':previous', color: colors[i], fillOpacity: 0.3, zIndex: 2*i, marker: {enabled: false}
     });
   }
@@ -136,13 +136,13 @@ function chartTooltip() {
   return z;
 };
 
-function chartDraw(rows, x, y) {
+function chartDraw(rows, x, ys) {
   chartDestroy();
-  var value = rowsValue(rows, x, y);
-  var series = chartSeries(rows, x, rowQuantityColumns(rows[0]||{}));
+  var value = rowsValue(rows, x);
+  var series = chartSeries(rows, x, ys);
   Chart = Highcharts.chart('chart', {
     chart: {style: {fontFamily: '"Righteous", cursive'}}, title: {text: null}, legend: {},
-    xAxis: {labels: {enabled: true, formatter: function() { return value[Math.round(this.value)][0]; }}},
+    xAxis: {labels: {enabled: true, formatter: function() { return value[Math.round(this.value)]; }}},
     yAxis: {title: {text: null}, labels: {formatter: chartYaxis}},
     tooltip: {crosshairs: true, shared: true, useHTML: true, formatter: chartTooltip},
     series: series, plotOptions: {series: {events: {legendItemClick: chartLegend}}}
@@ -156,13 +156,13 @@ function processQuery(txt) {
     console.log('slang:', data.slang);
     console.log('sql:', data.sql);
     console.log(data);
-    rows = data.rows;
+    var rows = data.rows;
     var meta = data.meta;
     if(rows.length===0) return;
-    var keys = Object.keys(rows[0]||{});
     rows = rowsWithText(rows);
+    var ys = rowQuantityColumns(rows[0]||{});
     // drawTable(rows, meta);
-    if(keys.length>=6) chartDraw(rows, keys[1], keys[5]);
+    if(ys.length>0) chartDraw(rows, 'name', ys);
   }).fail(function(e) {
     var err = e.responseJSON;
     iziToast.error({

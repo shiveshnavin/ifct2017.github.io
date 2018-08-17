@@ -159,16 +159,24 @@ function rowQuantityColumns(row) {
   return z;
 };
 
-// Get x, y value of rows.
-function rowsValue(rows, x, y) {
+// Get value from rows.
+function rowsValue(rows, x) {
+  var z = [];
+  for(var r of rows)
+    z.push(r[x]);
+  return z;
+};
+
+// Get x, y pairs from rows.
+function rowsPair(rows, x, y) {
   var z = [];
   for(var r of rows)
     z.push([r[x], r[y]]);
   return z;
 };
 
-// Get x, y0, y1 range of rows.
-function rowsRange(rows, x, y) {
+// Get x, y0, y1 pair ranges of rows.
+function rowsPairRange(rows, x, y) {
   var z = [], ye = y+'_e';
   for(var r of rows)
     z.push([r[x], r[y]-(r[ye]||0), r[y]+(r[ye]||0)]);
