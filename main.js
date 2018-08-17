@@ -12,6 +12,12 @@ var COLUMNS_NAM = new Map([
   ['kj', 'kJ'],
   ['kcal', 'kcal'],
 ]);
+var UNIT_NAM = new Map([
+  [1, 'g'],
+  [1e+3, 'mg'],
+  [1e+6, 'ug'],
+  [1e+9, 'ng'],
+]);
 
 
 // Fix floating-point precision problem.
@@ -25,6 +31,12 @@ function arrayUnique(arr) {
   for(var v of arr)
     if(z.indexOf(v)<0) z.push(v);
   return z;
+};
+
+// Get first value in set.
+function setFirst(set) {
+  for(var v of set)
+    return v;
 };
 
 // Parse URL query to object.
@@ -67,7 +79,7 @@ function formSet(frm, val) {
 function columnName(k) {
   if(k.indexOf('"')>=0) return k.replace(/\"(.*?)\"/g, function(m, p1) { return columnName(p1); });
   if(COLUMNS.has(k)) return COLUMNS.get(k).name;
-  return COLUMN_NAM.get(k)||k[0].toUpperCase()+k.substring(1);
+  return COLUMNS_NAM.get(k)||k[0].toUpperCase()+k.substring(1);
 };
 
 // Get column tags.
@@ -94,6 +106,11 @@ function columnChildren(k) {
   return HIERARCHY.has(k)? HIERARCHY.get(k).children:null;
 };
 
+// Get column type.
+function columnType(k) {
+  return REPRESENTATIONS.has(k)? REPRESENTATIONS.get(k).type:null;
+};
+
 // Get column factor.
 function columnFactor(k) {
   return REPRESENTATIONS.has(k)? REPRESENTATIONS.get(k).factor:1;
@@ -118,24 +135,47 @@ function pictureUrl(cod) {
   return cod[0]>='M' && cod[0]<='O'? PICTURES_DEF : PICTURES_URL+cod+'.jpeg';
 };
 
-// Get scaled x, y value of rows.
-function rowsValue(rows, x, y) {
-  var z = [], f = columnFactor(y);
-  for(var r of rows)
-    z.push([r[x], round(r[y]*f)]);
+// Get appropriate scaling factor for quantity.
+function quantityFactor(typ, val) {
+  if(typ!=='mass') return 1;
+  var l3 = Math.log(val)/Math.log(1000);
+  var e = -3*Math.round(l3-0.33);
+  return Math.pow(10, Math.max(e, 0));
+};
+
+// Get unit for quantity.
+function quantityUnit(typ, fac) {
+  if(typ!=='mass') return 'kJ';
+  return UNIT_NAM.get(fac);
+};
+
+// Get quantity columns in a row.
+function rowQuantityColumns(row) {
+  var z = [];
+  for(var k in row) {
+    if(k.endsWith('_e') || k.endsWith('_t')) continue;
+    if(!COLUMNS_TXT.has(k)) z.push(k);
+  }
   return z;
 };
 
-// Get scaled x, y0, y1 range of rows.
+// Get x, y value of rows.
+function rowsValue(rows, x, y) {
+  var z = [];
+  for(var r of rows)
+    z.push([r[x], r[y]]);
+  return z;
+};
+
+// Get x, y0, y1 range of rows.
 function rowsRange(rows, x, y) {
   var z = [], ye = y+'_e';
-  if(rows[0][ye]==null) return null;
-  var f = columnFactor(y);
   for(var r of rows)
-    z.push([r[x], round((r[y]-r[ye])*f), round((r[y]+r[ye])*f)]);
+    z.push([r[x], r[y]-(r[ye]||0), r[y]+(r[ye]||0)]);
   return z;
 };
 
+// Get scaled rows with text (_t).
 function rowsWithText(rows) {
   var z = [], I = rows.length;
   for(var r of rows)
@@ -144,7 +184,6 @@ function rowsWithText(rows) {
     if(k.endsWith('_e')) continue;
     var u = columnUnit(k);
     var f = columnFactor(k);
-    console.log(k, u, f);
     var ke = k+'_e', kt = k+'_t';
     for(var i=0; i<I; i++) {
       if(u==null) z[i][kt] = rows[i][k];

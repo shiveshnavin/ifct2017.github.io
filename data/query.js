@@ -65,6 +65,21 @@ function chartDestroy() {
   Chart = null;
 };
 
+// Get chart series for given y axes.
+function chartSeries(rows, x, ys) {
+  var z = [], colors = Highcharts.getOptions().colors;
+  for(var i=0, I=ys.length; i<I; i++) {
+    var y = ys[i], rng = rows[0][y+'_e']!=null;
+    z.push({name: columnName(y), data: rowsValue(rows, x, y), zIndex: 2*i+1, _type: columnType(y),
+      marker: {fillColor: 'white', lineWidth: 2, lineColor: colors[i]}
+    });
+    if(rng) z.push({name: 'Range', data: rowsRange(rows, x, y), type: 'arearange', lineWidth: 0,
+      linkedTo: ':previous', color: colors[i], fillOpacity: 0.3, zIndex: 2*i, marker: {enabled: false}
+    });
+  }
+  return z;
+};
+
 /* 
 // Render chart select.
 function chartSelectRender(row) {
@@ -89,6 +104,33 @@ function chartSelectRender(row) {
 };
 */
 
+// Handle chart legend click.
+function chartLegend() {
+  this.yAxis.userOptions._ready = false;
+};
+
+// Get representation for chart axis.
+function chartRepresentation(axis) {
+  var series = axis.series, types = new Set();
+  for(var s of series) {
+    if(!s.visible || s.name==='Range') continue;
+    types.add(s.userOptions._type);
+  }
+  var type = types.size===1? setFirst(types):null;
+  var factor = quantityFactor(type, axis.max);
+  var unit = quantityUnit(type, factor);
+  Object.assign(axis.userOptions, {_type: type, _factor: factor, _unit: unit});
+  return {type: type, factor: factor, unit: unit};
+};
+
+// Format chart yaxis
+function chartYaxis() {
+  var o = this.axis.userOptions;
+  if(!o._ready) chartRepresentation(this.axis);
+  var type = o._type, factor = o._factor, unit = o._unit;
+  return type? round(this.value*factor)+unit:this.value;
+};
+
 // Format chart tooltip.
 function chartTooltip() {
   var fmt = document.getElementById('chart-tooltip').innerHTML;
@@ -105,24 +147,16 @@ function chartTooltip() {
 function chartDraw(rows, x, y) {
   chartDestroy();
   // chartSelectRender(rows[0]);
-  var name = columnName(y);
   var unit = columnUnit(y);
-  var label = '{value}'+(unit||'');
   var value = rowsValue(rows, x, y);
   var range = rowsRange(rows, x, y);
-  var colors = Highcharts.getOptions().colors;
+  var series = chartSeries(rows, x, rowQuantityColumns(rows[0]||{}));
   Chart = Highcharts.chart('chart', {
     chart: {style: {fontFamily: '"Righteous", cursive'}}, title: {text: null}, legend: {},
     xAxis: {labels: {enabled: true, formatter: function() { return value[Math.round(this.value)][0]; }}},
-    yAxis: {title: {text: null}, labels: {format: label}},
-    tooltip: {crosshairs: true, shared: true, useHTML: true, formatter: chartTooltip},
-    series: [{
-      name: name, data: value, zIndex: 1,
-      marker: {fillColor: 'white', lineWidth: 2, lineColor: colors[0]}
-    }, {
-      name: 'Range', data: range, type: 'arearange', lineWidth: 0, linkedTo: ':previous',
-      color: colors[0], fillOpacity: 0.3, zIndex: 0, marker: {enabled: false}
-    }]
+    yAxis: {title: {text: null}, labels: {formatter: chartYaxis}},
+    tooltip: {crosshairs: true, shared: true, useHTML: true, formatters: chartTooltip},
+    series: series, plotOptions: {series: {events: {legendItemClick: chartLegend}}}
   });
   Chart.rows = rows;
   Chart.unit = unit;
