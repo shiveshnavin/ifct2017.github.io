@@ -12,16 +12,17 @@ class: page wide
 <p id="chart-select"></p>
 <div id="chart" width="100%"></div>
 <div id="chart-tooltip" style="display: none;">
-<grid class="tooltip">
-  <div col="1/2"><img src="${picture}"></div>
-  <div col="1/2">
-    <div class="info">
+  <div class="tooltip">
+  <grid>
+  <div col=""><img ${picture}></div>
+  <div col="" class="info">
     <div class="name">${name}</div>
     <div class="scie">(${scie})</div>
-    </div>
-    <div class="range">${range}</div>
+    <div class="grup">${grup}</div>
   </div>
-</grid>
+  </grid>
+  ${quantities}
+  </div>
 </div>
 <table id="table" class="hover stripe order-column" width="100%"></table>
 <br><br><br>

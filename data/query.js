@@ -70,8 +70,8 @@ function chartSeries(rows, x, ys) {
   var z = [], colors = Highcharts.getOptions().colors;
   for(var i=0, I=ys.length; i<I; i++) {
     var y = ys[i], rng = rows[0][y+'_e']!=null;
-    z.push({name: columnName(y), data: rowsValue(rows, x, y), zIndex: 2*i+1, _type: columnType(y),
-      marker: {fillColor: 'white', lineWidth: 2, lineColor: colors[i]}
+    z.push({name: columnName(y), data: rowsValue(rows, x, y), zIndex: 2*i+1, _code: y,
+      marker: {fillColor: 'white', lineWidth: 2, lineColor: colors[i], _type: columnType(y)}
     });
     if(rng) z.push({name: 'Range', data: rowsRange(rows, x, y), type: 'arearange', lineWidth: 0,
       linkedTo: ':previous', color: colors[i], fillOpacity: 0.3, zIndex: 2*i, marker: {enabled: false}
@@ -79,30 +79,6 @@ function chartSeries(rows, x, ys) {
   }
   return z;
 };
-
-/* 
-// Render chart select.
-function chartSelectRender(row) {
-  var col = ifct2017.columns;
-  var frg = document.createDocumentFragment();
-  for(var k in row) {
-    if(k.endsWith('_e') || k.endsWith('_t') || COLUMNS_TXT.has(k)) continue;
-    var id = 'chart-select-'+k;
-    var inp = document.createElement('input');
-    inp.setAttribute('type', 'checkbox');
-    // inp.setAttribute('name', k);
-    var lbl = document.createElement('label');
-    inp.id = id; lbl.setAttribute('for', id);
-    lbl.appendChild(document.createTextNode(columnName(k)));
-    frg.appendChild(inp);
-    frg.appendChild(lbl);
-  }
-  var sel = document.getElementById('chart-select');
-  $(sel).empty();
-  sel.appendChild(frg);
-  return sel;
-};
-*/
 
 // Handle chart legend click.
 function chartLegend() {
@@ -131,36 +107,47 @@ function chartYaxis() {
   return type? round(this.value*factor)+unit:this.value;
 };
 
+// Get quantites for chart tooltip.
+function chartQuantities(pts) {
+  var z = '';
+  for(var i=0, I=pts.length; i<I; i++) {
+    var p = pts[i], pn = pts[i+1];
+    if(p.colorIndex==null) continue;
+    var rng = pn && pn.colorIndex==null;
+    var cod = p.series.userOptions._code;
+    var f = columnFactor(cod), u = columnUnit(cod);
+    z += '<tr><th>'+p.series.name+'</th>';
+    z += '<td>'+round(p.y*f)+(u||'');
+    if(rng) z += ' ('+round(pn.point.high*f)+' - '+round(pn.point.low*f)+')';
+    z += '</td></tr>\n';
+  }
+  return z;
+};
+
 // Format chart tooltip.
 function chartTooltip() {
+  var r = Chart.rows[this.x];
   var fmt = document.getElementById('chart-tooltip').innerHTML;
-  var rows = Chart.rows, unit = Chart.unit, range = Chart.range;
-  var x = this.x, y = this.y, r = rows[x];
-  var rng = y+unit+(range? ' ('+range[x][2]+'-'+range[x][1]+')':'');
-  var z = fmt.replace('${picture}', pictureUrl(r.code));
+  var z = fmt.replace('${picture}', 'src="'+pictureUrl(r.code)+'"');
   z = z.replace('${name}', r.name);
   z = z.replace('${scie}', r.scie||'...');
-  z = z.replace('${range}', rng);
+  z = z.replace('${grup}', r.grup);
+  z = z.replace('${quantities}', '<table>'+chartQuantities(this.points)+'</table>');
   return z;
 };
 
 function chartDraw(rows, x, y) {
   chartDestroy();
-  // chartSelectRender(rows[0]);
-  var unit = columnUnit(y);
   var value = rowsValue(rows, x, y);
-  var range = rowsRange(rows, x, y);
   var series = chartSeries(rows, x, rowQuantityColumns(rows[0]||{}));
   Chart = Highcharts.chart('chart', {
     chart: {style: {fontFamily: '"Righteous", cursive'}}, title: {text: null}, legend: {},
     xAxis: {labels: {enabled: true, formatter: function() { return value[Math.round(this.value)][0]; }}},
     yAxis: {title: {text: null}, labels: {formatter: chartYaxis}},
-    tooltip: {crosshairs: true, shared: true, useHTML: true, formatters: chartTooltip},
+    tooltip: {crosshairs: true, shared: true, useHTML: true, formatter: chartTooltip},
     series: series, plotOptions: {series: {events: {legendItemClick: chartLegend}}}
   });
   Chart.rows = rows;
-  Chart.unit = unit;
-  Chart.range = range;
 };
 
 function processQuery(txt) {
