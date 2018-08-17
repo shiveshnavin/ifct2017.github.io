@@ -1,4 +1,5 @@
 var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
+var ANNOTATION_CLR = ['rgba(200,255,200,0.5)', 'rgba(255,200,200,0.5)'];
 var datatable = null;
 var Chart = null;
 var rows = null;
@@ -99,12 +100,32 @@ function chartRepresentation(axis) {
   return {type: type, factor: factor, unit: unit};
 };
 
-// Format chart yaxis
+// Format chart yaxis.
 function chartYaxis() {
   var o = this.axis.userOptions;
   if(!o._ready) chartRepresentation(this.axis);
   var type = o._type, factor = o._factor, unit = o._unit;
   return type? round(this.value*factor)+unit:this.value;
+};
+
+// Get intake annotations.
+function chartAnnotations(cod, siz) {
+  var z = [], intake = INTAKES.get(cod);
+  if(intake==null) return z;
+  for(var i=0; i<2; i++) {
+    var labels = [], shapes = [];
+    var keys = i===0? INTAKES_REC:INTAKES_UL;
+    for(var k of keys) {
+      if(intake[k]==null) continue;
+      var v = (intake[k]<0? -70:1)*intake[k];
+      labels.push({point: {xAxis: 0, yAxis: 0, x: siz, y: v}, text: INTAKES_NAM.get(k)});
+      shapes.push({type: 'path', points: [{xAxis: 0, yAxis: 0, x: 0, y: v},
+        {xAxis: 0, yAxis: 0, x: siz, y: v}]});
+    }
+    if(labels.length>0) z.push({labels: labels, shapes: shapes,
+      labelOptions: {backgroundColor: ANNOTATION_CLR[i], y: 5, borderColor: 'none'}});
+  }
+  return z;
 };
 
 // Get quantites for chart tooltip.
@@ -138,12 +159,13 @@ function chartTooltip() {
 
 function chartDraw(rows, x, ys) {
   chartDestroy();
-  var value = rowsValue(rows, x);
+  var xv = rowsValue(rows, x);
   var series = chartSeries(rows, x, ys);
+  var annotations = chartAnnotations(ys[0], rows.length-1);
   Chart = Highcharts.chart('chart', {
     chart: {style: {fontFamily: '"Righteous", cursive'}}, title: {text: null}, legend: {},
-    xAxis: {labels: {enabled: true, formatter: function() { return value[Math.round(this.value)]; }}},
-    yAxis: {title: {text: null}, labels: {formatter: chartYaxis}},
+    xAxis: {labels: {enabled: true, formatter: function() { return xv[Math.round(this.value)]; }}},
+    yAxis: {title: {text: null}, labels: {formatter: chartYaxis}}, annotations: annotations,
     tooltip: {crosshairs: true, shared: true, useHTML: true, formatter: chartTooltip},
     series: series, plotOptions: {series: {events: {legendItemClick: chartLegend}}}
   });

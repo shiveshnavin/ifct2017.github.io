@@ -6,17 +6,30 @@ var COLUMNS_TXT = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags
 var COLUMNS = ifct2017.columns, HIERARCHY = ifct2017.hierarchy;
 var INTAKES = ifct2017.intakes, METHODS = ifct2017.methods;
 var NUTRIENTS = ifct2017.nutrients, REPRESENTATIONS = ifct2017.representations;
+var INTAKES_REC = ['whorda', 'usear', 'usrdam', 'usrdaf', 'euprim', 'euprif'];
+var INTAKES_UL = ['ulus', 'uleu', 'uljapan'];
+var INTAKES_NAM = new Map([
+  ['whorda', 'WHO Recommended Dietary Allowance'],
+  ['usear', 'US Estimated Average Requirement'],
+  ['usrdam', 'US Recommended Dietary Allowance (Male)'],
+  ['usrdaf', 'US Recommended Dietary Allowance (Female)'],
+  ['euprim', 'EU Population Reference Intake (Male)'],
+  ['euprif', 'EU Population Reference Intake (Female)'],
+  ['ulus', 'Tolerable intake Upper Level (US)'],
+  ['uleu', 'Tolerable intake Upper Level (EU)'],
+  ['uljapan', 'Tolerable intake Upper Level (Japan)']
+]);
 var COLUMNS_NAM = new Map([
   ['abbr', 'Abbreviation'],
   ['desc', 'Description'],
   ['kj', 'kJ'],
-  ['kcal', 'kcal'],
+  ['kcal', 'kcal']
 ]);
 var UNIT_NAM = new Map([
   [1, 'g'],
   [1e+3, 'mg'],
   [1e+6, 'ug'],
-  [1e+9, 'ng'],
+  [1e+9, 'ng']
 ]);
 
 
