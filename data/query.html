@@ -29,19 +29,20 @@ class: page wide
 <div id="table_expandt" style="display: none;">
   &nbsp;&nbsp;
   <input type="checkbox" id="table_expand" name="expand">
-  <label for="table_expand">EXPAND ALL</label>
+  <label for="table_expand">TOGGLE ALL</label>
 </div>
 <div id="table_child" style="display: none;">
-  <a href="/data/compositions?code=${code}">
-  <grid>
-  <div col="1/2"><img width="307" height="172" ${picture}></div>
-  <div col="1/2">
-    <div class="name">${name}</div>
-    <div class="scie">(${scie})</div>
-    <div class="grup">${grup}</div>
-    <div class="scie">${lang}</div>
-  </div>
-  </grid>
+  <a style="width: 100%;" href="/data/compositions?code=${code}">
+  <table class="child" width="100%">
+  <tr valign="top">
+    <td width="307"><img width="307" height="172" ${picture}></td>
+    <td class="info">
+      <div class="name">${name}<div class="scie">(${scie})</div></div>
+      <div class="grup">${grup}</div>
+      <div class="lang">${lang}</div>
+    </td>
+  </tr>
+  </table>
   </a>
 </div>
 <br><br><br>

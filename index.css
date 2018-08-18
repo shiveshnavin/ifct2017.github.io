@@ -194,6 +194,22 @@ td.details-control {
 tr.details td.details-control {
   background: url('https://datatables.net/examples/resources/details_close.png') no-repeat center center;
 }
+table.child tr > td {
+  padding: 0;
+}
+table.child .name {
+  font-size: 1.6rem;
+  background: lightyellow;
+  padding: 1rem;
+}
+table.child .grup {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background: lightblue;
+}
+table.child .lang {
+  padding: 1rem;
+}
 /* expand collapse icons */
 tr.branch .indenter a {
   font-family: 'Batch';

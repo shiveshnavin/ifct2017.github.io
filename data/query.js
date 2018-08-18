@@ -23,6 +23,14 @@ function tableColumns(rows) {
   return z;
 };
 
+// Get table rows.
+function tableRows(rows) {
+  rows = rowsWithText(rows);
+  for(var r of rows)
+    r.name_t = '<a href="/data/compositions?code='+r.code+'">'+r.name_t+'</a>';;
+  return rows;
+};
+
 // Get table child row.
 function tableChild(r) {
   var z = document.getElementById('table_child').innerHTML;
@@ -31,16 +39,40 @@ function tableChild(r) {
   z = z.replace('${name}', r.name);
   z = z.replace('${scie}', r.scie);
   z = z.replace('${grup}', r.grup);
-  z = z.replace('${lang}', r.lang);
+  z = z.replace('${lang}', langValues(r.lang));
+  z = z.replace('${quantities}', '');
   return z;
 };
 
+// Hide all child rows.
+function tableChildHideAll() {
+  Table.rows().eq(0).each(function(i) {
+    var row = Table.row(i);
+    if(row.child.isShown()) row.child.remove();
+  });
+};
+
 // Expand child row.
-function tableChildExpand() {
+function tableChildToggle() {
   var tr = $(this).closest('tr');
   var row = Table.row(tr);
-  tr.addClass('details');
-  row.child(tableChild(row.data())).show();
+  var idx = $.inArray(tr.attr('id'), Table.children);
+  if(row.child.isShown()) {
+    tr.removeClass('details');
+    row.child.hide();
+    Table.children.splice(idx, 1);
+  }
+  else {
+    tr.addClass('details');
+    row.child(tableChild(row.data())).show();
+    if(idx===-1) Table.children.push(tr.attr('id'));
+  }
+};
+
+// Draw table child rows.
+function tableChildDraw() {
+  for(var id of Table.children||[])
+    $('#'+id+' td.details-control').trigger('click');
 };
 
 // Draw table.
@@ -48,12 +80,13 @@ function tableDraw(rows) {
   tableDestroy();
   if(rows.length===0) return;
   var cols = tableColumns(rows);
-  var data = rowsWithText(rows);
+  var data = tableRows(rows);
   Table = $('#table').DataTable({
     columns: cols, data: data, aaSorting: [], scrollX: true, autoWidth: true,
     retrieve: true, fixedHeader: {header: true, footer: true}
   });
-  $('#table tbody').on('click', 'tr td.details-control', tableChildExpand);
+  Table.children = []; Table.on('draw', tableChildDraw);
+  $('#table tbody').on('click', 'tr td.details-control', tableChildToggle);
   $('#table_length > label').append($('#table_expandt').html());
   $('#table_expand').click(function() {
     Table.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click');
