@@ -1,9 +1,17 @@
-var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="datatable_details" name="details" checked><label for="datatable_details">DETAILS</label>';
+var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="table_details" name="details" checked><label for="table_details">DETAILS</label>';
 var ANNOTATION_CLR = ['rgba(200,255,200,0.5)', 'rgba(255,200,200,0.5)'];
-var datatable = null;
+var Table = null;
 var Chart = null;
 var rows = null;
 
+
+// Destroy table.
+function tableDestroy() {
+  if(Table==null) return;
+  Table.destroy();
+  $('#table').empty();
+  Table = null;
+};
 
 function tableColumns(rows, meta) {
   var cols = [{title: meta['name'].name, data: {_: 'name_t', sort: 'name'}}];
@@ -13,6 +21,7 @@ function tableColumns(rows, meta) {
   }
   return cols;
 };
+
 function tableRows(rows, meta) {
   for(var row of rows) {
     for(var k in row) {
@@ -22,37 +31,32 @@ function tableRows(rows, meta) {
       if(meta[k].unit) v += ' '+meta[k].unit;
       row[k+'_t'] = v;
     }
-    row['name_t'] = '<a target="_blank" href="/data/compositions?code='+row.code+'">'+
+    row['name_t'] = '<a href="/data/compositions?code='+row.code+'">'+
       '<img src="'+pictureUrl(row.code)+'" width="307"><br>'+
       row.name+(row.scie? ' <small>('+row.scie+')</small><br>':'')+
       '<div style="font-size: 1rem; width: 307px;">'+langValues(row.lang)+'</div></a>';
   }
   return rows;
 };
-function cleanTable() {
-  if(datatable==null) return;
-  datatable.destroy();
-  $('#datatable').empty();
-  datatable = null;
-};
-function drawTable(rows, meta) {
-  cleanTable();
+
+function tableDraw(rows, meta) {
+  tableDestroy();
   if(rows.length===0) return;
   var keys = Object.keys(rows[0]);
   var cols = tableColumns(rows, meta);
   var data = tableRows(rows, meta);
-  datatable = $('#datatable').DataTable({
+  Table = $('#table').DataTable({
     columns: cols, data: data, aaSorting: [], scrollX: true, autoWidth: true,
     retrieve: true, fixedHeader: {header: true, footer: true}
   });
-  $('#datatable_length > label').append(CHECKBOX_FMT);
-  $('#datatable_details').click(function() {
+  $('#table_length > label').append(CHECKBOX_FMT);
+  $('#table_details').click(function() {
     console.log('hello');
     if($(this).is(':checked')) $('html').removeClass('no-details');
     else $('html').addClass('no-details');
   });
-  $('#datatable_wrapper thead').on('click', 'th', function () {
-    var i = datatable.column(this).index();
+  $('#table_wrapper thead').on('click', 'th', function () {
+    var i = Table.column(this).index();
     if(i>0) chartDraw(rows, meta, keys[1], cols[i].data.sort);
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
@@ -172,6 +176,7 @@ function chartTooltip() {
   return z;
 };
 
+// Draw the chart.
 function chartDraw(rows, x, ys) {
   chartDestroy();
   var xv = rowsValue(rows, x);
