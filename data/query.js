@@ -1,4 +1,3 @@
-var CHECKBOX_FMT = '&nbsp;&nbsp;<input type="checkbox" id="table_details" name="details" checked><label for="table_details">DETAILS</label>';
 var ANNOTATION_CLR = ['rgba(200,255,200,0.5)', 'rgba(255,200,200,0.5)'];
 var Table = null;
 var Chart = null;
@@ -13,51 +12,51 @@ function tableDestroy() {
   Table = null;
 };
 
-function tableColumns(rows, meta) {
-  var cols = [{title: meta['name'].name, data: {_: 'name_t', sort: 'name'}}];
-  for(var k in rows[0]) {
-    if(k.endsWith('_e') || COLUMNS_TXT.has(k)) continue;
-    cols.push({title: meta[k].name, data: {_: k+'_t', sort: k}});
+// Get table columns.
+function tableColumns(rows) {
+  var z = [{class: 'details-control', orderable: false, data: null, defaultContent: ''}];
+  z.push({title: columnName('name'), data: {_: 'name_t', sort: 'name'}});
+  for(var k in rows[0]||{}) {
+    if(k.endsWith('_e') || k.endsWith('_t') || COLUMNS_TXT.has(k)) continue;
+    z.push({title: columnName(k), data: {_: k+'_t', sort: k}});
   }
-  return cols;
+  return z;
 };
 
-function tableRows(rows, meta) {
-  for(var row of rows) {
-    for(var k in row) {
-      if(k.endsWith('_e') || COLUMNS_TXT.has(k)) continue;
-      var v = row[k].toString(), ke = k+'_e';
-      if(row[ke]) v += '±'+row[ke];
-      if(meta[k].unit) v += ' '+meta[k].unit;
-      row[k+'_t'] = v;
-    }
-    row['name_t'] = '<a href="/data/compositions?code='+row.code+'">'+
-      '<img src="'+pictureUrl(row.code)+'" width="307"><br>'+
-      row.name+(row.scie? ' <small>('+row.scie+')</small><br>':'')+
-      '<div style="font-size: 1rem; width: 307px;">'+langValues(row.lang)+'</div></a>';
-  }
-  return rows;
+// Get table child row.
+function tableChild(r) {
+  var z = document.getElementById('table_child').innerHTML;
+  z = z.replace('${code}', r.code);
+  z = z.replace('${picture}', 'src="'+pictureUrl(r.code)+'"');
+  z = z.replace('${name}', r.name);
+  z = z.replace('${scie}', r.scie);
+  z = z.replace('${grup}', r.grup);
+  z = z.replace('${lang}', r.lang);
+  return z;
 };
 
-function tableDraw(rows, meta) {
+// Expand child row.
+function tableChildExpand() {
+  var tr = $(this).closest('tr');
+  var row = Table.row(tr);
+  tr.addClass('details');
+  row.child(tableChild(row.data())).show();
+};
+
+// Draw table.
+function tableDraw(rows) {
   tableDestroy();
   if(rows.length===0) return;
-  var keys = Object.keys(rows[0]);
-  var cols = tableColumns(rows, meta);
-  var data = tableRows(rows, meta);
+  var cols = tableColumns(rows);
+  var data = rowsWithText(rows);
   Table = $('#table').DataTable({
     columns: cols, data: data, aaSorting: [], scrollX: true, autoWidth: true,
     retrieve: true, fixedHeader: {header: true, footer: true}
   });
-  $('#table_length > label').append(CHECKBOX_FMT);
-  $('#table_details').click(function() {
-    console.log('hello');
-    if($(this).is(':checked')) $('html').removeClass('no-details');
-    else $('html').addClass('no-details');
-  });
-  $('#table_wrapper thead').on('click', 'th', function () {
-    var i = Table.column(this).index();
-    if(i>0) chartDraw(rows, meta, keys[1], cols[i].data.sort);
+  $('#table tbody').on('click', 'tr td.details-control', tableChildExpand);
+  $('#table_length > label').append($('#table_expandt').html());
+  $('#table_expand').click(function() {
+    Table.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click');
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
@@ -172,6 +171,7 @@ function chartTooltip() {
   z = z.replace('${name}', r.name);
   z = z.replace('${scie}', r.scie||'...');
   z = z.replace('${grup}', r.grup);
+  z = z.replace('${lang}', langValues(r.lang));
   z = z.replace('${quantities}', '<table>'+chartQuantities(this.points)+'</table>');
   return z;
 };
@@ -203,7 +203,7 @@ function processQuery(txt) {
     if(rows.length===0) return;
     rows = rowsWithText(rows);
     var ys = rowQuantityColumns(rows[0]||{});
-    // drawTable(rows, meta);
+    tableDraw(rows, meta);
     if(ys.length>0) chartDraw(rows, 'name', ys);
   }).fail(function(e) {
     var err = e.responseJSON;

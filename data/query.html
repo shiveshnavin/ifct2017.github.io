@@ -19,10 +19,29 @@ class: page wide
     <div class="name">${name}</div>
     <div class="scie">(${scie})</div>
     <div class="grup">${grup}</div>
+    <div class="scie">${lang}</div>
   </div>
   </grid>
   ${quantities}
   </div>
 </div>
 <table id="table" class="hover stripe order-column" width="100%"></table>
+<div id="table_expandt" style="display: none;">
+  &nbsp;&nbsp;
+  <input type="checkbox" id="table_expand" name="expand">
+  <label for="table_expand">EXPAND ALL</label>
+</div>
+<div id="table_child" style="display: none;">
+  <a href="/data/compositions?code=${code}">
+  <grid>
+  <div col="1/2"><img width="307" height="172" ${picture}></div>
+  <div col="1/2">
+    <div class="name">${name}</div>
+    <div class="scie">(${scie})</div>
+    <div class="grup">${grup}</div>
+    <div class="scie">${lang}</div>
+  </div>
+  </grid>
+  </a>
+</div>
 <br><br><br>
