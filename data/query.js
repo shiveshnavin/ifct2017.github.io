@@ -134,7 +134,6 @@ function chartAnnotations(cod, siz) {
     if(labels.length>0) z.push({id: i, labels: labels, shapes: shapes,
       labelOptions: {backgroundColor: ANNOTATION_CLR[i], y: 5, borderColor: 'none'}});
   }
-  console.log('chartAnnotations', z);
   return z;
 };
 
@@ -227,10 +226,9 @@ function chartDraw(rows, x, ys) {
 
 function processQuery(txt) {
   console.log('processQuery()', txt);
-  $.getJSON(SERVER_URL+'/fn/english/'+txt, function(data) {
+  ajaxGetJson(SERVER_URL+'/fn/english/'+txt, function(data) {
     console.log('slang:', data.slang);
     console.log('sql:', data.sql);
-    console.log(data);
     var rows = data.rows;
     var meta = data.meta;
     if(rows.length===0) return;
@@ -238,11 +236,19 @@ function processQuery(txt) {
     var ys = rowQuantityColumns(rows[0]||{});
     tableDraw(rows, meta);
     if(ys.length>0) chartDraw(rows, 'name', ys);
-  }).fail(function(e) {
+  }, function(e) {
     var err = e.responseJSON;
+    console.log('processQuery().fail', err);
     iziToast.error({
       title: err.message,
       message: '<b>SLANG:</b> '+err.slang+'<br><b>SQL:</b> '+err.sql,
+      timeout: 20000
+    });
+  }).fail(function(e) {
+    console.log('processQuery().retry', e);
+    iziToast.warning({
+      title: e.toString(),
+      message: 'Server will come up in 5s!',
       timeout: 20000
     });
   });

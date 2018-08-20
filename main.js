@@ -230,3 +230,13 @@ function setupFooter() {
   { e.style.bottom = '0'; e.style.position = 'absolute'; }
   e.style.display = 'block';
 };
+
+// Get JSON request with retries.
+function ajaxGetJson(url, fres, frej, ret, del) {
+  var ret = ret||4, del = del||1000;
+  return $.getJSON(url, fres).fail(function(e) {
+    console.log('ajaxGetJson', e);
+    if(!ret) return frej(e);
+    setTimeout(function() { ajaxGetJson(url, fres, frej. ret-1, del*2); }, del);
+  });
+};
