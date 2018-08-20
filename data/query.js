@@ -245,9 +245,8 @@ function processQuery(txt) {
       timeout: 20000
     });
   }).fail(function(e) {
-    console.log('processQuery().retry', e);
-    iziToast.warning({
-      title: e.toString(),
+    if(!e.responseJSON) iziToast.warning({
+      title: 'Server offline',
       message: 'Server will come up in 5s!',
       timeout: 20000
     });
