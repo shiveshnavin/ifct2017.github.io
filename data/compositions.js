@@ -47,6 +47,7 @@ function vtableRow(elm, row, k, p) {
   tr.setAttribute('data-tt-id', k);
   if(p) tr.setAttribute('data-tt-parent-id', p);
   var td = document.createElement('td');
+  td.setAttribute('tt', columnMethod(k)||'');
   td.textContent = (col.get(k)||{}).name;
   tr.appendChild(td);
   td = document.createElement('td');

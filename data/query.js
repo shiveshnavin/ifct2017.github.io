@@ -117,6 +117,25 @@ function chartSeries(rows, x, ys) {
   return z;
 };
 
+// Get chart title.
+function chartTitle(cod) {
+  var z = '';
+  for(var k of cod)
+    z += columnName(k)+', ';
+  if(!z.length) return null;
+  z = z.substring(0, z.length-2);
+  z += ' per 100g';
+  return z;
+};
+
+// Get chart subtitle.
+function chartSubtitle(cod) {
+  if(cod.size!==1) return null;
+  var m = METHODS.get(setFirst(cod));
+  if(m==null) return null;
+  return m.method+'; '+m.reference;
+};
+
 // Get intake annotations.
 function chartAnnotations(cod, siz) {
   var z = [], intake = INTAKES.get(cod);
@@ -172,6 +191,8 @@ function chartYaxis() {
   var o = this.axis.userOptions;
   if(!o._ready) {
     chartRepresentation(this.axis); o._ready = true;
+    this.chart.setTitle({text: chartTitle(o._codes)});
+    this.chart.setSubtitle({text: chartSubtitle(o._codes)});
     chartAnnotationsUpdate(this.chart, o._codes);
   }
   var type = o._type, factor = o._factor, unit = o._unit;

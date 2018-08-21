@@ -119,6 +119,13 @@ function columnChildren(k) {
   return HIERARCHY.has(k)? HIERARCHY.get(k).children:null;
 };
 
+// Get column method.
+function columnMethod(k) {
+  var m = METHODS.get(k);
+  if(m==null) return null;
+  return m.method+(m.reference? '; '+m.reference:'');
+};
+
 // Get column type.
 function columnType(k) {
   return REPRESENTATIONS.has(k)? REPRESENTATIONS.get(k).type:null;

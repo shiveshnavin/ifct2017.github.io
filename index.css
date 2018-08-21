@@ -172,6 +172,12 @@ html.wide section, html.wide form {
 }
 
 
+/* CHART */
+.highcharts-contextmenu hr:not([class]) {
+  margin: initial;
+}
+
+
 /* TABLE */
 .pretty {
   padding: 0 2rem;
