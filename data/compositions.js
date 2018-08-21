@@ -18,6 +18,7 @@ function applyMeta(row, crep) {
     row[k] = round(row[k]*crep.get(tk).factor);
   }
 };
+
 function tableRow(row, ccol, crep) {
   var z = [];
   for(var k in row) {
@@ -35,6 +36,13 @@ function drawTable(row, ccol, crep) {
     columns: TABLE_COL, aaSorting: [], pageLength: 1000,
     // columns: TABLE_COL, data: tableRow(row, ccol, crep), aaSorting: [], pageLength: 25,
   });
+  datatable.on('order.dt', function() {
+    $('#composition').treetable('expandAll');
+  });
+  datatable.on('search.dt', function() {
+    if(datatable.search()) $('#composition').treetable('expandAll');
+    else $('#composition').treetable('collapseAll');
+  });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
 
@@ -48,9 +56,11 @@ function vtableRow(elm, row, k, p) {
   if(p) tr.setAttribute('data-tt-parent-id', p);
   var td = document.createElement('td');
   td.setAttribute('tt', columnMethod(k)||'');
+  td.setAttribute('data-search', columnTags(k)||'');
   td.textContent = (col.get(k)||{}).name;
   tr.appendChild(td);
   td = document.createElement('td');
+  td.setAttribute('data-order', row[k]);
   td.textContent = row[k]+(row[ke]? '±'+row[ke]:'')+((rep.get(k)||{}).unit? ' '+(rep.get(k)||{}).unit:'');
   tr.appendChild(td);
   elm.appendChild(tr);
