@@ -35,7 +35,7 @@ var UNIT_NAM = new Map([
 
 // Fix floating-point precision problem.
 function round(num) {
-  return Math.round(num*1e+12)/1e+12;
+  return Math.round(num*1e+6)/1e+6;
 };
 
 // Get unique values in array.
