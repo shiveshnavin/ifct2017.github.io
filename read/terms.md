@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Terms of Service
+class: read terms
 ---
 
 LAST REVISION: 28.03.2018

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Help
+class: read help
 ---
 
 Data taken from Indian Food Composition Tables 2017, National Institute of Nutrition (ICMR), Hyderabad.<br>

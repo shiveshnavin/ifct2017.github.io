@@ -232,9 +232,12 @@ tr.branch.collapsed:hover .indenter a::before {
 tr.branch.expanded:hover .indenter a::before {
   content: "\F01E";
 }
+#composition_length, #composition_info, #composition_paginate {
+  display: none;
+}
 
 
-/* TOOLTIP */
+/* HOVER TOOLTIP */
 [att]:after, [dtt]:disabled:after, [tt]:after {
   transition-delay: 1s;
 }

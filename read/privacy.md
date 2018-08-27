@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Privacy Policy
+class: read privacy
 ---
 
 [Indian Food Composition] recognises the importance of maintaining your privacy. We value your

@@ -71,7 +71,6 @@ function vtableLog(row) {
     var pars = (hie.get(k)||{}).parents||'';
     if(!pars) vtableRow(frg, row, k, null);
   }
-  console.log(frg);
   var tbd = document.createElement('tbody');
   tbd.appendChild(frg);
   document.querySelector('#composition').appendChild(tbd);
@@ -83,6 +82,7 @@ function onReady() {
   var code = qry.code||'A001';
   $.getJSON(SERVER_URL+'/fn/data/compositions?code='+code, function(data) {
     var rows = rowsWithText(data), row = rows[0]||{};
+    $('#composition_caption').attr('style', '');
     $('#picture').attr('src', pictureUrl(row.code));
     $('#name').html(row.name+(row.scie? ' <small>('+row.scie+')</small>':''));
     $('#grup').text(row.grup);

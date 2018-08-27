@@ -143,7 +143,7 @@ function columnUnit(k) {
 
 // Get language values from "lang".
 function langValues(txt) {
-  txt = txt.replace(/\[.*?\]/g, '');
+  txt = txt.replace(/\[.*?\]/g, '').replace(/\s*\.?$/, '');
   txt = txt.replace(/\w+\.\s([\w\',\/\(\)\- ]+)[;\.]?/g, '$1, ');
   var arr = txt.split(/,\s*/g);
   if(!arr[arr.length-1]) arr.pop();
