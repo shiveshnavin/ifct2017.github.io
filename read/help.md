@@ -40,7 +40,7 @@ Column in Unit:
 
 Select columns:
 - Disclose Calcium, Magnesium in Foods which are high in Potassium.
-- Lauric acid and Palmitic acid in Vegetables where Oleic acid>20mg?
+- Lauric acid and Palmitic acid in Vegetables where Oleic acid > 20mg?
 
 Select column sets:
 - Disclose all types of elements in Foods which are low in Hg.
