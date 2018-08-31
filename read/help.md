@@ -40,19 +40,19 @@ Column in Unit:
 
 Select columns:
 - Disclose Calcium, Magnesium in Foods which are high in Potassium.
-- Lauric acid and Palmitic acid in Vegetables where Oleic acid > 20mg?
+- Lauric acid and Palmitic acid in Vegetables where Oleic acid > 20 mg?
 
 Select column sets:
 - Disclose all types of elements in Foods which are low in Hg.
-- All types of Unsaturated Fat in Vegetables where Ca above 100mg?
+- All types of Unsaturated Fat in Vegetables where Ca above 100 mg?
 
 Sum of columns:
 - Disclose sum types of elements in Foods which are low in Vitamin E.
-- Sum types of Unsaturated Fat in Vegetables where K higher than 100mg?
+- Sum types of Unsaturated Fat in Vegetables where K higher than 100 mg?
 
 Average of columns:
 - Disclose average types of elements in Foods which are low in Glutamic acid.
-- Average types of Plant sterol in Vegetables where Beta Sitosterol above 100mg?
+- Average types of Plant sterol in Vegetables where Beta Sitosterol above 100 mg?
 
 Arithmetic operators:
 - Disclose Calcium plus Magnesium in Foods which are low in Glutamic acid.
@@ -60,7 +60,7 @@ Arithmetic operators:
 
 Logical operators:
 - Disclose Foods which are low in Glutamic acid and high in Protein.
-- Vegetables where Beta Sitosterol above 100mg or Ca<200 mg?
+- Vegetables where Beta Sitosterol above 100 mg or Ca < 200 mg?
 
 Simple expressions:
 - Disclose one quarter into Lycopene + Beta Cryptoxanthin in Foods.
