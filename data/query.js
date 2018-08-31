@@ -18,14 +18,15 @@ function tableColumns(rows) {
   z.push({title: columnName('name'), data: {_: 'name_t', sort: 'name'}});
   for(var k in rows[0]||{}) {
     if(k.endsWith('_e') || k.endsWith('_t') || COLUMNS_TXT.has(k)) continue;
-    z.push({title: columnName(k), data: {_: k+'_t', sort: k}});
+    var ks = k.replace(/\W/g, '_');
+    z.push({title: columnName(k), data: {_: ks+'_t', sort: ks}});
   }
   return z;
 };
 
 // Get table rows.
 function tableRows(rows) {
-  rows = rowsWithText(rows);
+  // rows = rowsWithText(rows);
   for(var r of rows)
     r.name_t = '<a href="/data/compositions?code='+r.code+'">'+r.name_t+'</a>';;
   return rows;
@@ -80,6 +81,7 @@ function tableDraw(rows) {
   tableDestroy();
   if(rows.length===0) return;
   var cols = tableColumns(rows);
+  rows = rowsSimplifyKey(rows);
   var data = tableRows(rows);
   Table = $('#table').DataTable({
     columns: cols, data: data, aaSorting: [], scrollX: true, autoWidth: true,

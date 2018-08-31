@@ -203,6 +203,18 @@ function rowsPairRange(rows, x, y) {
   return z;
 };
 
+// Simplify keys of rows.
+function rowsSimplifyKey(rows) {
+  var z = [];
+  for(var row of rows) {
+    var zr = {};
+    for(var k in row)
+      zr[k.replace(/\W/g, '_')] = row[k];
+    z.push(zr);
+  }
+  return z;
+};
+
 // Get scaled rows with text (_t).
 function rowsWithText(rows) {
   var z = [], I = rows.length;
