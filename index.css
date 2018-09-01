@@ -151,6 +151,14 @@ html.wide section, html.wide form {
   font-size: 1.2rem;
   color: black;
 }
+.tooltip .scie {
+  /* italic scientific name */
+  font-style: italic;
+}
+.tooltip .scie:empty {
+  /* hide empty scientific name */
+  display: none;
+}
 .tooltip > table {
   /* enable wrapping */
   width: 100%;
@@ -207,6 +215,10 @@ table.child .name {
   font-size: 1.6rem;
   background: lightyellow;
   padding: 1rem;
+}
+table.child .scie {
+  /* italic scientific name */
+  font-style: italic;
 }
 table.child .grup {
   padding: 1rem;

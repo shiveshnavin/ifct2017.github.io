@@ -84,7 +84,7 @@ function onReady() {
     var rows = rowsWithText(data), row = rows[0]||{};
     $('#composition_caption').attr('style', '');
     $('#picture').attr('src', pictureUrl(row.code));
-    $('#name').html(row.name+(row.scie? ' <small>('+row.scie+')</small>':''));
+    $('#name').html(row.name+(row.scie? ' <small style="font-style: italic;">('+row.scie+')</small>':''));
     $('#grup').text(row.grup);
     $('#lang').text(langValues(row.lang));
     drawBuy(row.name);

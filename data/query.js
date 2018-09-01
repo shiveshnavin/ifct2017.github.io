@@ -222,9 +222,8 @@ function chartTooltip() {
   var fmt = document.getElementById('chart-tooltip').innerHTML;
   var z = fmt.replace('${picture}', 'src="'+pictureUrl(r.code)+'"');
   z = z.replace('${name}', r.name);
-  z = z.replace('${scie}', r.scie||'...');
+  z = z.replace('${scie}', r.scie? '('+r.scie+')':'');
   z = z.replace('${grup}', r.grup);
-  z = z.replace('${lang}', langValues(r.lang));
   z = z.replace('${quantities}', '<table>'+chartQuantities(this.points)+'</table>');
   return z;
 };
