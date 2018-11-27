@@ -1,41 +1,47 @@
+- name: Charlie Foundation
+  url: https://charliefoundation.org/category/recipes/
+
+- name: Keto Bootstrap
+  url: https://ketobootstrap.com/recipe
+
+- name: Perfect Keto
+  url: https://perfectketo.com/category/recipes/
+
+- name: Ruled
+  url: https://www.ruled.me/keto-recipes/
+
+- name: Diet Doctor
+  url: https://www.dietdoctor.com/low-carb/keto/recipes
+
+- name: Fat for Weight Loss
+  url: https://www.fatforweightloss.com.au/recipe-index/
+
+- name: Tasteaholics
+  url: https://www.tasteaholics.com/recipes/low-carb-recipes/
+
+- name: Dr. Axe
+  url: https://draxe.com/keto-recipes/
+
+- name: Dental Specialty, Florida
+  url: https://www.dentalspecialtyflorida.com/healthy-ketogenic-recipes/
+
+- name: Thrive Strive
+  url: https://thrivestrive.com/keto-recipe-ideas/
+
+- name: Skinny Taste
+  url: https://www.skinnytaste.com/recipes/keto/
+
+- name: Green Healthy Cooking
+  url: https://greenhealthycooking.com/keto-diet-plan/
+
+- name: Delish
+  url: https://www.delish.com/keto-recipes/
+
 - name: AllRecipes
-  url: http://www.allrecipes.com/
+  url: https://www.allrecipes.com/recipes/22959/healthy-recipes/keto-diet/
 
-- name: FoodNetwork
-  url: http://www.foodnetwork.com/
+- name: Taste
+  url: https://www.taste.com.au/recipes/collections/keto-recipes
 
-- name: Food
-  url: http://www.food.com/
-
-- name: TheKitchn
-  url: http://www.thekitchn.com/
-
-- name: Yummly
-  url: http://www.yummly.com/
-
-- name: Chow
-  url: http://www.chow.com/
-
-- name: Epicurious
-  url: http://www.epicurious.com/
-
-- name: SimplyRecipes
-  url: http://www.simplyrecipes.com/
-
-- name: CookingLight
-  url: http://www.cookinglight.com/
-
-- name: BettyCrocker
-  url: http://www.bettycrocker.com/
-
-- name: MyRecipes
-  url: http://www.myrecipes.com/
-
-- name: EatingWell
-  url: http://www.eatingwell.com/
-
-- name: Cooks
-  url: http://www.cooks.com/
-
-- name: KraftRecipes
-  url: http://www.kraftrecipes.com/
+- name: Taste of Home
+  url: https://www.tasteofhome.com/collection/keto-diet-recipes/view-all/

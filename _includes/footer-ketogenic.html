@@ -25,3 +25,10 @@
   <div col="1/4"><a href="{{ blog.url }}">{{ blog.by }}</a></div>
   {% endfor %}
 </grid>
+<br><hr style="margin: 0 0 2rem 0;">
+<h5 txt="c">Food Recipes</h5>
+<grid txt="c">
+  {% for r in site.data.recipes %}
+  <div col="1/6"><a href="{{ r.url }}">{{ r.name }}</a></div>
+  {% endfor %}
+</grid>
