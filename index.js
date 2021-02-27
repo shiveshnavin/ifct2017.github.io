@@ -7,10 +7,12 @@ function onSubmit(e) {
   return false;
 };
 
+
 // Setup page.
 function setup() {
   console.log('setup()');
   $('form').submit(onSubmit);
+  setupAutocomplete();
   setupForms();
 };
 $(document).ready(setup);

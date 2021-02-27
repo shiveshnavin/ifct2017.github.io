@@ -226,12 +226,29 @@ function rowsWithText(rows) {
     var f = columnFactor(k);
     var ke = k+'_e', kt = k+'_t';
     for(var i=0; i<I; i++) {
-      if(u==null) z[i][kt] = rows[i][k];
-      else z[i][kt] = round(rows[i][k]*f)+u+' ± '+round(rows[i][ke]*f);
+      var rv = rows[i][k];
+      var re = rows[i][ke]||0;
+      if(u==null) z[i][kt] = rv;
+      else z[i][kt] = round(rv*f)+u+' ± '+round(re*f);
     }
   }
   return z;
 };
+
+
+
+
+// Get JSON request with retries.
+function ajaxGetJson(url, fres, frej, ret, del) {
+  var ret = ret||4, del = del||1000;
+  return $.getJSON(url, fres).fail(function(e) {
+    if(!ret || e.responseJSON) return frej(e);
+    setTimeout(function() { ajaxGetJson(url, fres, frej. ret-1, del*2); }, del);
+  });
+};
+
+
+
 
 // Enable form multi submit
 function setupForms() {
@@ -245,16 +262,24 @@ function setupForms() {
 function setupFooter() {
   console.log('setupFooter()');
   var e = document.querySelector('footer');
-  if(e.offsetTop+e.offsetHeight<innerHeight) 
+  if(e.offsetTop+e.offsetHeight<innerHeight)
   { e.style.bottom = '0'; e.style.position = 'absolute'; }
   e.style.display = 'block';
 };
 
-// Get JSON request with retries.
-function ajaxGetJson(url, fres, frej, ret, del) {
-  var ret = ret||4, del = del||1000;
-  return $.getJSON(url, fres).fail(function(e) {
-    if(!ret || e.responseJSON) return frej(e);
-    setTimeout(function() { ajaxGetJson(url, fres, frej. ret-1, del*2); }, del);
-  });
+// For triggering with empty autocomplete.
+function triggerKeyup() {
+  if ($(this).text()) return;
+  $(this).triggerHandler(jQuery.Event('keyup', {keyCode: 65, which: 65}));
+};
+
+// Get suggestions.
+function setupAutocomplete(el='#text') {
+  console.log('setupAutocomplete()');
+  $(el).easyAutocomplete({
+    url: function (txt) { return SERVER_URL+'/fn/query/search/'+txt; },
+    getValue: function (row) { return row.text; },
+    list: {onClickEvent: function () { $('form').submit(); }}
+    // list: {showAnimation: {type: 'fade'}}
+  }).click(triggerKeyup).change(triggerKeyup);
 };

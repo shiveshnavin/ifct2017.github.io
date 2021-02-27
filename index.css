@@ -71,6 +71,9 @@ html.wide section, html.wide form {
   padding-top: 0;
   margin: 0;
 }
+button:not([class])[primary] {
+  background-color: saddlebrown;
+}
 
 
 /* LOGO */
@@ -100,6 +103,9 @@ html.wide section, html.wide form {
   /* keep text dark */
   color: darkblue;
 }
+.easy-autocomplete-container {
+  text-align: center;
+}
 
 
 /* IZITOAST */
@@ -119,7 +125,7 @@ html.wide section, html.wide form {
 /* TOOLTIP */
 .tooltip {
   /* set size */
-  width: 307px;
+  width: 460px;
 }
 .tooltip > grid, .tooltip > table {
   /* no margin */
@@ -132,23 +138,23 @@ html.wide section, html.wide form {
 .tooltip img {
   /* small image */
   display: block;
-  width: 153px;
-  height: 86px;
+  width: 230px;
+  height: 130px;
 }
 .tooltip .info {
   /* fixed info */
-  width: 154px;
-  height: 86px;
-  padding: 1rem;
+  width: 230px;
+  height: 130px;
+  padding: 1.5rem;
   white-space: normal;
   overflow: hidden;
   background: rgba(250,250,230,0.8);
   color: darkgrey;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 .tooltip .name {
   /* highlight name */
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: black;
 }
 .tooltip .scie {
@@ -163,11 +169,11 @@ html.wide section, html.wide form {
   /* enable wrapping */
   width: 100%;
   white-space: normal;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 .tooltip table th, .tooltip table td {
   /* no border */
-  padding: 0.2rem;
+  padding: 0.3rem;
   border: 0;
 }
 .tooltip table tr:nth-child(odd) {
@@ -175,7 +181,7 @@ html.wide section, html.wide form {
   background: rgba(230,250,250,0.8);
 }
 .tooltip table tr:nth-child(even) {
-  /* background for odd quantity */
+  /* background for even quantity */
   background: rgba(210,250,210,0.8);
 }
 

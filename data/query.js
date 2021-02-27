@@ -4,6 +4,8 @@ var Chart = null;
 var rows = null;
 
 
+
+
 // Destroy table.
 function tableDestroy() {
   if(Table==null) return;
@@ -95,6 +97,9 @@ function tableDraw(rows) {
   });
   setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 0);
 };
+
+
+
 
 // Destroy chart.
 function chartDestroy() {
@@ -246,11 +251,15 @@ function chartDraw(rows, x, ys) {
   Chart.rows = rows;
 };
 
+
+
+
+// Get query results and update chart & table.
 function processQuery(txt) {
   console.log('processQuery()', txt);
   ajaxGetJson(SERVER_URL+'/fn/english/'+txt, function(data) {
-    console.log('slang:', data.slang);
-    console.log('sql:', data.sql);
+    console.log('Slang:', data.slang);
+    console.log('SQL:', data.sql);
     var rows = data.rows;
     var meta = data.meta;
     if(rows.length===0) return;
@@ -258,6 +267,7 @@ function processQuery(txt) {
     var ys = rowQuantityColumns(rows[0]||{});
     tableDraw(rows, meta);
     if(ys.length>0) chartDraw(rows, 'name', ys);
+    saveQuery(txt);
   }, function(e) {
     var err = e.responseJSON;
     console.log('processQuery().fail', err);
@@ -272,6 +282,13 @@ function processQuery(txt) {
       message: 'Server will come up in 5s!',
       timeout: 20000
     });
+  });
+};
+
+// Save query for suggestions.
+function saveQuery(txt) {
+  ajaxGetJson(SERVER_URL+'/fn/query/save/'+txt, function (data) {
+    console.log('Query saved: '+data[0].text+' ['+data[0].score+']');
   });
 };
 
@@ -303,5 +320,6 @@ function setup() {
   setupForms();
   setupFooter();
   setupLocation();
+  setupAutocomplete();
 };
 $(document).ready(setup);
