@@ -274,12 +274,13 @@ function triggerKeyup() {
 };
 
 // Get suggestions.
-function setupAutocomplete(el='#text') {
+function setupAutocomplete(en=false) {
   console.log('setupAutocomplete()');
-  $(el).easyAutocomplete({
+  $('#text').easyAutocomplete({
     url: function (txt) { return SERVER_URL+'/fn/query/search/'+txt; },
     getValue: function (row) { return row.text; },
     list: {onClickEvent: function () { $('form').submit(); }}
     // list: {showAnimation: {type: 'fade'}}
   }).click(triggerKeyup).change(triggerKeyup);
+  if (en) triggerKeyup.call(document.querySelector('#text'));
 };

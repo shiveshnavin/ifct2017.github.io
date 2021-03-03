@@ -12,7 +12,7 @@ function onSubmit(e) {
 function setup() {
   console.log('setup()');
   $('form').submit(onSubmit);
-  setupAutocomplete();
+  setupAutocomplete(true);
   setupForms();
 };
 $(document).ready(setup);
