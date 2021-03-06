@@ -1,5 +1,5 @@
 // Global constants.
-var SERVER_URL = 'https://ifct2017bot.glitch.me';
+var SERVER_URL = 'https://ifct2017.glitch.me';
 var PICTURES_DEF = 'https://i.imgur.com/PNZBH2d.png';
 var PICTURES_URL = 'https://cdn.jsdelivr.net/npm/@ifct2017/pictures/assets/';
 var COLUMNS_TXT = new Set(['code', 'name', 'scie', 'lang', 'grup', 'regn', 'tags']);

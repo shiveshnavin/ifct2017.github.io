@@ -1,5 +1,7 @@
 Website for Indian Food Composition Tables 2017.
 
+> Query composition of 528 key foods in India
+
 <!--
   A FEW NOT PASSING
   in which food vitamin a is available
