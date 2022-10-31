@@ -5,6 +5,8 @@ require: treetable datatables highcharts izitoast corpus
 script: query.js
 class: data query page wide
 ---
+<script src="{{ base.url | prepend: site.url }}/ifct2017.github.io/query.js"></script>
+
 <form>
   <input id="text" name="text" type="search" autocomplete="off"
     placeholder="Query composition of 528 key foods in India">
@@ -13,15 +15,15 @@ class: data query page wide
 <div id="chart" width="100%"></div>
 <div id="chart-tooltip" style="display: none;">
   <div class="tooltip">
-  <grid>
-  <div col=""><img ${picture}></div>
-  <div col="" class="info">
-    <div class="name">${name}</div>
-    <div class="scie">${scie}</div>
-    <div class="grup">${grup}</div>
-  </div>
-  </grid>
-  ${quantities}
+    <grid>
+      <div col=""><img ${picture}></div>
+      <div col="" class="info">
+        <div class="name">${name}</div>
+        <div class="scie">${scie}</div>
+        <div class="grup">${grup}</div>
+      </div>
+    </grid>
+    ${quantities}
   </div>
 </div>
 <table id="table" class="hover stripe order-column" width="100%"></table>
@@ -32,16 +34,17 @@ class: data query page wide
 </div>
 <div id="table_child" style="display: none;">
   <a style="width: 100%;" href="/data/compositions?code=${code}">
-  <table class="child" width="100%">
-  <tr valign="top">
-    <td width="307"><img width="307" height="172" ${picture}></td>
-    <td class="info">
-      <div class="name">${name}<div class="scie">(${scie})</div></div>
-      <div class="grup">${grup}</div>
-      <div class="lang">${lang}</div>
-    </td>
-  </tr>
-  </table>
+    <table class="child" width="100%">
+      <tr valign="top">
+        <td width="307"><img width="307" height="172" ${picture}></td>
+        <td class="info">
+          <div class="name">${name}<div class="scie">(${scie})</div>
+          </div>
+          <div class="grup">${grup}</div>
+          <div class="lang">${lang}</div>
+        </td>
+      </tr>
+    </table>
   </a>
 </div>
 <br><br><br>
